@@ -1,0 +1,102 @@
+.donor-criteria {
+  background-color: var(--color-white);
+  margin: 0 3rem;
+  font-size: var(--font-size-base);
+  color: var(--color-darkslategray);
+  font-family: var(--font-roboto);
+}
+.be-sure-to-be-eligible-to-dona-parent{
+  display:block;
+}
+.donor-criteria1{
+  text-align:center;
+  color: #000;
+  font-family: Roboto;
+  font-size: 2.1875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.875rem; /* 85.714% */
+  letter-spacing: 0.04375rem;
+}
+.be-sure-to{
+  position: relative;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  font-family: Roboto;
+  color: #6b6b6b;
+  text-align: center;
+ 
+}
+.content{
+  width:100%;
+  margin:3rem 0;
+  padding:3rem 0;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-color: rgba(249, 249, 249, 1);
+  border: 1px solid ;
+  display: grid;
+  box-shadow: #000;
+}
+.in-the-past{
+  font-weight: 700;
+  margin: 0.8rem 0;
+}
+.markicon{
+  display: inline-block;
+  display: flex;
+  justify-content: right;
+  background-color: #f9f9f9;
+}
+/* The Div holding the mark icon */
+.DonorIcon{
+  display: block;
+  color:#393D3F;
+  padding:0.15rem 0.08rem;
+  border: 2px solid ;
+  background:#f9f9f9 ;
+  margin: 0.2rem 0.8rem;
+  cursor:default;
+  width: 20%;
+}
+.DonorIcon:hover, .DonorIcon:focus{
+  animation: shake 0.3s ease 4;
+}
+/* holding all the text in the container */
+.text{
+  width: 85%;
+  margin-left: 1.8rem;
+  text-align: left;
+}
+button{
+  background-color:#f9f9f9;
+  border:none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+}
+
+ 
+
+@keyframes shake {
+  0% { 
+      transform: translateX(0);
+    }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+  
+  

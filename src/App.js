@@ -1,10 +1,19 @@
-import logo from "./logo.svg";
 import "./App.css";
-
+import Header from "./components/header";
+import Criteria from "./pages/Donorcriteria";
+import {
+  Routes,
+  Route,
+  useNavigationType,
+  useLocation,
+} from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <h1>Blood bank boilerplate</h1>
+      <Header />
+      <Criteria />
+
+
     </div>
   );
 }
