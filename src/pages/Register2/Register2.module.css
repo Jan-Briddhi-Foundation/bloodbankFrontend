@@ -1,0 +1,91 @@
+.container {
+    position: absolute;
+    top: 12vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.container>h4 {
+    font-family: Roboto;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.container>img {
+    height: 13vh;
+    margin-bottom: 4vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+
+.form>div {
+    display: flex;
+    background: rgba(249, 249, 249, 1);
+    gap: 2vh;
+    padding-left: 0.5vw;
+}
+
+.form>div>div {
+    height: 6vh;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 1);
+    align-self: center;
+}
+
+.form>div>input,
+.form>div>select {
+    outline: none;
+    border: none;
+    width: 50vw;
+    background-color: rgba(249, 249, 249, 1);
+}
+
+input[type="text"],
+select {
+    font-family: Roboto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: rgba(70, 74, 87, 1);
+}
+
+button {
+    margin-top: 3vh;
+    border-radius: 5px;
+    width: 17%;
+    height: 7vh;
+    border: none;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2rem;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: rgba(186, 89, 95, 1);
+    color: rgba(255, 253, 253, 1);
+    cursor: pointer;
+    transition: 1s;
+}
+
+button:active {
+    scale: 0.7;
+}
+
+.form>section>span {
+    display: flex;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 0rem;
+    letter-spacing: 0.05em;
+    color: rgba(57, 61, 63, 1)
+}

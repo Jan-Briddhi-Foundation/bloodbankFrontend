@@ -1,14 +1,10 @@
-import Header from './components/header';
-import Criteria from './pages/Donorcriteria';
+import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Criteria />
-
-
+      <Register2 />
     </div>
   );
 }
