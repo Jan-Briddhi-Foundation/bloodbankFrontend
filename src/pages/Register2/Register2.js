@@ -4,7 +4,6 @@ import logo from "../../assets/logo.svg";
 import location from "../../assets/location.svg";
 import globe from "../../assets/globe.svg";
 import blood from "../../assets/blood.svg";
-
 const Register2 = () => {
   return (
     <>

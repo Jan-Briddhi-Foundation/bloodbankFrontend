@@ -1,9 +1,13 @@
 import React from "react";
+import Header from "../../components/Header/Header";
 import "./DonorCriteria.css";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
+
 const Donorcriteria = () => {
   return (
+    <>
+    <Header />
     <div className="donor-criteria">
       <div className="be-sure-to-be-eligible-to-dona-parent">
         <p className="donor-criteria1">Donor Criteria</p>
@@ -120,6 +124,8 @@ const Donorcriteria = () => {
         <Donoricon />
       </div>
     </div>
+    
+    </>
   );
 };
 

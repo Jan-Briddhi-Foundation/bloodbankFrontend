@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.body{
+    margin:0 5rem;
+    line-height: normal;
+    
+}
+.title{
+    text-align:center;
+    font-size: 35px;
+    letter-spacing: 0.02em;
+    line-height: 30px;
+    position: relative;
+    font-family: Roboto;
+    color: #000;
+
+}
+.text{
+    text-align: center;
+    position: relative;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    font-family: Roboto;
+    color: #6b6b6b;
+}
+.map{
+    padding:7rem 5.5rem ;
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #ba595f;
+    box-sizing: border-box;
+    margin-bottom: 0.8em;
+}
+.forNow {
+    text-align: center;
+    position: relative;
+    font-size: 4em;
+    letter-spacing: 0.02em;
+    font-family: Roboto;
+    color: #000;
+    text-align: center;
+}

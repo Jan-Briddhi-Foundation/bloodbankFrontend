@@ -1,10 +1,11 @@
 .donor-criteria {
   background-color: var(--color-white);
-  margin: 0 3rem;
+  margin: 0 9rem;
   font-size: var(--font-size-base);
   color: var(--color-darkslategray);
   font-family: var(--font-roboto);
 }
+
 .be-sure-to-be-eligible-to-dona-parent{
   display:block;
 }
@@ -25,12 +26,12 @@
   font-family: Roboto;
   color: #6b6b6b;
   text-align: center;
- 
 }
+
 .content{
   width:100%;
   margin:3rem 0;
-  padding:3rem 0;
+  padding:1.8rem 0;
   background-color: #f9f9f9;
   border-radius: 8px;
   border-color: rgba(249, 249, 249, 1);
