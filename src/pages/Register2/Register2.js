@@ -14,30 +14,32 @@ const Register2 = () => {
         <section className={styles.form}>
           <div>
             <img src={location} alt="locationicon" />
-            <div></div>
+            <div className={styles.line}></div>
             <input type="text" name="city" placeholder="City*" />
           </div>
           <div>
             <img src={globe} alt="globeicon" />
-            <div></div>
+            <div className={styles.line}></div>
             <input type="text" name="country" placeholder="Country*" />
           </div>
           <div>
             <img src={blood} alt="bloodicon" />
-            <div></div>
-            <select name="bloodGroup" placeholder="b">
-              <option value="" selected>
-                Blood Group
-              </option>
-              <option value="A+">O+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-            </select>
+            <div className={styles.line}></div>
+            <div className={styles.customSelect}>
+              <select name="bloodGroup">
+                <option value="" selected>
+                  Blood Group
+                </option>
+                <option value="A+">O+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
+            </div>
           </div>
           <section>
             <span>
@@ -50,7 +52,7 @@ const Register2 = () => {
             </span>
           </section>
         </section>
-        <button>CREATE ACCOUNT</button>
+        <button className={styles.button}>CREATE ACCOUNT</button>
       </main>
     </>
   );

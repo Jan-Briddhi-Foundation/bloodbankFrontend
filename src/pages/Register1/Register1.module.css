@@ -56,7 +56,7 @@ input[type="text"] {
     color: rgba(70, 74, 87, 1)
 }
 
-button {
+.button {
     margin-top: 7vh;
     border-radius: 5px;
     width: 10%;
@@ -74,6 +74,6 @@ button {
     transition: 1s;
 }
 
-button:active {
+.button:active {
     scale: 0.7;
 }

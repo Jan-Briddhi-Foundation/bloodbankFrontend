@@ -40,7 +40,7 @@ const Register1 = () => {
             />
           </div>
         </section>
-        <button>NEXT</button>
+        <button className={styles.button}>NEXT</button>
       </main>
     </>
   );
