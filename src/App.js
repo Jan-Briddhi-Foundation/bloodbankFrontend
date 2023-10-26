@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import HomepageDonor from "../src/pages/HomepageDonor/HomepageDonor";
+import DonorEditProfile from "./pages/DonorEditProfile/DonorEditProfile";
 
 function App() {
   return (
     <div className="App">
-      <HomepageDonor />
+      <DonorEditProfile />
     </div>
   );
 }
