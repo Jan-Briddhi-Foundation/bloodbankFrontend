@@ -1,0 +1,37 @@
+main{
+    max-height: 100vh;
+}
+.Home{
+    margin: 2rem;
+}
+
+.text{
+    text-align: center;
+}
+.title{
+    text-align: center;
+}
+.circle{
+    height:2.2rem;
+    display: flex;
+    align-items: center;
+    margin: auto 0;
+
+}
+.button{
+    min-height: 5rem;
+    max-width: 90vw;
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1.8rem;
+}
+.buttonNav{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2rem auto;
+}
+.buttonText{
+    margin: auto 0;
+}
