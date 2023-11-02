@@ -1,0 +1,184 @@
+.login {
+    display: flex;
+    justify-content: center;
+}
+
+.login>img:first-child {
+    width: 30vw;
+    position: absolute;
+    bottom: 5vh;
+    left: 2vw;
+}
+
+.login>img:last-child {
+    width: 30vw;
+    position: absolute;
+    top: 17vh;
+    right: 2vw;
+}
+
+.loginPart {
+    margin-top: 6vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40vw;
+}
+
+.loginPart>h1 {
+    font-family: Roboto;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.loginPart>h1:first-child {
+    font-size: 2.3rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 2vh;
+}
+
+.signinText {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    margin-top: 5vh;
+}
+
+.form>div {
+    display: flex;
+    background: rgba(249, 249, 249, 1);
+    gap: 2vh;
+    padding-left: 0.5vw;
+}
+
+.form>div>div {
+    height: 6vh;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 1);
+    align-self: center;
+}
+
+.form>div>input {
+    outline: none;
+    border: none;
+    background: rgba(249, 249, 249, 1);
+    width: 100%;
+}
+
+input[type="text"] {
+    font-family: Roboto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: rgba(70, 74, 87, 1)
+}
+
+.form>a {
+    margin-top: 0.5vh;
+    align-self: flex-start;
+    font-family: Roboto;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    color: rgba(57, 61, 63, 1);
+    cursor: pointer;
+}
+
+.buttonContainer {
+    margin-top: 2vh;
+    position: relative;
+    right: 0.4vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginButton {
+    background-color: rgba(186, 89, 95, 1);
+    border: none;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(255, 253, 253, 1);
+    width: 13vw;
+    height: 5vh;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.registerButton {
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    border: 1px solid rgba(186, 89, 95, 1);
+    border-radius: 5px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(186, 89, 95, 1);
+    width: 13vw;
+    height: 5vh;
+    cursor: pointer;
+}
+
+.continue {
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0.05em;
+    color: rgba(57, 61, 63, 1);
+    display: flex;
+    align-items: center;
+    margin-top: 4vh;
+    gap: 0.8vw;
+}
+
+.continue>div {
+    width: 5vw;
+    height: 1px;
+    background-color: rgba(57, 61, 63, 1);
+}
+
+.thirdParty {
+    margin-top: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: rgba(9, 9, 14, 1)
+}
+
+.thirdParty>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.thirdParty>div>img {
+    width: 30px;
+    height: 30px;
+}
+
+.apple>img {
+    height: 40px;
+}
