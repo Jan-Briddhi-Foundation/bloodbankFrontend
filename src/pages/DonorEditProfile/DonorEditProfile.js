@@ -1,7 +1,7 @@
 import styles from "./DonorEditProfile.module.css";
 import Header from "../../components/Header/Header";
-import user from "../../assets/user.svg";
-import phone from "../../assets/phone.svg";
+import user from "../../assets/User.svg";
+import Phone from "../../assets/Phone.svg";
 import location from "../../assets/location.svg";
 import globe from "../../assets/globe.svg";
 import blood from "../../assets/blood.svg";
@@ -59,7 +59,7 @@ const DonorEditProfile = () => {
             <input type="text" name="country" placeholder="Country*" />
           </div>
           <div>
-            <img src={phone} alt="phoneicon" />
+            <img src={Phone} alt="phoneicon" />
             <div className={styles.line}></div>
             <input
               type="text"

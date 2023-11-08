@@ -42,14 +42,14 @@ const Register2 = () => {
             </div>
           </div>
           <section>
-            <span>
-              <input type="radio" />
-              <p>I am a blood donor.</p>
-            </span>
-            <span>
-              <input type="radio" />
-              <p>I need a blood donation.</p>
-            </span>
+            <div className={styles.radioButt}>
+              <label><input type="radio" name="blood"/>
+               <span>I'm a blood donor.</span></label>
+            </div>
+            <div>
+            <label><input type="radio" name="blood" />
+              <span>I need a blood donation.</span></label>
+            </div>
           </section>
         </section>
         <button className={styles.button}>CREATE ACCOUNT</button>

@@ -22,6 +22,7 @@ section{
   color: #BA595F;
   height: 20rem;
   margin:auto 0.5rem;
+  z-index: 5;
 }
 @media screen and (min-width:506px) {
   .DropIcon{

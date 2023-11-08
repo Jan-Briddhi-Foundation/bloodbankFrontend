@@ -1,10 +1,9 @@
 .container {
-    position: absolute;
-    top: 12vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
+    margin-top: 3rem ;
 }
 
 .container>h4 {
@@ -16,8 +15,8 @@
 }
 
 .container>img {
-    height: 13vh;
-    margin-bottom: 4vh;
+   margin: 3rem 0;
+   max-height: 5rem;
 }
 
 .form {
@@ -79,16 +78,13 @@ select {
     scale: 0.7;
 }
 
-.form>section>span {
+.form>section>div {
     display: flex;
-    font-family: Roboto;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 0rem;
-    letter-spacing: 0.05em;
-    color: rgba(57, 61, 63, 1)
-}
 
+}
+input[type="radio"]{
+    margin-right: 0.4rem;
+}
 .customSelect>select {
     width: 50vw;
     outline: none;

@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5vh;
+    gap: 4vh;
 }
 
 .form>div {
@@ -123,7 +123,6 @@ select {
     appearance: none;
     cursor: pointer;
 }
-
 .customSelect {
     position: relative;
     overflow: hidden;
@@ -131,6 +130,10 @@ select {
     transition: background-color 0.3s;
     display: flex;
     justify-content: center;
+    background-color: antiquewhite;
+}
+select{
+    background-color: #f9f9f9;
 }
 
 .customSelect:after {

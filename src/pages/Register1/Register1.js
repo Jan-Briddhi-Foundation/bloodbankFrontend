@@ -1,9 +1,9 @@
 import Header from "../../components/Header/Header";
 import styles from "./Register1.module.css";
 import logo from "../../assets/logo.svg";
-import user from "../../assets/user.svg";
+import user from "../../assets/User.svg";
 import email from "../../assets/email.svg";
-import phone from "../../assets/phone.svg";
+import phone from "../../assets/Phone.svg";
 import password from "../../assets/password.svg";
 
 const Register1 = () => {
@@ -12,7 +12,7 @@ const Register1 = () => {
       <Header />
       <main className={styles.container}>
         <h4>Step 1 - Contact</h4>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" className={styles.logo} />
         <section className={styles.form}>
           <div>
             <img src={user} alt="usericon" />

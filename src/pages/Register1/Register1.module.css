@@ -1,10 +1,9 @@
 .container {
-    position: absolute;
-    top: 12vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
+    margin-top: 2rem;
 }
 
 .container>h4 {
@@ -16,8 +15,8 @@
 }
 
 .container>img {
-    height: 13vh;
-    margin-bottom: 3vh;
+   margin: 4vh 0;
+   max-height: 6em;
 }
 
 .form {
