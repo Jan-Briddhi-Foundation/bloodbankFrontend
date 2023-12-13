@@ -1,9 +1,16 @@
-import styles from "./DonorProfilePage.module.css";
+import styles from "./ProfilePage.module.css";
 import Header from "../../components/Header/Header";
 import leftimage from "../../assets/thank you 1.png";
 import rightimage from "../../assets/love.png";
 import patienticon from "../../assets/patient.svg";
-const DonorProfilePage = () => {
+import { getProfileDetails } from "../../apis/Profile";
+import { useEffect, useState } from "react";
+const ProfilePage = () => {
+  const get = async () => {
+    const result = await getProfileDetails();
+    console.log(result);
+  };
+
   return (
     <>
       <Header />
@@ -48,4 +55,4 @@ const DonorProfilePage = () => {
   );
 };
 
-export default DonorProfilePage;
+export default ProfilePage;

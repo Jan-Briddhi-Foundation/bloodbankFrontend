@@ -15,6 +15,7 @@
     margin: auto 0;
     padding: 0 1rem;
     max-width: 10vw;
+    cursor: pointer;
 }
 
 .icon {
@@ -22,6 +23,7 @@
     white-space: nowrap;
     padding: 0 1rem;
     max-width: 30vw;
+    cursor: pointer;
 }
 
 .icons {
@@ -30,8 +32,10 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #BA595F;
     font-weight: 900;
+    cursor: pointer;
 }
-.icons:active{
+
+.icons:active {
     background-color: #BA595F;
 }
 

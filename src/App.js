@@ -1,11 +1,23 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import DonorEdit from './pages/yourInfo/yourInfo'
+import Register from "../src/pages/Register1/Register1";
+import Register2 from "../src/pages/Register2/Register2";
+import Login from "./pages/Login/Login";
+import ProfilePage from "./pages/Profilepage/ProfilePage";
 
 function App() {
   return (
     <div className="App">
-      <DonorEdit />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register1" element={<Register />} />
+          <Route path="/register2" element={<Register2 />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
