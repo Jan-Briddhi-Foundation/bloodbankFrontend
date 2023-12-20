@@ -5,13 +5,21 @@ import rightimage from "../../assets/love.png";
 import patienticon from "../../assets/patient.svg";
 import { getProfileDetails } from "../../apis/Profile";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const ProfilePage = () => {
-  const get = async () => {
+  const redirect = useNavigate();
+  const [details, setDetails] = useState();
+
+  const profileDetailget = async () => {
     const result = await getProfileDetails();
-    console.log(result);
+    setDetails(result);
   };
 
-  return (
+  useEffect(() => {
+    profileDetailget();
+  }, []);
+
+  return details ? (
     <>
       <Header />
       <div className={styles.container}>
@@ -25,32 +33,48 @@ const ProfilePage = () => {
           </div>
           <div className={styles.profileDetails}>
             <h1>
-              Name:<span>Sanjeet Kumar</span>
+              Name:<span>{details.userForm.name}</span>
             </h1>
             <h1>
-              Blood Group:<span>O+</span>
+              Blood Group:<span>{details.profileForm.bloodGroup}</span>
             </h1>
             <h1>
-              Address:<span>Delhi,India</span>
+              Address:<span>{details.profileForm.address}</span>
             </h1>
             <h1>
-              City:<span>Delhi</span>
+              City:<span>{details.profileForm.city}</span>
             </h1>
             <h1>
-              Country:<span>India</span>
+              Country:<span>{details.profileForm.country}</span>
             </h1>
             <h1>
-              Phone Number:<span>+91 8709682741</span>
+              Phone Number:<span>+91 {details.userForm.phone}</span>
             </h1>
             <h1>
-              Language:<span>English,Hindi</span>
+              Language:<span>{details.profileForm.langauge}</span>
             </h1>
           </div>
-          <button className={styles.button}>EDIT PROFILE</button>
+          <button
+            className={styles.button}
+            onClick={() => {
+              redirect("/editprofile");
+            }}
+          >
+            EDIT PROFILE
+          </button>
           <h1 className={styles.feedback}>Share Feedback</h1>
         </main>
         <img src={rightimage} alt="thankYouImage" />
       </div>
+    </>
+  ) : (
+    <>
+      <Header />
+      <center>
+        <h1>
+          <b>Loading...</b>
+        </h1>
+      </center>
     </>
   );
 };
