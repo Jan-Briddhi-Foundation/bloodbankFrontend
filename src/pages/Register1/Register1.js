@@ -1,9 +1,9 @@
 import Header from "../../components/Header/Header";
 import styles from "./Register1.module.css";
 import logo from "../../assets/logo.svg";
-import userIcon from "../../assets/user.svg";
+import userIcon from "../../assets/User.svg";
 import email from "../../assets/email.svg";
-import phone from "../../assets/phone.svg";
+import phone from "../../assets/Phone.svg";
 import password from "../../assets/password.svg";
 import { register, login } from "../../apis/Auth";
 import { useState } from "react";
