@@ -49,14 +49,15 @@ const Login = () => {
     const validate = validateForm(user.email, user.password);
     if (validate) {
       const result = await login(user.email, user.password);
-      if (result.error) {
-        toast.error(result.error);
+      console.log(result)
+      if (result.errors) {
+        toast.error(result.errors);
       } else {
         const token = "Token " + result.token;
         localStorage.setItem("bloodBankAuthToken", JSON.stringify(token));
         toast.success("Login successfull");
         setTimeout(() => {
-          redirect("/profile");
+          redirect("/donate");
         }, 2000);
       }
     }
@@ -121,7 +122,7 @@ const Login = () => {
               </button>
               <button
                 className={styles.registerButton}
-                onClick={() => redirect("./register1")}
+                onClick={() => redirect("/register1")}
               >
                 Register
               </button>

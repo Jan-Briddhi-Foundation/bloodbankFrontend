@@ -47,7 +47,7 @@
 .markicon{
   display: inline-block;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   background-color: #f9f9f9;
 }
 /* The Div holding the mark icon */
@@ -60,9 +60,10 @@
   margin: 0.2rem 0.8rem;
   cursor:default;
   width: 20%;
-  cursor: pointer;
 }
-
+.DonorIcon:hover, .DonorIcon:focus{
+  animation: shake 0.3s ease 4;
+}
 /* holding all the text in the container */
 .text{
   width: 85%;

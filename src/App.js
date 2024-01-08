@@ -7,6 +7,10 @@ import Register2 from "../src/pages/Register2/Register2";
 import Login from "./pages/Login/Login";
 import ProfilePage from "./pages/Profilepage/ProfilePage";
 import EditProfile from "./pages/EditProfile/EditProfile";
+import NotificationDonor from "./pages/Notification/NotificationDonor";
+// import Donate from "./pages/HomepageDonor"
+import HomepageDonor from "./pages/HomepageDonor/HomepageDonor";
+import Donorcriteria from "./pages/Donorcriteria/Donorcriteria";
 
 function App() {
   return (
@@ -18,6 +22,9 @@ function App() {
           <Route path="/register2" element={<Register2 />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/editprofile" element={<EditProfile />} />
+          <Route path="/notifications" element={<NotificationDonor/>}/>
+          <Route path="/donate" element={<HomepageDonor/>}/>
+          <Route path="/donatedetails" element={<Donorcriteria/>}/>
         </Routes>
       </Router>
     </div>

@@ -69,7 +69,7 @@ const Register2 = () => {
         console.log(result);
         toast.success("Profile Created");
         setTimeout(() => {
-          redirect("/profile");
+          redirect("/donate");
         }, 2000);
       }
     }
