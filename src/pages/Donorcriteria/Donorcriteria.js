@@ -130,7 +130,11 @@ function Donoricon() {
       >
         <CheckIcon sx={{ fontSize: 41 }} className="DonorIcon" />
       </button>
-      <button onClick={() => qualifyDonor({ qualify: false })}>
+      <button onClick={() => {
+        qualifyDonor({ qualify: false });
+        redirect("/inelligible")
+      }
+      }>
         <CloseIcon sx={{ fontSize: 41 }} className="DonorIcon" />
       </button>
     </div>
