@@ -68,7 +68,10 @@ const Register2 = () => {
       } else {
         console.log(result);
         toast.success("Profile Created");
-        setTimeout(() => {
+        if(user.type === "patient"){
+          return redirect("/patient");
+        }
+        return setTimeout(() => {
           redirect("/donate");
         }, 2000);
       }

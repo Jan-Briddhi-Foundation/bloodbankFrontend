@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import "./DonorCriteria.css";
+// import { MapPage } from "../../components/Map/Map";
+import { Link } from "react-router-dom";
 
 const FindBloodBank = () => {
   return (
@@ -14,8 +16,9 @@ const FindBloodBank = () => {
           Be sure to be eligible to donate your blood.
         </p>
       </div>
+      <Link to="/yourinfo">Next</Link>
     </div>
-    
+   
     </>
   );
 };

@@ -20,6 +20,11 @@
   letter-spacing: 0.04375rem;
   margin: 1rem 0;
 }
+/* .mapPage{
+  width: 100vw;
+  height: 100%;
+  /* position: absolute;
+} */
 .be-sure-to{
   position: relative;
   font-size: 16px;

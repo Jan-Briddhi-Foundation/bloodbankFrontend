@@ -16,14 +16,14 @@ export const MapPage = () => {
 }, []);
 
     return (
-        <MapContainer center={point} zoom={12} scrollWheelZoom={false}>
+        <MapContainer center={point} zoom={13} scrollWheelZoom={false}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             >
             </TileLayer>
             <Marker
-            position = {point}
+            position={point}
             >
                 <Popup>
                     This is your current location

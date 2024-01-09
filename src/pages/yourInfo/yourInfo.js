@@ -3,6 +3,7 @@ import style from './yourInfo.module.css';
 import NextIcon from '../../assets/CaretCircleRight.svg';
 import React from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Link } from 'react-router-dom';
 
 function yourInfo() {
   return (
@@ -32,7 +33,7 @@ function yourInfo() {
         </section>
       </div>
       <div className={style.NextIconCon} >
-      <a href="/"><img src={NextIcon} alt="" className={style.NextIcon}/> </a>
+      <Link to="/thankyou"><img src={NextIcon} alt="" className={style.NextIcon}/> </Link>
       </div>
     </div>
   );

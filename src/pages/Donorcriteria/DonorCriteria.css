@@ -9,6 +9,10 @@
 .be-sure-to-be-eligible-to-dona-parent{
   display:block;
 }
+.mapPage{
+  width: 500px;
+  height: 500px;
+}
 .donor-criteria1{
   text-align:center;
   color: #000;
