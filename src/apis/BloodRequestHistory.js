@@ -1,9 +1,9 @@
 import axios from "axios";
 const backendURL =  "https://bloodbak.onrender.com";
 
-export const requestBlood = async (data) => {
+export const requestHistory = async (data) => {
   try {
-    const requrl = `${backendURL}/api/request-blood/`;
+    const requrl = `${backendURL}/api/patient-history/`;
     const token = JSON.parse(localStorage.getItem("bloodBankAuthToken"));
     console.log(token);
     const config = {

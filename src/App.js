@@ -17,6 +17,8 @@ import Inelligible from "./pages/Inelligible/Inelligible";
 import YourInfo from "./pages/yourInfo/yourInfo";
 import HomePage from "./pages/Homepage/Homepage";
 import NewRequest from "./pages/NewRequest/NewRequest";
+import RequestSent from "./pages/RequestSent/RequestSent";
+import RequestHistoryPage from "./pages/RequestHistory/RequestHistory";
 function App() {
   return (
     <div className="App">
@@ -26,6 +28,8 @@ function App() {
           <Route path="/register1" element={<Register />} />
           <Route path="/patient" element={<HomePage/>} />
           <Route path="/request" element={<NewRequest/>}/>
+          <Route path="/requestsent" element={<RequestSent/>} />
+          <Route path="/requesthistory" element={<RequestHistoryPage/>} />
           <Route path="/register2" element={<Register2 />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/editprofile" element={<EditProfile />} />

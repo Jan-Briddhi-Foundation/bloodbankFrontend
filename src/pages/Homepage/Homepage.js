@@ -17,7 +17,7 @@ function Homepage() {
               >
               <button className={style.button}><p className={style.buttonText}>Submit New Request  </p> <img src={Caret} alt='' className={style.circle} /></button>
               </Link>
-              <Link>
+              <Link to="/requesthistory">
               <button className={style.button}><p className={style.buttonText}>View Request History</p> <img src={Caret} alt='' className={style.circle} /></button>
               </Link>
               <Link>

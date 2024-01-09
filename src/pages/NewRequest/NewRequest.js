@@ -6,10 +6,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
 import "./DatePicker.css";
 import { requestBlood } from "../../apis/BloodRequest";
+// import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NewRequest() {
   const [data, setData] = useState({});
   const [date, setDate] = useState("");
+  const redirect = useNavigate();
   
   const handleInputChange = (input, value) => {
     data[input] = value;
@@ -26,7 +29,11 @@ function NewRequest() {
           onSubmit={(e) => {
             e.preventDefault();
             console.log(data);
-            requestBlood({date_needed: data.date_needed, quantity: data.quantity});
+            const requestSent = requestBlood({date_needed: date, quantity: data.quantity});
+            console.log(requestSent);
+            // if (requestSent.success) {
+            //   redirect("/requestsent");
+            // }
           }}
         >
           <input
