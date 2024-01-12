@@ -8,19 +8,20 @@ import style from "./Header.module.css";
 import Settings from "@mui/icons-material/SettingsOutlined";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Header() {
   const redirect = useNavigate();
+  const [login, setLogin] = useState(
+    false || localStorage.getItem("bloodBankAuthToken")
+  );
+
   const handleClick = () => {
-    const token = localStorage.getItem("bloodBankAuthToken");
-    if (token) redirect("/profile");
-    else {
-      redirect("/");
-    }
+    login ? redirect("/profile") : redirect("/");
   };
   const handleLogout = () => {
     localStorage.removeItem("bloodBankAuthToken");
+    setLogin(false);
     toast.success("Logout Successfull");
     setTimeout(() => {
       redirect("/");
@@ -29,23 +30,41 @@ function Header() {
 
   return (
     <div className={style.header}>
-      <img src={Logo} className={style.Logo} alt="logo" onClick={handleClick} />
+      <img
+        src={Logo}
+        className={style.Logo}
+        alt="logo"
+        onClick={() => {
+          redirect("/");
+        }}
+      />
       <h1 className={style.compname}>Floating Blood Bank</h1>
       <div className={style.icon}>
-        <Settings className={style.icons} sx={{ fontSize: 42 }} />
-        <Email className={style.icons} sx={{ fontSize: 42 }} />
-        <Logout
-          className={style.icons}
-          sx={{ fontSize: 42 }}
-          onClick={handleLogout}
-        />
+        {login ? (
+          <Settings className={style.icons} sx={{ fontSize: 42 }} />
+        ) : (
+          ""
+        )}
+        {login ? <Email className={style.icons} sx={{ fontSize: 42 }} /> : ""}
+        {login ? (
+          <Logout
+            className={style.icons}
+            sx={{ fontSize: 42 }}
+            onClick={handleLogout}
+          />
+        ) : (
+          ""
+        )}
         <Account
           className={style.icons}
           sx={{ fontSize: 42 }}
           onClick={handleClick}
         />
-        <Link to={"/notifications"}> <Notification className={style.icons} sx={{ fontSize: 42 }} /></Link>
-       
+        {login ? (
+          <Notification className={style.icons} sx={{ fontSize: 42 }} />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
