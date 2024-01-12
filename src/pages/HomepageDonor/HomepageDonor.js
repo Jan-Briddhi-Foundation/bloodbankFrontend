@@ -5,6 +5,7 @@ import share from "../../assets/share.svg";
 import cross from "../../assets/cross.svg";
 import calendar from "../../assets/calendar.svg";
 import location from "../../assets/location.svg";
+import { Link } from "react-router-dom";
 
 const HomepageDonor = () => {
   return (
@@ -32,7 +33,8 @@ const HomepageDonor = () => {
             </div>
             <div className={styles.requestBoxRight}>
               <img src={share} alt="share icon" />
-              <img src={check} alt="check icon" />
+
+              <Link to={"/donatedetails"}><img src={check} alt="check icon" /></Link>
             </div>
             <img className={styles.crossIcon} src={cross} alt="check icon" />
           </section>

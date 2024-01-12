@@ -9,10 +9,6 @@
 .be-sure-to-be-eligible-to-dona-parent{
   display:block;
 }
-.mapPage{
-  width: 500px;
-  height: 500px;
-}
 .donor-criteria1{
   text-align:center;
   color: #000;
@@ -24,6 +20,11 @@
   letter-spacing: 0.04375rem;
   margin: 1rem 0;
 }
+/* .mapPage{
+  width: 100vw;
+  height: 100%;
+  /* position: absolute;
+} */
 .be-sure-to{
   position: relative;
   font-size: 16px;
@@ -51,7 +52,7 @@
 .markicon{
   display: inline-block;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   background-color: #f9f9f9;
 }
 /* The Div holding the mark icon */
@@ -64,9 +65,10 @@
   margin: 0.2rem 0.8rem;
   cursor:default;
   width: 20%;
-  cursor: pointer;
 }
-
+.DonorIcon:hover, .DonorIcon:focus{
+  animation: shake 0.3s ease 4;
+}
 /* holding all the text in the container */
 .text{
   width: 85%;

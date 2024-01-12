@@ -1,14 +1,15 @@
-import styles from "./NotificationDonor.module.css";
+import styles from "../Notification/NotificationDonor.module.css";
 import Header from "../../components/Header/Header";
 import patient from "../../assets/patient.svg";
 import info from "../../assets/Info.svg";
 import cross from "../../assets/cross.svg";
-import { getNotifications } from "../../apis/Notifications.hooks";
+// import { getNotifications } from "../../apis/Notifications.hooks";
 import { useEffect, useState } from "react";
-const NotificationDonor = () => {
+import { requestHistory } from "../../apis/BloodRequestHistory";
+const RequestHistoryPage = () => {
   const [notifications, setNotifications] = useState([]);
   const getAllNotifications = async () =>{
-    const data = await getNotifications();
+    const data = await requestHistory();
     setNotifications(data);
   }
   useEffect(() => {getAllNotifications()}, []);
@@ -19,8 +20,8 @@ const NotificationDonor = () => {
       <Header />
       <div className={styles.NotificationDonor}>
         <div className={styles.title}>
-          <h1>Notifications</h1>
-          <span>Discover who needs blood around you.</span>
+          <h1>Request History</h1>
+          <span>Overview of all the requests you've submitted</span>
         </div>
         { notifications?.length === 0 ?
            <section className={styles.notifications}>
@@ -52,4 +53,4 @@ const NotificationDonor = () => {
   );
 };
 
-export default NotificationDonor;
+export default RequestHistoryPage;

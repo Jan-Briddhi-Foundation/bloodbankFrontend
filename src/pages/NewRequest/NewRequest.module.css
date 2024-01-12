@@ -9,6 +9,16 @@ section{
     line-height: 1rem;
     max-width: 1024px;
 }
+input, select{
+  border-width: 0;
+  margin-inline: 2rem;
+  margin-block: 1rem;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  margin-inline: 4rem;
+}
 .DropIcon{
   position: absolute;
   display: flex;
@@ -65,21 +75,7 @@ section{
 .first:focus{
   outline: solid;
 }
-select{
-  border: 2px solid black;
-  appearance: none;
-  min-width: 33rem;
-  height:100%;
-  background-color:#f9f9f9;
-  padding-left: 2rem; 
-  font-size: 1.2em;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  margin:  0 auto;
-  font-family: sans-serif;
-}
-input{
+input, select{
   min-height: 4rem;
   min-width: 33rem;
   background-color:#f9f9f9;
@@ -104,15 +100,12 @@ input::placeholder, .selectit{
   color:red;
 }
 button{
-  display: flex;
-  width: 12.125rem;
-  padding: 0.5rem 1rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
   border-radius: 0.4375rem;
   background: #BA595F;
   color: #FFFDFD;
+  margin-inline: 8rem;
+  cursor: pointer;
+  padding: 1rem;
 }
 .datePicker {
   width: 100% !important;

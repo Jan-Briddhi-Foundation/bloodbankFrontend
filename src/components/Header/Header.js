@@ -8,6 +8,7 @@ import style from "./Header.module.css";
 import Settings from "@mui/icons-material/SettingsOutlined";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function Header() {
   const redirect = useNavigate();
@@ -43,7 +44,8 @@ function Header() {
           sx={{ fontSize: 42 }}
           onClick={handleClick}
         />
-        <Notification className={style.icons} sx={{ fontSize: 42 }} />
+        <Link to={"/notifications"}> <Notification className={style.icons} sx={{ fontSize: 42 }} /></Link>
+       
       </div>
     </div>
   );
