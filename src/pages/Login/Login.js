@@ -11,7 +11,7 @@ import { login, forgotPassword } from "../../apis/Auth";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { setRef } from "@mui/material";
+
 const Login = () => {
   const redirect = useNavigate();
   const [user, setUser] = useState({
@@ -49,16 +49,14 @@ const Login = () => {
     const validate = validateForm(user.email, user.password);
     if (validate) {
       const result = await login(user.email, user.password);
-      console.log(result)
       if (result.errors) {
         toast.error(result.errors);
       } else {
         const token = "Token " + result.token;
         localStorage.setItem("bloodBankAuthToken", JSON.stringify(token));
         toast.success("Login successfull");
-        console.log(result)
-        if (result.user.profile.profile_type !== "donor"){
-          return redirect("/patient")
+        if (result.user.profile.profile_type !== "donor") {
+          return redirect("/patient");
         }
         setTimeout(() => {
           redirect("/donate");

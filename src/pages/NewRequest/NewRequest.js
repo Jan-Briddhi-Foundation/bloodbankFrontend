@@ -1,35 +1,37 @@
 import Header from "../../components/Header/Header";
 import style from "./NewRequest.module.css";
-// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
 import "./DatePicker.css";
 import { requestBlood } from "../../apis/BloodRequest";
-// import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function NewRequest() {
   const [data, setData] = useState({});
   const [date, setDate] = useState("");
   const redirect = useNavigate();
-  
+
   const handleInputChange = (input, value) => {
     data[input] = value;
     setData(data);
-  } 
+  };
 
   return (
     <>
       <Header />
-      <div>
+      <div className={style.container}>
         <h1 className={style.title}>Blood Request</h1>
         <p className={style.title}>Let the people around you help you.</p>
         <form
+          className={style.form}
           onSubmit={(e) => {
             e.preventDefault();
             console.log(data);
-            const requestSent = requestBlood({date_needed: date, quantity: data.quantity});
+            const requestSent = requestBlood({
+              date_needed: date,
+              quantity: data.quantity,
+            });
             console.log(requestSent);
             // if (requestSent.success) {
             //   redirect("/requestsent");
@@ -43,27 +45,30 @@ function NewRequest() {
             placeholder="Patient Name"
             name=""
           />
-          <div className={`${style.selectContainer} ${style.first}`}>
-            <select
-              onChange={(e) => handleInputChange("bloodType", e.target.value)}
-              name="bloodType"
-              required
-              className={`${style.select}`}
-            >
-              <option value="" selected className={`${style.selectit}`}>
-                Blood Group
-              </option>
-              <option value="A" className={`${style.selectit}`}>
-                A
-              </option>
-              <option value="B">B</option>
-              <option value="AB">AB</option>
-              <option value="O">O</option>
-            </select>
-          </div>
+          <select
+            onChange={(e) => handleInputChange("bloodType", e.target.value)}
+            name="bloodType"
+            requir
+          >
+            <option value="" selected>
+              Blood Group
+            </option>
+            <option value="A+">O+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
           <DatePicker
+            className={style.datePicker}
             selected={date}
-            onChange={(e) => {setDate(e); handleInputChange("data_needed", e)}}
+            onChange={(e) => {
+              setDate(e);
+              handleInputChange("data_needed", e);
+            }}
             dateFormat="MM/dd/yyyy"
             placeholderText="Date for Blood Needed"
             minDate={new Date()}
@@ -87,7 +92,9 @@ function NewRequest() {
             placeholder="Address"
             name=""
           />
-          <button name="intent">Send Request</button>
+          <button name="intent" className={style.button}>
+            Send Request
+          </button>
         </form>
       </div>
     </>

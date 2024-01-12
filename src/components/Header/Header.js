@@ -35,13 +35,19 @@ function Header() {
         className={style.Logo}
         alt="logo"
         onClick={() => {
-          redirect("/");
+          login ? redirect("/profile") : redirect("/");
         }}
       />
       <h1 className={style.compname}>Floating Blood Bank</h1>
       <div className={style.icon}>
         {login ? (
-          <Settings className={style.icons} sx={{ fontSize: 42 }} />
+          <Settings
+            className={style.icons}
+            sx={{ fontSize: 42 }}
+            onClick={() => {
+              redirect("/editprofile");
+            }}
+          />
         ) : (
           ""
         )}
@@ -61,7 +67,13 @@ function Header() {
           onClick={handleClick}
         />
         {login ? (
-          <Notification className={style.icons} sx={{ fontSize: 42 }} />
+          <Notification
+            className={style.icons}
+            sx={{ fontSize: 42 }}
+            onClick={() => {
+              redirect("/notifications");
+            }}
+          />
         ) : (
           ""
         )}

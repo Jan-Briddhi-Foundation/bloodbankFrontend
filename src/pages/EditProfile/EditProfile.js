@@ -85,7 +85,13 @@ const EditProfile = () => {
             <img src={blood} alt="bloodicon" />
             <div className={styles.line}></div>
             <div className={styles.customSelect}>
-              <select name="bloodGroup" value={details.profileForm.bloodGroup}>
+              <select
+                name="bloodGroup"
+                value={details.profileForm.bloodGroup}
+                onChange={(e) =>
+                  handleInputChange(e, "profileForm", "bloodGroup")
+                }
+              >
                 <option value="" selected>
                   Blood Group
                 </option>
@@ -108,6 +114,7 @@ const EditProfile = () => {
               name="address"
               placeholder="Address"
               value={details.profileForm.address}
+              onChange={(e) => handleInputChange(e, "profileForm", "address")}
             />
           </div>
           <div>
@@ -118,6 +125,7 @@ const EditProfile = () => {
               name="city"
               placeholder="City*"
               value={details.profileForm.city}
+              onChange={(e) => handleInputChange(e, "profileForm", "city")}
             />
           </div>
           <div>
@@ -128,6 +136,7 @@ const EditProfile = () => {
               name="country"
               placeholder="Country*"
               value={details.profileForm.country}
+              onChange={(e) => handleInputChange(e, "profileForm", "country")}
             />
           </div>
           <div>
@@ -139,6 +148,7 @@ const EditProfile = () => {
               placeholder="Phone Number*"
               maxLength="10"
               value={details.userForm.phone}
+              onChange={(e) => handleInputChange(e, "userForm", "phone")}
             />
           </div>
           <div>
@@ -146,9 +156,10 @@ const EditProfile = () => {
             <div className={styles.line}></div>
             <input
               type="text"
-              name="language"
+              name="langauge"
               placeholder="Language"
               value={details.profileForm.langauge}
+              onChange={(e) => handleInputChange(e, "profileForm", "langauge")}
             />
           </div>
         </section>
