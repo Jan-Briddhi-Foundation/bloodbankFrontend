@@ -48,7 +48,6 @@ const Register2 = () => {
 
   const handleSumbit = async (e) => {
     e.preventDefault();
-    console.log(user);
     const validate = validateForm(
       user.city,
       user.country,
@@ -62,13 +61,11 @@ const Register2 = () => {
         user.bloodGroup,
         user.type
       );
-      console.log(result);
       if (result.details) {
         toast.error("Login required");
       } else {
-        console.log(result);
         toast.success("Profile Created");
-        if(user.type === "patient"){
+        if (user.type === "patient") {
           return redirect("/patient");
         }
         return setTimeout(() => {

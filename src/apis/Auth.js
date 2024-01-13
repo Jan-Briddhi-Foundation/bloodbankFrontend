@@ -1,5 +1,5 @@
 import axios from "axios";
-const backendURL = "https://bloodbak.onrender.com"
+const backendURL = "https://bloodbak.onrender.com";
 
 export const register = async (name, email, phone, password) => {
   try {
@@ -21,7 +21,7 @@ export const register = async (name, email, phone, password) => {
 
 export const register2 = async (city, country, bloodGroup, type) => {
   try {
-    const requrl = `${backendURL}/api/profile/`;
+    const requrl = `${backendURL}/api/profile-details/`;
 
     const payLoad = {
       city: city,

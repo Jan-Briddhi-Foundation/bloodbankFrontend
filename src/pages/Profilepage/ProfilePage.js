@@ -6,13 +6,23 @@ import patienticon from "../../assets/patient.svg";
 import { getProfileDetails } from "../../apis/Profile";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const ProfilePage = () => {
   const redirect = useNavigate();
   const [details, setDetails] = useState();
 
   const profileDetailget = async () => {
     const result = await getProfileDetails();
-    setDetails(result);
+    if (result.detail === "Invalid token.") {
+      toast.error("Season Expired");
+      toast.error("Login again");
+      localStorage.removeItem("bloodBankAuthToken");
+      setTimeout(() => {
+        redirect("/");
+      });
+    } else {
+      setDetails(result);
+    }
   };
 
   useEffect(() => {

@@ -24,9 +24,6 @@ const EditProfile = () => {
   useEffect(() => {
     profileDetailget();
   }, []);
-  useEffect(() => {
-    console.log(details);
-  }, [details]);
 
   const handleInputChange = (e, formType, fieldName) => {
     const value = e.target.value;

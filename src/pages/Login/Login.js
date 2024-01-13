@@ -14,6 +14,11 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const redirect = useNavigate();
+  const loginCheck = localStorage.getItem("bloodBankAuthToken");
+
+  if (loginCheck) {
+    redirect("/profile");
+  }
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -56,7 +61,8 @@ const Login = () => {
         localStorage.setItem("bloodBankAuthToken", JSON.stringify(token));
         toast.success("Login successfull");
         if (result.user.profile.profile_type !== "donor") {
-          return redirect("/patient");
+          redirect("/patient");
+          return;
         }
         setTimeout(() => {
           redirect("/donate");
