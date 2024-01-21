@@ -80,6 +80,13 @@ input[type="text"] {
     color: rgba(70, 74, 87, 1)
 }
 
+input[type="password"] {
+    font-family: Roboto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: rgba(70, 74, 87, 1)
+}
 .form>a {
     margin-top: 0.5vh;
     align-self: flex-start;

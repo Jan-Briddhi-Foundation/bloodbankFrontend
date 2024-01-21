@@ -111,7 +111,7 @@ const Login = () => {
               <img src={password} alt="passwordicon" />
               <div></div>
               <input
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Password*"
                 required

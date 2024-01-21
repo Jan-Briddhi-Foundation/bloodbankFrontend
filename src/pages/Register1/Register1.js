@@ -34,12 +34,12 @@ const Register1 = () => {
       error = true;
     }
     if (
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+      /!^[a-zA-Z0-9]{1,6}$/.test(
         password
       )
     ) {
       toast.error(
-        "Password should contain at least one uppercase, one lowercase, one number, and one special character"
+        "Password should contain letters and numbers only"
       );
       error = true;
     }
