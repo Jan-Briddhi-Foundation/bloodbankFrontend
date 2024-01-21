@@ -13,7 +13,7 @@ export const register = async (name, email, phone, password) => {
     const response = await axios.post(requrl, payLoad);
     return response.data;
   } catch (error) {
-    if (error) {
+    if (error.response) {
       return error.response.data;
     }
   }
