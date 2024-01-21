@@ -75,8 +75,8 @@ const Register1 = () => {
       } else {
         const result = await login(user.email, user.password);
         const token = "Token " + result.token;
-        localStorage.setItem("bloodBankAuthToken", JSON.stringify(token));
         toast.success("Registration Successfull");
+        localStorage.setItem("bloodBankAuthToken", JSON.stringify(token));
         setTimeout(() => {
           redirect("/register2");
         }, 2000);
