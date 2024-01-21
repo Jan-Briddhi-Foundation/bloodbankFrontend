@@ -1,16 +1,16 @@
-import Header from "../../components/Header/Header";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { forgotPassword, login } from "../../apis/Auth";
+import apple from "../../assets/Apple.png";
+import facebook from "../../assets/Facebook.svg";
+import google from "../../assets/Google.svg";
+import email from "../../assets/email.svg";
 import loginLeft from "../../assets/loginLeft.png";
 import loginRight from "../../assets/loginRight.png";
-import styles from "./Login.module.css";
-import email from "../../assets/email.svg";
 import password from "../../assets/password.svg";
-import apple from "../../assets/Apple.png";
-import google from "../../assets/Google.svg";
-import facebook from "../../assets/Facebook.svg";
-import { login, forgotPassword } from "../../apis/Auth";
-import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import styles from "./Login.module.css";
 
 const Login = () => {
   const redirect = useNavigate();
@@ -94,7 +94,7 @@ const Login = () => {
           <h1>Welcome!</h1>
           <h1 className={styles.signinText}>sign in</h1>
           <section className={styles.form}>
-            <div>
+            <div  className={styles.formBox}>
               <img src={email} alt="emailicon" />
               <div></div>
               <input
@@ -107,7 +107,7 @@ const Login = () => {
                 }}
               />
             </div>
-            <div>
+            <div className={styles.formBox}>
               <img src={password} alt="passwordicon" />
               <div></div>
               <input

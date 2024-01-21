@@ -1,14 +1,13 @@
-import React from "react";
-import Logo from "../../assets/logo.svg";
+import Account from "@mui/icons-material/AccountCircleOutlined";
 import Email from "@mui/icons-material/EmailOutlined";
 import Logout from "@mui/icons-material/LogoutOutlined";
-import Account from "@mui/icons-material/AccountCircleOutlined";
 import Notification from "@mui/icons-material/NotificationsNoneOutlined";
-import style from "./Header.module.css";
 import Settings from "@mui/icons-material/SettingsOutlined";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import Logo from "../../assets/logo.svg";
+import style from "./Header.module.css";
 
 function Header() {
   const redirect = useNavigate();

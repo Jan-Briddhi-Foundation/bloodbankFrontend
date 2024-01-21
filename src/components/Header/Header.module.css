@@ -11,7 +11,7 @@
 }
 
 .Logo {
-    height: 53px;
+    height: 20px;
     margin: auto 0;
     padding: 0 1rem;
     max-width: 10vw;
@@ -50,4 +50,19 @@
     text-align: justify;
     margin: 0.8em 1rem;
     padding-left: 10rem;
+}
+@media only screen and (max-width: 767px) {
+    /* Your styles for mobile devices */
+    .compname{
+        display: none;
+    }
+    .icons{
+        margin-right: 1rem;
+    }
+    .Logo{
+        max-height: 100%;
+        max-width: 100%;
+        display: block;
+        margin-left: 0.5rem;
+    }
 }
