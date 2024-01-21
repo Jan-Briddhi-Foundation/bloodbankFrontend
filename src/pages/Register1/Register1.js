@@ -1,14 +1,14 @@
-import Header from "../../components/Header/Header";
-import styles from "./Register1.module.css";
-import logo from "../../assets/logo.svg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { login, register } from "../../apis/Auth";
+import phone from "../../assets/Phone.svg";
 import userIcon from "../../assets/User.svg";
 import email from "../../assets/email.svg";
-import phone from "../../assets/Phone.svg";
+import logo from "../../assets/logo.svg";
 import password from "../../assets/password.svg";
-import { register, login } from "../../apis/Auth";
-import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import styles from "./Register1.module.css";
 
 const Register1 = () => {
   const redirect = useNavigate();
@@ -135,7 +135,7 @@ const Register1 = () => {
             <img src={password} alt="passwordicon" />
             <div></div>
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder="Password*"
               value={user.password}
