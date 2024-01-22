@@ -82,7 +82,7 @@ const Register2 = () => {
         <img src={logo} alt="logo" />
         <section className={styles.form}>
           <div>
-            <img src={location} alt="locationicon" />
+            <img src={location} alt="locationicon"  className={styles.img} />
             <div className={styles.line}></div>
             <input
               type="text"
@@ -95,7 +95,7 @@ const Register2 = () => {
             />
           </div>
           <div>
-            <img src={globe} alt="globeicon" />
+            <img src={globe} alt="globeicon" className={styles.img} />
             <div className={styles.line}></div>
             <input
               type="text"
@@ -108,7 +108,7 @@ const Register2 = () => {
             />
           </div>
           <div>
-            <img src={blood} alt="bloodicon" />
+            <img src={blood} alt="bloodicon" className={styles.img} />
             <div className={styles.line}></div>
             <div className={styles.customSelect}>
               <select

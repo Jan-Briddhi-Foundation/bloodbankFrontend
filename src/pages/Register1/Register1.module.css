@@ -76,3 +76,20 @@ input[type="text"] {
 .button:active {
     scale: 0.7;
 }
+@media only screen and (max-width: 767px) {
+    /* Your styles for mobile devices */
+img{
+    height:30px;
+    margin: auto;
+}
+.form>div>input {
+    height:4rem;
+    width: 77vw;
+    display: flex;
+    margin: auto;
+}
+.button{
+    width: 71vw;
+    height: 2.5rem;
+}
+}

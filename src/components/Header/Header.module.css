@@ -2,66 +2,95 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
+    justify-content:space-between;
     border-bottom: 3px solid #BA595F;
-    padding: 0;
-    max-width: 100vw;
-    overflow-x: hidden;
 }
 
 .Logo {
-    height: 20px;
+    height: 50px;
     margin: auto 0;
     padding: 0 1rem;
-    max-width: 10vw;
+    max-width: 15vw;
     cursor: pointer;
+    display: block;
 }
-
-.icon {
-    margin: auto 0;
-    white-space: nowrap;
-    padding: 0 1rem;
-    max-width: 30vw;
-    cursor: pointer;
-}
-
-.icons {
-    padding: 0 0.5rem;
-    font-size: 100px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #BA595F;
-    font-weight: 900;
-    cursor: pointer;
-}
-
-.icons:active {
-    background-color: #BA595F;
-}
-
 .compname {
     font-family: Roboto;
     font-weight: 500;
     line-height: 30px;
     letter-spacing: 0.02em;
     color: #BA595F;
-    display: block;
-    white-space: nowrap;
-    text-align: justify;
-    margin: 0.8em 1rem;
-    padding-left: 10rem;
+    display: inline-block;
+    text-align:center;
+    margin: 0.8em auto;
+    padding: auto;
+    width: 70vw;
 }
+
+.icon {
+    margin: auto 0;
+    white-space: nowrap;
+    padding: 0 0.2rem;
+    cursor: pointer;
+    align-self: flex-end;
+    display: block;
+
+}
+
+.icons {
+    padding: 0 0.1rem;
+    margin: 0 0.6rem;
+    font-size: 300px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #BA595F;
+    font-weight: 900;
+    cursor: pointer;
+    width: 20%;
+}
+
+.nav_btn{
+    padding:5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color:#BA595F;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+}
+.icons:active, .icons:hover {
+    background-color: #BA595F;
+}
+
 @media only screen and (max-width: 767px) {
     /* Your styles for mobile devices */
+    .header{
+        max-width: 1500px;
+        border-bottom: 3px solid #BA595F;
+        
+    }
     .compname{
         display: none;
     }
-    .icons{
+    .icon{
+        margin-right: 0.5rem;
+        border-left: 2px solid #BA595F;
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
         margin-right: 1rem;
+       
+
+    }
+    .icons{
+        padding: 0;
+        margin: 0;
+        font-size: 10;
+        padding: 0 0.4rem;
     }
     .Logo{
-        max-height: 100%;
-        max-width: 100%;
+        height: 40px;
         display: block;
         margin-left: 0.5rem;
     }

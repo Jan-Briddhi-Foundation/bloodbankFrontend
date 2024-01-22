@@ -32,9 +32,9 @@ const HomepageDonor = () => {
               </div>
             </div>
             <div className={styles.requestBoxRight}>
-              <img src={share} alt="share icon" />
+              <img src={share} alt="share icon" className={styles.sizes}  />
 
-              <Link to={"/donatedetails"}><img src={check} alt="check icon" /></Link>
+              <Link to={"/donatedetails"}><img className={styles.size} src={check} alt="check icon" /></Link>
             </div>
             <img className={styles.crossIcon} src={cross} alt="check icon" />
           </section>

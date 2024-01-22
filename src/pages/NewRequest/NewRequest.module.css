@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-inline: 4rem;
 }
 
 .form>div {
@@ -73,8 +72,16 @@
   padding: 1rem;
 }
 
-.datePicker {
+
+
+@media only screen and (max-width: 767px) {
+  /* Your styles for mobile devices */
+  .form{
+    width: 90%;
+    border: 1px solid rebeccapurple;
+  }
+ .data1{
   width: 80%;
-  border: none;
-  background-color: #f9f9f9;
+  border: 1px solid red;
+ }
 }

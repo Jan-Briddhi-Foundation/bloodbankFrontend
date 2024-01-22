@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header";
-import style from "./NewRequest.module.css";
+import styles from "./NewRequest.module.css";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
@@ -20,11 +20,11 @@ function NewRequest() {
   return (
     <>
       <Header />
-      <div className={style.container}>
-        <h1 className={style.title}>Blood Request</h1>
-        <p className={style.title}>Let the people around you help you.</p>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Blood Request</h1>
+        <p className={styles.title}>Let the people around you help you.</p>
         <form
-          className={style.form}
+          className={styles.form}
           onSubmit={(e) => {
             e.preventDefault();
             console.log(data);
@@ -44,11 +44,13 @@ function NewRequest() {
             required
             placeholder="Patient Name"
             name=""
+            className={styles.data1}
           />
           <select
             onChange={(e) => handleInputChange("bloodType", e.target.value)}
             name="bloodType"
-            requir
+            required
+            className={styles.data1}
           >
             <option value="" selected>
               Blood Group
@@ -63,7 +65,7 @@ function NewRequest() {
             <option value="AB-">AB-</option>
           </select>
           <DatePicker
-            className={style.datePicker}
+            className={styles.datePicker}
             selected={date}
             onChange={(e) => {
               setDate(e);
@@ -72,18 +74,21 @@ function NewRequest() {
             dateFormat="MM/dd/yyyy"
             placeholderText="Date for Blood Needed"
             minDate={new Date()}
+            
           />
           <input
             type="number"
             onChange={(e) => handleInputChange("quantity", e.target.value)}
             required
             placeholder="Quantity of Blood in Unit (ltrs)"
+            className={styles.data1}
           />
           <input
             onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
             type="Tel"
             required
             placeholder="Phone Number"
+            className={styles.data1}
           />
           <input
             onChange={(e) => handleInputChange("address", e.target.value)}
@@ -91,8 +96,9 @@ function NewRequest() {
             required
             placeholder="Address"
             name=""
+            className={styles.data1}
           />
-          <button name="intent" className={style.button}>
+          <button name="intent" className={styles.button}>
             Send Request
           </button>
         </form>

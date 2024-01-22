@@ -117,3 +117,16 @@ input[type="radio"]{
     border-right: 10px solid transparent;
     pointer-events: none;
 }
+@media only screen and (max-width: 767px) {
+    /* Your styles for mobile devices */
+    .form>div>input, .customSelect {
+        width: 75vw;
+        height: 3.4rem;
+    }
+    .img{
+        width: 20%;
+    }
+    .button{
+        width: 50%;
+    }
+}
