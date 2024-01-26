@@ -32,7 +32,7 @@ const Login = () => {
       error = true;
     }
     if (
-      !/[a-zA-Z0-9]{1, 14}$/.test(
+      !/^[a-zA-Z0-9]{1,14}$/.test(
         password
       )
     ) {
