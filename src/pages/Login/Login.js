@@ -37,7 +37,7 @@ const Login = () => {
       )
     ) {
       toast.error(
-        "Password should contain at least one uppercase, one lowercase, one number, and one special character"
+        "Password should contain letters and numbers only"
       );
       error = true;
     }
