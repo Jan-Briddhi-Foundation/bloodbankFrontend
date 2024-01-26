@@ -32,7 +32,7 @@ const Login = () => {
       error = true;
     }
     if (
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+      !/[a-zA-Z0-9]{1, 14}$/.test(
         password
       )
     ) {
