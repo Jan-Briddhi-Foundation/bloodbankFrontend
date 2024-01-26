@@ -21,6 +21,7 @@ const Register1 = () => {
 
   const validateForm = (name, email, phone, password) => {
     let error;
+    console.log('Password:', password); 
     if (!/^[a-zA-Z]+(?: [a-zA-Z]+)*$/.test(name) || name === "") {
       toast.error("Inavalid Name");
       error = true;
@@ -34,7 +35,7 @@ const Register1 = () => {
       error = true;
     }
     if (
-      /!^[a-zA-Z0-9]{1,6}$/.test(
+      !/^[a-zA-Z0-9]{1,14}$/.test(
         password
       )
     ) {
@@ -66,7 +67,7 @@ const Register1 = () => {
         user.phone,
         user.password
       );
-      if (result.email[0] === "user with this email already exists.") {
+      if (result.email[0] === "user with this email already exists." ) {
         toast.error(result.email[0]);
         toast.error("Redirecting to login page");
         setTimeout(() => {
@@ -129,6 +130,7 @@ const Register1 = () => {
               onChange={(e) => {
                 setUser({ ...user, email: e.target.value });
               }}
+              required
             />
           </div>
           <div>
