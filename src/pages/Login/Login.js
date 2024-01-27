@@ -10,7 +10,7 @@ import loginLeft from "../../assets/loginLeft.png";
 import loginRight from "../../assets/loginRight.png";
 import password from "../../assets/password.svg";
 import Header from "../../components/Header/Header";
-import styles from "./Login.module.css";
+// import styles from "./Login.module.css";
 
 const Login = () => {
   const redirect = useNavigate();
@@ -88,75 +88,92 @@ const Login = () => {
   return (
     <>
       <Header />
-      <div className={styles.login}>
-        <img src={loginLeft} alt="medicine" />
-        <main className={styles.loginPart}>
-          <h1>Welcome!</h1>
-          <h1 className={styles.signinText}>sign in</h1>
-          <section className={styles.form}>
-            <div  className={styles.formBox}>
-              <img src={email} alt="emailicon" />
-              <div></div>
+      <div className="md:h-screen md:flex md:gap-8 md:space-x-5 justify-between items-center w-[auto] px-4 mb-8">
+        <img
+          className=" flex w-[15rem] h-[auto] md:self-end  md:ml-8 md:py-16 py-8"
+          src={loginLeft}
+          alt="medicine"
+        />
+        <main className=" bg-white  md:py-8 px-4 flex flex-col  gap-4 items-center w-[auto] rounded-[5px] border-2 border-[#BA595F]">
+          <h1 className="text-black text-2xl md:text-3xl p-4">Welcome!</h1>
+          <h1 className="text-black text-2xl md:text-2xl">sign in</h1>
+          <section className="flex flex-col gap-6 items-center">
+            <div className="flex items-center w-[auto] bg-white rounded-[5px] gap-2 border p-1">
+              <img className="w-[2rem]" src={email} alt="emailicon" />
+              <div className="h-[5vh] w-px bg-black self-center"></div>
               <input
                 type="text"
                 name="email"
                 placeholder="E-mail*"
                 value={user.email}
+                className="w-[100%] md:w-[24rem] gap-2 text-xs"
                 onChange={(e) => {
                   setUser({ ...user, email: e.target.value });
                 }}
               />
             </div>
-            <div className={styles.formBox}>
-              <img src={password} alt="passwordicon" />
-              <div></div>
+            <div className="flex items-center w-[auto]  bg-white rounded-[5px] gap-2 border p-1">
+              <img className="w-[2rem]" src={password} alt="passwordicon" />
+              <div className="h-[5vh] w-px  bg-black self-center"></div>
               <input
                 type="password"
                 name="password"
                 placeholder="Password*"
                 required
+                className="w-[15rem] md:w-[24rem] gap-2 text-lg"
                 value={user.password}
                 onChange={(e) => {
                   setUser({ ...user, password: e.target.value });
                 }}
               />
             </div>
-            <a href="#forgot" onClick={handleForgotPassword}>
+            <a
+              className="self-start"
+              href="#forgot"
+              onClick={handleForgotPassword}
+            >
               Forgot password
             </a>
-            <div className={styles.buttonContainer}>
-              <button className={styles.loginButton} onClick={handleSumbit}>
+            <div className="flex gap-4 w-[100%] justify-around">
+              <button
+                className="bg-[#BA595F] border-[1px]  border-[#BA595F] rounded-[5px] font-[Roboto] text-[1rem] font-medium  tracking-normal text-center text-[rgba(255,_255,_255,_1)] w-[9rem] md:w-[13rem] max-w-[16rem] h-[auto] p-2 cursor-pointer"
+                onClick={handleSumbit}
+              >
                 Login
               </button>
               <button
-                className={styles.registerButton}
+                className=" border-[1px]  border-[#BA595F] rounded-[5px] font-[Roboto] text-[1rem] font-medium  tracking-normal text-center text-[#BA595F] h-[auto]  p-2  cursor-pointer w-[9rem] md:w-[13rem] max-w-[16rem]"
                 onClick={() => redirect("/register1")}
               >
                 Register
               </button>
             </div>
           </section>
-          <div className={styles.continue}>
+          <div className="">
             <div></div>
             Or continue with
             <div></div>
           </div>
-          <div className={styles.thirdParty}>
-            <div className={styles.google}>
+          <div className="flex gap-4 mb-4 ">
+            <div className="h-[3rem] w-[3rem] flex flex-col gap-1 items-center">
               <img src={google} alt="google" />
-              <span>Google</span>
+              <span className="text-xs">Google</span>
             </div>
-            <div className={styles.facebook}>
+            <div className="h-[3rem] w-[3rem] flex flex-col gap-1 items-center ">
               <img src={facebook} alt="facebook" />
-              <span>Facebook</span>
+              <span className="text-xs">Facebook</span>
             </div>
-            <div className={styles.apple}>
+            <div className="h-[3rem] w-[3rem] flex flex-col gap-1 items-center">
               <img src={apple} alt="apple" />
-              <span>Apple</span>
+              <span className="text-xs">Apple</span>
             </div>
           </div>
         </main>
-        <img src={loginRight} alt="medicine" />
+        <img
+          className="w-[20rem] self-start mt-4 p-4"
+          src={loginRight}
+          alt="medicine"
+        />
       </div>
       <ToastContainer
         position="top-right"
