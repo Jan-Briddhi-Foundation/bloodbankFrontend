@@ -32,12 +32,12 @@ const Login = () => {
       error = true;
     }
     if (
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+      !/^.{4,14}$/.test(
         password
       )
     ) {
       toast.error(
-        "Password should contain at least one uppercase, one lowercase, one number, and one special character"
+        "Password should be more than 4 characters"
       );
       error = true;
     }
@@ -134,11 +134,13 @@ const Login = () => {
             >
               Forgot password
             </a>
+
             <div className="flex gap-4 w-[100%] justify-around">
               <button
                 className="bg-[#BA595F] border-[1px]  border-[#BA595F] rounded-[5px] font-[Roboto] text-[1rem] font-medium  tracking-normal text-center text-[rgba(255,_255,_255,_1)] w-[9rem] md:w-[13rem] max-w-[16rem] h-[auto] p-2 cursor-pointer"
                 onClick={handleSumbit}
               >
+
                 Login
               </button>
               <button
