@@ -88,13 +88,13 @@ const Login = () => {
   return (
     <>
       <Header />
-      <div className="md:h-screen md:flex md:gap-8 md:space-x-5 justify-between items-center w-[auto] px-4 mb-8">
+      <div className="md:h-screen md:flex md:gap-8 py-4 justify-between items-start mt-4 w-[auto] px-4 mb-8">
         <img
           className=" flex w-[15rem] h-[auto] md:self-end  md:ml-8 md:py-16 py-8"
           src={loginLeft}
           alt="medicine"
         />
-        <main className=" bg-white  md:py-8 px-4 flex flex-col  gap-4 items-center w-[auto] rounded-[5px] border-2 border-[#BA595F]">
+        <main className=" bg-white  md:py-2 px-4 flex flex-col  gap-4 items-center w-[auto] rounded-[5px] border-2 border-[#BA595F]">
           <h1 className="text-black text-2xl md:text-3xl p-4">Welcome!</h1>
           <h1 className="text-black text-2xl md:text-2xl">sign in</h1>
           <section className="flex flex-col gap-6 items-center">

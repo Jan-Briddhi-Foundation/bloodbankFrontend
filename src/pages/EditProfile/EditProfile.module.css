@@ -1,151 +1,151 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 8vh;
-    text-align: center;
-    margin-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6vh;
+  text-align: center;
+  margin-bottom: 5vh;
 }
 
 .title {
-    display: flex;
-    flex-direction: column;
-    gap: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
 }
 
 .h1title {
-    font-family: Roboto;
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 0px;
-    letter-spacing: 0.02em;
-    margin-bottom: 3vh;
+  font-family: Roboto;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 0px;
+  letter-spacing: 0.02em;
+  margin-bottom: 2vh;
 }
 
-.title>span {
-    font-family: Roboto;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 0px;
-    letter-spacing: 0.02em;
-    text-align: center;
-    color: rgba(107, 107, 107, 1)
+.title > span {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 0px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: rgba(107, 107, 107, 1);
 }
 
 .highlighted {
-    font-family: Roboto;
-    font-size: 0.9rem;
-    font-weight: 500;
-    line-height: 16px;
-    letter-spacing: 0.02em;
-    text-align: center;
-    text-decoration: underline;
-    color: rgba(186, 89, 95, 1);
-    cursor: pointer;
+  font-family: Roboto;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: underline;
+  color: rgba(186, 89, 95, 1);
+  cursor: pointer;
 }
 
 .form {
-    margin-top: 5vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4vh;
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4vh;
 }
 
-.form>div {
-    display: flex;
-    background: rgba(249, 249, 249, 1);
-    gap: 2vh;
-    padding-left: 0.5vw;
+.form > div {
+  display: flex;
+  background: rgba(249, 249, 249, 1);
+  gap: 2vh;
+  padding-left: 0.5vw;
 }
 
 .line {
-    height: 6vh;
-    width: 1px;
-    background-color: rgba(0, 0, 0, 1);
-    align-self: center;
+  height: 6vh;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 1);
+  align-self: center;
 }
 
-.form>div>input {
-    outline: none;
-    border: none;
-    width: 50vw;
-    background-color: rgba(249, 249, 249, 1);
+.form > div > input {
+  outline: none;
+  border: none;
+  width: 70vw;
+  background-color: rgba(249, 249, 249, 1);
 }
 
 input[type="text"],
 select {
-    font-family: Roboto;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0em;
-    color: rgba(70, 74, 87, 1);
+  font-family: Roboto;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0em;
+  color: rgba(70, 74, 87, 1);
 }
 
 .button {
-    margin-top: 12vh;
-    border-radius: 5px;
-    width: 8%;
-    height: 6vh;
-    border: none;
-    font-family: Roboto;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 0rem;
-    letter-spacing: 0em;
-    text-align: center;
-    background-color: rgba(186, 89, 95, 1);
-    color: rgba(255, 253, 253, 1);
-    cursor: pointer;
-    transition: 1s;
+  margin-top: 3rem;
+  border-radius: 5px;
+  width: 4rem;
+  height: 3rem;
+  border: none;
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 0rem;
+  letter-spacing: 0em;
+  text-align: center;
+  background-color: rgba(186, 89, 95, 1);
+  color: rgba(255, 253, 253, 1);
+  cursor: pointer;
+  transition: 1s;
 }
 
 .button:active {
-    scale: 0.7;
+  scale: 0.7;
 }
 
-.form>section>span {
-    display: flex;
-    font-family: Roboto;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 0rem;
-    letter-spacing: 0.05em;
-    color: rgba(57, 61, 63, 1)
+.form > section > span {
+  display: flex;
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 0rem;
+  letter-spacing: 0.05em;
+  color: rgba(57, 61, 63, 1);
 }
 
-.customSelect>select {
-    width: 50vw;
-    outline: none;
-    border: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    cursor: pointer;
+.customSelect > select {
+  width: 70vw;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
 }
 .customSelect {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    transition: background-color 0.3s;
-    display: flex;
-    justify-content: center;
-    background-color: antiquewhite;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  background-color: antiquewhite;
 }
-select{
-    background-color: #f9f9f9;
+select {
+  background-color: #f9f9f9;
 }
 
 .customSelect:after {
-    content: " ";
-    display: block;
-    right: 5px;
-    top: 25px;
-    height: 0;
-    width: 0;
-    position: absolute;
-    border-top: 15px solid rgba(186, 89, 95, 1);
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    pointer-events: none;
+  content: " ";
+  display: block;
+  right: 0.3125rem;
+  top: 1.0625rem;
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-top: 10px solid rgba(186, 89, 95, 1);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  pointer-events: none;
 }
