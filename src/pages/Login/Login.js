@@ -32,12 +32,12 @@ const Login = () => {
       error = true;
     }
     if (
-      !/^[a-zA-Z0-9]{1,14}$/.test(
+      !/^.{4,14}$/.test(
         password
       )
     ) {
       toast.error(
-        "Password should contain letters and numbers only"
+        "Password should be more than 4 characters"
       );
       error = true;
     }
