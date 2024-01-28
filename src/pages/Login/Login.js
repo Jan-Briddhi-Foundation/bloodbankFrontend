@@ -125,7 +125,7 @@ const Login = () => {
               Forgot password
             </a>
             <div className={styles.buttonContainer}>
-              <button className={styles.loginButton} onClick={handleSumbit}>
+              <button className={styles.loginButton} onClick={handleSumbit} onKeyPress={handleSumbit}>
                 Login
               </button>
               <button
