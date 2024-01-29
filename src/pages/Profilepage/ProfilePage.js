@@ -4,14 +4,15 @@ import leftimage from "../../assets/thank you 1.png";
 import rightimage from "../../assets/love.png";
 import patienticon from "../../assets/patient.svg";
 import { getProfileDetails } from "../../apis/Profile";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
 const ProfilePage = () => {
   const redirect = useNavigate();
   const [details, setDetails] = useState();
 
-  const profileDetailget = async () => {
+  const profileDetailget = useCallback(async () => {
     const result = await getProfileDetails();
     if (result.detail === "Invalid token.") {
       toast.error("Season Expired");
@@ -23,11 +24,11 @@ const ProfilePage = () => {
     } else {
       setDetails(result);
     }
-  };
+  }, [redirect]);
 
   useEffect(() => {
     profileDetailget();
-  }, []);
+  }, [profileDetailget]);
 
   return details ? (
     <>

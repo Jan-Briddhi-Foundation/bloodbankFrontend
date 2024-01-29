@@ -1,19 +1,24 @@
 import styles from "../Notification/NotificationDonor.module.css";
 import Header from "../../components/Header/Header";
-import patient from "../../assets/patient.svg";
-import info from "../../assets/Info.svg";
+import share from "../../assets/share.svg";
 import cross from "../../assets/cross.svg";
+import calendar from "../../assets/calendar.svg";
+import location from "../../assets/location.svg";
 // import { getNotifications } from "../../apis/Notifications.hooks";
 import { useEffect, useState } from "react";
 import { requestHistory } from "../../apis/BloodRequestHistory";
 const RequestHistoryPage = () => {
   const [notifications, setNotifications] = useState([]);
-  const getAllNotifications = async () =>{
+  const getAllNotifications = async () => {
     const data = await requestHistory();
     setNotifications(data);
-  }
-  useEffect(() => {getAllNotifications()}, []);
-  useEffect(() => {console.log(notifications)});
+  };
+  useEffect(() => {
+    getAllNotifications();
+  }, []);
+  useEffect(() => {
+    console.log(notifications);
+  });
   // console.log(notifications);
   return (
     <>
@@ -23,31 +28,47 @@ const RequestHistoryPage = () => {
           <h1>Request History</h1>
           <span>Overview of all the requests you've submitted</span>
         </div>
-        { notifications?.length === 0 ?
-           <section className={styles.notifications}>
-           <div className={styles.notificationBox}>
-             <div className={styles.notificationBoxLeft}>
-               <img src={patient} alt="patient Icon" />
-               <div className={styles.notificationBoxMiddle}>
-                 <span>New Request in your Location</span>
-                 <div className={styles.notificationBoxMiddleBottom}>
-                   <img src={info} alt="info icon" />
-                   <span>Go to your Homepage to view the request.</span>
-                 </div>
-               </div>
-             </div>
-             <div className={styles.notificationBoxRight}>
-               <span>2 min ago</span>
-               <img src={cross} alt="cross icon" />
-             </div>
-           </div>
-         </section>
-         :
-         <div>
-            No notifications yet
-
-         </div>
-        }
+        {notifications?.length === 0 ? (
+          <div className="mt-4 flex flex-col gap-2 w-[100%] p-4  md:w-[60vw]">
+            <section className="relative rounded-[5px] pl-[2vh] pr-[4vh] py-[2vh] flex justify-between h-[12vh] bg-[rgba(249,_249,_249,_1)] w-[100%]">
+              <div className="w-[full] flex flex-col justify-between gap-2 text-left">
+                <span>Blood Request: Type AB</span>
+                <div className="flex gap-[2rem]">
+                  <span className="flex gap-1 items-center text-xs">
+                    <img
+                      className="w-[1rem] h-[1rem]"
+                      src={calendar}
+                      alt="calendarIcon"
+                    />
+                    Before 05/31/23
+                  </span>
+                  <span className="flex gap-1 items-center text-xs">
+                    <img
+                      className="w-[1rem] h-[1rem]"
+                      src={location}
+                      alt="calendarIcon"
+                    />
+                    Hospital
+                  </span>
+                </div>
+              </div>
+              <div className="flex  self-start items-center">
+                <img
+                  src={share}
+                  alt="share icon"
+                  className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.85rem] -right-[0.85rem]"
+                />
+              </div>
+              <img
+                className="absolute right-[3.5%] top-[3%] cursor-pointer"
+                src={cross}
+                alt="check icon"
+              />
+            </section>
+          </div>
+        ) : (
+          <div>No notifications yet</div>
+        )}
       </div>
     </>
   );

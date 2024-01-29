@@ -77,12 +77,12 @@ const Register2 = () => {
   return (
     <>
       <Header />
-      <main className={styles.container}>
+      <main className="flex flex-col items-center gap-4 py-8">
         <h4>Step 2 - Details</h4>
-        <img src={logo} alt="logo" />
+        <img className="w-[5rem] h-[5rem]" src={logo} alt="logo" />
         <section className={styles.form}>
-          <div>
-            <img src={location} alt="locationicon"  className={styles.img} />
+          <div className="flex items-center">
+            <img src={location} alt="locationicon" className={styles.img} />
             <div className={styles.line}></div>
             <input
               type="text"
@@ -107,7 +107,7 @@ const Register2 = () => {
               }}
             />
           </div>
-          <div>
+          <div className="mb-4">
             <img src={blood} alt="bloodicon" className={styles.img} />
             <div className={styles.line}></div>
             <div className={styles.customSelect}>
@@ -132,9 +132,9 @@ const Register2 = () => {
               </select>
             </div>
           </div>
-          <section>
-            <div className={styles.radioButt}>
-              <label>
+          <section className="flex flex-col gap-4 ">
+            <div className="flex flex-col gap-4">
+              <label className="flex gap-2">
                 <input
                   type="radio"
                   name="blood"
@@ -148,7 +148,7 @@ const Register2 = () => {
               </label>
             </div>
             <div>
-              <label>
+              <label className="flex gap-2">
                 <input
                   type="radio"
                   name="blood"
