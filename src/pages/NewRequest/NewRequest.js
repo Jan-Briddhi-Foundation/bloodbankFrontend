@@ -5,12 +5,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
 import "./DatePicker.css";
 import { requestBlood } from "../../apis/BloodRequest";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NewRequest() {
   const [data, setData] = useState({});
   const [date, setDate] = useState("");
-  // const redirect = useNavigate();
+  const redirect = useNavigate();
 
   const handleInputChange = (input, value) => {
     data[input] = value;
@@ -30,15 +30,14 @@ function NewRequest() {
           className="w-full flex items-center flex-col gap-4"
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(data);
             const requestSent = requestBlood({
-              date_needed: date,
+              date_needed: new Date(data.data_needed)
+                .toISOString()
+                .split("T")[0],
               quantity: data.quantity,
             });
-            console.log(requestSent);
-            // if (requestSent.success) {
-            //   redirect("/requestsent");
-            // }
+
+            redirect("/requestsent");
           }}
         >
           <input
