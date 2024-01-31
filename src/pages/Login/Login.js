@@ -16,9 +16,6 @@ const Login = () => {
   const redirect = useNavigate();
   const loginCheck = localStorage.getItem("bloodBankAuthToken");
 
-  if (loginCheck) {
-    redirect("/profile");
-  }
   const [user, setUser] = useState({
     email: "",
     password: "",
