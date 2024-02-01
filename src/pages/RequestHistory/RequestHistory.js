@@ -11,12 +11,12 @@ import { requestHistory } from "../../apis/BloodRequestHistory";
 const RequestHistoryPage = () => {
   const [notifications, setNotifications] = useState([]);
 
-  const getAllNotifications = async () => {
+  const getAllRequests = async () => {
     const data = await requestHistory();
     setNotifications(data);
   };
   useEffect(() => {
-    getAllNotifications();
+    getAllRequests();
   }, []);
 
   return (

@@ -34,7 +34,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/notifications" element={<NotificationDonor />} />
-          <Route path="/donate" element={<HomepageDonor />} />
+          <Route path="/donor" element={<HomepageDonor />} />
           <Route path="/donatedetails" element={<Donorcriteria />} />
           <Route
             path="/findbloodbank"
