@@ -73,7 +73,7 @@ const RequestHistoryPage = () => {
             </div>
           ))
         ) : (
-          <div>No notifications yet</div>
+          <div>No history yet</div>
         )}
       </div>
     </>
