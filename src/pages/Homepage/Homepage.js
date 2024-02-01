@@ -32,7 +32,7 @@ function Homepage() {
               />
             </button>
           </Link>
-          <Link>
+          <Link to="/editprofile">
             <button className="flex items-center gap-4 p-2 rounded-[5px] min-h-5 max-w-[90vw] text-start m-[1.8rem]">
               <p className="mx-auto  w-[29rem] my-0">Edit My Information </p>{" "}
               <img

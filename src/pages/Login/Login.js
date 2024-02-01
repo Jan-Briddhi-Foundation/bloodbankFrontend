@@ -16,9 +16,6 @@ const Login = () => {
   const redirect = useNavigate();
   const loginCheck = localStorage.getItem("bloodBankAuthToken");
 
-  if (loginCheck) {
-    redirect("/profile");
-  }
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -31,14 +28,8 @@ const Login = () => {
       toast.error("Enter valid email");
       error = true;
     }
-    if (
-      !/^.{4,14}$/.test(
-        password
-      )
-    ) {
-      toast.error(
-        "Password should be more than 4 characters"
-      );
+    if (!/^.{4,14}$/.test(password)) {
+      toast.error("Password should be more than 4 characters");
       error = true;
     }
 
@@ -140,7 +131,6 @@ const Login = () => {
                 className="bg-[#BA595F] border-[1px]  border-[#BA595F] rounded-[5px] font-[Roboto] text-[1rem] font-medium  tracking-normal text-center text-[rgba(255,_255,_255,_1)] w-[9rem] md:w-[13rem] max-w-[16rem] h-[auto] p-2 cursor-pointer"
                 onClick={handleSumbit}
               >
-
                 Login
               </button>
               <button

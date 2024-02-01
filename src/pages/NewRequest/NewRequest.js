@@ -1,16 +1,27 @@
 import Header from "../../components/Header/Header";
 // import styles from "./NewRequest.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
 import "./DatePicker.css";
 import { requestBlood } from "../../apis/BloodRequest";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getProfileDetails } from "../../apis/Profile";
 
 function NewRequest() {
+  const [userProfileData, setuserProfileData] = useState();
   const [data, setData] = useState({});
   const [date, setDate] = useState("");
-  // const redirect = useNavigate();
+  const redirect = useNavigate();
+
+  const profileDetails = async () => {
+    const result = await getProfileDetails();
+    setuserProfileData(result);
+  };
+
+  useEffect(() => {
+    profileDetails();
+  }, []);
 
   const handleInputChange = (input, value) => {
     data[input] = value;
@@ -20,7 +31,7 @@ function NewRequest() {
   const inputClass =
     "flex items-center gap-4 p-2 bg-[#F9F9F9] rounded-[5px] min-h-5 max-w-[90vw] text-start m-[1.8rem] mx-auto w-[39rem] my-0 border ";
 
-  return (
+  return userProfileData ? (
     <>
       <Header />
       <div className="flex flex-col items-center justify-center gap-4 py-4">
@@ -30,43 +41,31 @@ function NewRequest() {
           className="w-full flex items-center flex-col gap-4"
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(data);
-            const requestSent = requestBlood({
-              date_needed: date,
+            requestBlood({
+              date_needed: new Date(data.data_needed)
+                .toISOString()
+                .split("T")[0],
               quantity: data.quantity,
             });
-            console.log(requestSent);
-            // if (requestSent.success) {
-            //   redirect("/requestsent");
-            // }
+
+            redirect("/requestsent");
           }}
         >
           <input
-            onChange={(e) => handleInputChange("patientName", e.target.value)}
             type="text"
-            required
-            placeholder="Patient Name"
-            name=""
+            name="name"
+            readOnly
+            value={userProfileData.userForm.name}
             className={inputClass}
           />
-          <select
-            onChange={(e) => handleInputChange("bloodType", e.target.value)}
-            name="bloodType"
-            required
+          <input
+            type="text"
+            name="bloodGroup"
+            readOnly
+            value={userProfileData.profileForm.bloodGroup}
             className={inputClass}
-          >
-            <option value="" selected>
-              Blood Group
-            </option>
-            <option value="A+">O+</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B-">B-</option>
-            <option value="O+">O+</option>
-            <option value="O-">O-</option>
-            <option value="AB+">AB+</option>
-            <option value="AB-">AB-</option>
-          </select>
+          />
+
           <DatePicker
             selected={date}
             onChange={(e) => {
@@ -85,21 +84,23 @@ function NewRequest() {
             placeholder="Quantity of Blood in Unit (ltrs)"
             className={inputClass}
           />
+
           <input
-            onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
-            type="Tel"
-            required
-            placeholder="Phone Number"
-            className={inputClass}
-          />
-          <input
-            onChange={(e) => handleInputChange("address", e.target.value)}
             type="text"
-            required
-            placeholder="Address"
-            name=""
+            name="phone"
+            readOnly
+            maxLength="10"
+            value={userProfileData.userForm.phone}
             className={inputClass}
           />
+          <input
+            type="text"
+            name="address"
+            readOnly
+            value={userProfileData.profileForm.address}
+            className={inputClass}
+          />
+
           <button
             name="intent"
             className="flex items-center gap-4 p-2 rounded-[5px] min-h-5 max-w-[90vw] text-start m-[1.8rem]"
@@ -108,6 +109,15 @@ function NewRequest() {
           </button>
         </form>
       </div>
+    </>
+  ) : (
+    <>
+      <Header />
+      <center>
+        <h1>
+          <b>Loading...</b>
+        </h1>
+      </center>
     </>
   );
 }
