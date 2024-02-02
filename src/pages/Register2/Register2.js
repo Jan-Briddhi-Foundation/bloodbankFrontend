@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register2 } from "../../apis/Auth";
+
 const Register2 = () => {
   const redirect = useNavigate();
   const [user, setUser] = useState({
@@ -74,6 +75,7 @@ const Register2 = () => {
       }
     }
   };
+
   return (
     <>
       <Header />

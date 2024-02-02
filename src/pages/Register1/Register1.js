@@ -21,7 +21,7 @@ const Register1 = () => {
 
   const validateForm = (name, email, phone, password) => {
     let error;
-    console.log('Password:', password); 
+
     if (!/^[a-zA-Z]+(?: [a-zA-Z]+)*$/.test(name) || name === "") {
       toast.error("Inavalid Name");
       error = true;
@@ -34,14 +34,8 @@ const Register1 = () => {
       toast.error("Enter Valid mobile number");
       error = true;
     }
-    if (
-      !/^.{4,14}$/.test(
-        password
-      )
-    ) {
-      toast.error(
-        "Password should be more than 4 characters"
-      );
+    if (!/^.{4,14}$/.test(password)) {
+      toast.error("Password should be more than 4 characters");
       error = true;
     }
 
@@ -67,12 +61,11 @@ const Register1 = () => {
         user.phone,
         user.password
       );
-      if (result.email[0] === "user with this email already exists." ) {
+      if (
+        result?.email &&
+        result.email[0] === "user with this email already exists."
+      ) {
         toast.error(result.email[0]);
-        toast.error("Redirecting to login page");
-        setTimeout(() => {
-          redirect("/");
-        }, 2000);
       } else {
         const result = await login(user.email, user.password);
         const token = "Token " + result.token;
