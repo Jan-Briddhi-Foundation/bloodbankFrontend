@@ -51,13 +51,17 @@ const Login = () => {
         const token = "Token " + result.token;
         localStorage.setItem("bloodBankAuthToken", JSON.stringify(token));
         toast.success("Login successfull");
-        if (result.user.profile.profile_type !== "donor") {
+        if (result.user.profile.profile_type === "patient") {
           redirect("/patient");
           return;
         }
+        if (result.user.profile.profile_type === "donor") {
+          redirect("/donor");
+          return;
+        }
         setTimeout(() => {
-          redirect("/donate");
-        }, 2000);
+          redirect("/register2");
+        }, 700);
       }
     }
   };
