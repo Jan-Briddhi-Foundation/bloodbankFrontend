@@ -19,7 +19,7 @@ function RequestSent() {
           <img src={requestImg} alt="" className="w-[15rem] h-[auto]" />
         </div>
         <p>
-          <a href="/">Back to Homepage</a>
+          <a href="/patient">Back to Homepage</a>
         </p>
       </main>
     </div>
