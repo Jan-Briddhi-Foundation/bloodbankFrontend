@@ -70,7 +70,7 @@ const Register2 = () => {
           return redirect("/patient");
         }
         return setTimeout(() => {
-          redirect("/donate");
+          redirect("/donor");
         }, 2000);
       }
     }
