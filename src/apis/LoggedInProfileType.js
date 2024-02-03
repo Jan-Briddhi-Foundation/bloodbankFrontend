@@ -2,14 +2,13 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { getProfileDetails } from "../apis/Profile";
 
-export const CheckAuthAndProfile = async () => {
+export const CheckAuth = async () => {
   const redirect = useNavigate();
 
   try {
     const authToken = localStorage.getItem("bloodBankAuthToken");
     const result = await getProfileDetails();
     const profileType = result?.profileForm?.profile_type;
-    console.log(authToken);
 
     if (!authToken) {
       toast.error("Please Login");
@@ -30,10 +29,9 @@ export const CheckAuthAndProfile = async () => {
       }, 1000);
     }
 
-    if (profileType !== "donor" && profileType !== "patient") {
+    if (profileType === undefined && authToken) {
       setTimeout(() => {
         redirect("/register2");
-        return;
       });
     }
 
@@ -43,6 +41,31 @@ export const CheckAuthAndProfile = async () => {
     if (error) {
       return error.data;
     }
-    // return false;
   }
+};
+
+export const PatientRedirect = async () => {
+  const redirect = useNavigate();
+  const authenticated = await CheckAuth();
+
+  if (authenticated === "patient") {
+    setTimeout(() => {
+      redirect("/patient");
+    });
+  }
+
+  return authenticated;
+};
+
+export const DonorRedirect = async () => {
+  const redirect = useNavigate();
+  const authenticated = await CheckAuth();
+
+  if (authenticated === "donor") {
+    setTimeout(() => {
+      redirect("/donor");
+    });
+  }
+
+  return authenticated;
 };

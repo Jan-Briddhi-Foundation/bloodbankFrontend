@@ -5,13 +5,16 @@ import info from "../../assets/Info.svg";
 import cross from "../../assets/cross.svg";
 import { useEffect, useState } from "react";
 import { getNotifications } from "../../apis/Notifications.hooks";
-import { CheckAuthAndProfile } from "../../apis/LoggedInProfileType";
+// import {
+//   CheckAuthAndProfile,
+//   DonorRedirect,
+// } from "../../apis/LoggedInProfileType";
 
 const NotificationDonor = () => {
-  (async () => {
-    const result = await CheckAuthAndProfile();
-    console.log(result);
-  })();
+  // (async () => {
+  //   const result = await DonorRedirect();
+  //   console.log(result);
+  // })();
 
   const [notifications, setNotifications] = useState([]);
 

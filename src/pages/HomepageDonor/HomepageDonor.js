@@ -9,8 +9,14 @@ import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { donorRequest } from "../../apis/DonorRequest";
+import { CheckAuth, PatientRedirect } from "../../apis/LoggedInProfileType";
 
 const HomepageDonor = () => {
+  (async () => {
+    const authenticated = await CheckAuth();
+    const result = await PatientRedirect();
+  })();
+
   const [bloodRequests, setbloodRequests] = useState([]);
 
   const getAllRequests = async () => {
