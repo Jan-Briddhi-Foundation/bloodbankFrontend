@@ -2,8 +2,13 @@ import Header from "../../components/Header/Header";
 import requestImg from "../../assets/RequestSent.svg";
 // import style from "./RequestSent.module.css";
 import React from "react";
+import { DonorRedirect } from "../../apis/LoggedInProfileType";
 
 function RequestSent() {
+  (async () => {
+    const result = await DonorRedirect();
+  })();
+
   return (
     <div>
       <Header />

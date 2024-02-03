@@ -28,13 +28,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register1" element={<Register />} />
           <Route path="/register2" element={<Register2 />} />
-          <Route path="/patient" element={<HomePage />} />
-          <Route path="/request" element={<NewRequest />} />
-          <Route path="/requestsent" element={<RequestSent />} />
-          <Route path="/requesthistory" element={<RequestHistoryPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/notifications" element={<NotificationDonor />} />
+
+          <Route path="/patient" element={<HomePage />} />
+          <Route path="/bloodrequest" element={<NewRequest />} />
+          <Route path="/requestsent" element={<RequestSent />} />
+          <Route path="/requesthistory" element={<RequestHistoryPage />} />
 
           <Route path="/donor" element={<HomepageDonor />} />
           <Route path="/donationcriteria" element={<Donorcriteria />} />

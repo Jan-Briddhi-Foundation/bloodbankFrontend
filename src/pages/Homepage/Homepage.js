@@ -3,8 +3,13 @@ import Caret from "../../assets/CaretCircleRight.svg";
 // import style from "./Hompage.module.css";
 import React from "react";
 import { Link } from "react-router-dom";
+import { DonorRedirect } from "../../apis/LoggedInProfileType";
 
 function Homepage() {
+  (async () => {
+    const result = await DonorRedirect();
+  })();
+
   return (
     <main>
       <Header />
@@ -12,7 +17,7 @@ function Homepage() {
         <h1 className="m-2 text-2xl"> Home</h1>
         <p className="items-center text-3xl">xxxxx</p>
         <section className="my-auto m-[2rem] w-[100%] flex flex-col items-center ">
-          <Link to={"/request"}>
+          <Link to={"/bloodrequest"}>
             <button className="flex items-center gap-4 p-2 rounded-[5px] min-h-5 max-w-[90vw] text-start m-[1.8rem]">
               <p className="mx-auto w-[29rem] my-0 ">Submit New Request </p>{" "}
               <img

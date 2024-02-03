@@ -7,14 +7,19 @@ import location from "../../assets/location.svg";
 // import { getNotifications } from "../../apis/Notifications.hooks";
 import { useEffect, useState } from "react";
 import { requestHistory } from "../../apis/BloodRequestHistory";
+import { DonorRedirect } from "../../apis/LoggedInProfileType";
 
 const RequestHistoryPage = () => {
-  const [notifications, setNotifications] = useState([]);
+  (async () => {
+    const result = await DonorRedirect();
+  })();
 
+  const [notifications, setNotifications] = useState([]);
   const getAllRequests = async () => {
     const data = await requestHistory();
     setNotifications(data);
   };
+
   useEffect(() => {
     getAllRequests();
   }, []);
