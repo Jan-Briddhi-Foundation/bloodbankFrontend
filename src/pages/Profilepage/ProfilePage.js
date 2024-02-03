@@ -15,12 +15,13 @@ const ProfilePage = () => {
   const profileDetailget = useCallback(async () => {
     const result = await getProfileDetails();
     if (result.detail === "Invalid token.") {
-      toast.error("Season Expired");
+      toast.error("Session Expired");
       toast.error("Login again");
       localStorage.removeItem("bloodBankAuthToken");
+
       setTimeout(() => {
-        redirect("/");
-      });
+        redirect("/login");
+      }, 1000);
     } else {
       setDetails(result);
     }

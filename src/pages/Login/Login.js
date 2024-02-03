@@ -61,7 +61,7 @@ const Login = () => {
         }
         setTimeout(() => {
           redirect("/register2");
-        }, 700);
+        }, 1000);
       }
     }
   };
