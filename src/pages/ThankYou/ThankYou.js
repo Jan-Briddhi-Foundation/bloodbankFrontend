@@ -3,8 +3,12 @@ import thanks from "../../assets/thank you 1.svg";
 
 import React from "react";
 import style from "./ThankYou.module.css";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 function ThankYou() {
+  (async () => {
+    const result = await PatientRedirect();
+  })();
   return (
     <>
       <Header />

@@ -4,8 +4,13 @@ import love from "./love.png";
 
 import React from "react";
 // import style from "./Inelligible.module.css";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 function Inelligible() {
+  (async () => {
+    const result = await PatientRedirect();
+  })();
+
   return (
     <>
       <Header />

@@ -35,12 +35,13 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/notifications" element={<NotificationDonor />} />
+
           <Route path="/donor" element={<HomepageDonor />} />
-          <Route path="/donatedetails" element={<Donorcriteria />} />
+          <Route path="/donationcriteria" element={<Donorcriteria />} />
           <Route path="/findbloodbank" element={<FindBloodBank />} />
           <Route path="/thankyou" element={<ThankYou />}></Route>
           <Route path="/inelligible" element={<Inelligible />}></Route>
-          <Route path="/yourinfo" element={<YourInfo />}></Route>
+          <Route path="/donationconsent" element={<YourInfo />}></Route>
         </Routes>
       </Router>
     </div>

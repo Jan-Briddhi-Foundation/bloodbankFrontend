@@ -5,8 +5,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { getProfileDetails } from "../../apis/Profile";
 import { useEffect, useState } from "react";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 function YourInfo() {
+  (async () => {
+    const result = await PatientRedirect();
+  })();
+
   const [details, setDetails] = useState();
   const firstName = (nameString) => nameString.split(" ")[0];
   const lastName = (nameString) => nameString.split(" ")[1];

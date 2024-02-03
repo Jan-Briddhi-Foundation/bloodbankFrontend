@@ -4,9 +4,15 @@ import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import { qualifyDonor } from "../../apis/QualifyNotifications";
 import { useNavigate } from "react-router-dom";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
+
 // import styles from "./DonorCriteria.module.css";
 
 const Donorcriteria = () => {
+  (async () => {
+    const result = await PatientRedirect();
+  })();
+
   const inputClass =
     "flex flex-col items-center  p-2 m-4 bg-[#F9F9F9] rounded-[5px] md:min-h-[5rem] text-start md:justify-center md:mx-40  w-[full] my-0 border";
 

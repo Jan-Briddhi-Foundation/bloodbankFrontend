@@ -9,11 +9,10 @@ import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { donorRequest } from "../../apis/DonorRequest";
-import { CheckAuth, PatientRedirect } from "../../apis/LoggedInProfileType";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 const HomepageDonor = () => {
   (async () => {
-    const authenticated = await CheckAuth();
     const result = await PatientRedirect();
   })();
 
@@ -75,7 +74,7 @@ const HomepageDonor = () => {
                     className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.5625rem] -right-[0.625rem]"
                   />
 
-                  <Link to={"/donatedetails"}>
+                  <Link to={"/donationcriteria"}>
                     <img
                       className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.5625rem] mt-[0.25rem] -right-5"
                       src={check}

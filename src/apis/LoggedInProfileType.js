@@ -11,12 +11,7 @@ export const CheckAuth = async () => {
     const profileType = result?.profileForm?.profile_type;
 
     if (!authToken) {
-      toast.error("Please Login");
-
-      setTimeout(() => {
-        redirect("/login");
-        return;
-      }, 1000);
+      redirect("/login");
     }
 
     if (result.detail === "Invalid token.") {

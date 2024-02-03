@@ -3,8 +3,13 @@ import Header from "../../components/Header/Header";
 // import "./DonorCriteria.css";
 // import { MapPage } from "../../components/Map/Map";
 import { Link } from "react-router-dom";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 const FindBloodBank = () => {
+  (async () => {
+    const result = await PatientRedirect();
+  })();
+
   return (
     <>
       <Header />
@@ -18,7 +23,7 @@ const FindBloodBank = () => {
             Find blood banks near your location.{" "}
           </p>
         </div>
-        <Link to="/yourinfo">Next</Link>
+        <Link to="/donationconsent">Next</Link>
       </div>
     </>
   );
