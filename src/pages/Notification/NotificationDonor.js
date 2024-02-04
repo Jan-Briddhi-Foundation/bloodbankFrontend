@@ -3,10 +3,15 @@ import Header from "../../components/Header/Header";
 import patient from "../../assets/patient.svg";
 import info from "../../assets/Info.svg";
 import cross from "../../assets/cross.svg";
-import { getNotifications } from "../../apis/Notifications.hooks";
 import { useEffect, useState } from "react";
+import { getNotifications } from "../../apis/Notifications.hooks";
+import { CheckAuth } from "../../apis/LoggedInProfileType";
 
 const NotificationDonor = () => {
+  (async () => {
+    const result = await CheckAuth();
+  })();
+
   const [notifications, setNotifications] = useState([]);
 
   const getAllNotifications = async () => {

@@ -19,36 +19,34 @@ import HomePage from "./pages/Homepage/Homepage";
 import NewRequest from "./pages/NewRequest/NewRequest";
 import RequestSent from "./pages/RequestSent/RequestSent";
 import RequestHistoryPage from "./pages/RequestHistory/RequestHistory";
+
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register1" element={<Register />} />
-          <Route path="/patient" element={<HomePage />} />
-          <Route path="/request" element={<NewRequest />} />
-          <Route path="/requestsent" element={<RequestSent />} />
-          <Route path="/requesthistory" element={<RequestHistoryPage />} />
           <Route path="/register2" element={<Register2 />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/notifications" element={<NotificationDonor />} />
+
+          <Route path="/patient" element={<HomePage />} />
+          <Route path="/bloodrequest" element={<NewRequest />} />
+          <Route path="/requestsent" element={<RequestSent />} />
+          <Route path="/requesthistory" element={<RequestHistoryPage />} />
+
           <Route path="/donor" element={<HomepageDonor />} />
-          <Route path="/donatedetails" element={<Donorcriteria />} />
-          <Route
-            path="/findbloodbank"
-            element={<FindBloodBank></FindBloodBank>}
-          />
+          <Route path="/donationcriteria" element={<Donorcriteria />} />
+          <Route path="/findbloodbank" element={<FindBloodBank />} />
           <Route path="/thankyou" element={<ThankYou />}></Route>
-          <Route
-            path="/inelligible"
-            element={<Inelligible></Inelligible>}
-          ></Route>
-          <Route path="/yourinfo" element={<YourInfo></YourInfo>}></Route>
+          <Route path="/inelligible" element={<Inelligible />}></Route>
+          <Route path="/donationconsent" element={<YourInfo />}></Route>
         </Routes>
       </Router>
     </div>
   );
 }
+
 export default App;

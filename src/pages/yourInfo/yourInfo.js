@@ -2,14 +2,33 @@ import Header from "../../components/Header/Header";
 // import style from "./yourInfo.module.css";
 import NextIcon from "../../assets/CaretCircleRight.svg";
 import React from "react";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { Link } from "react-router-dom";
+import { getProfileDetails } from "../../apis/Profile";
+import { useEffect, useState } from "react";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
-function yourInfo() {
+function YourInfo() {
+  (async () => {
+    const result = await PatientRedirect();
+  })();
+
+  const [details, setDetails] = useState();
+  const firstName = (nameString) => nameString.split(" ")[0];
+  const lastName = (nameString) => nameString.split(" ")[1];
+
+  const profileDetailget = async () => {
+    const result = await getProfileDetails();
+    setDetails(result);
+  };
+
+  useEffect(() => {
+    profileDetailget();
+  }, [profileDetailget]);
+
   const firstClass =
     "relative rounded-[8px] bg-[#f9f9f9] opacity-100 w-full min-h-[5rem] pl-4 border-[1px] border-[solid] border-[#BA595F]";
 
-  return (
+  return details ? (
     <div>
       <Header />
       <div>
@@ -19,55 +38,40 @@ function yourInfo() {
         <section className="flex flex-col md:grid md:grid-cols-[repeat(2,_1fr)] w-4/5 gap-4 justify-center mx-[auto] my-[0] text-[1.5rem]">
           <input
             type="text"
-            placeholder="First Name"
             name="firstName"
             className={firstClass}
-            required
+            value={firstName(details.userForm.name)}
+            readOnly
           />
           <input
             type="text"
-            placeholder="Last Name"
             name="lastName"
             className={firstClass}
-            required
+            value={lastName(details.userForm.name)}
+            readOnly
           />
           <input
-            type="tel"
-            placeholder="Phone"
+            type="text"
             name="phone"
             className={firstClass}
-            required
+            value={details.userForm.phone}
+            readOnly
           />
           <input
-            type="Email"
-            placeholder="Email"
+            type="text"
             name="gmail"
             className={firstClass}
-            required
+            value={details.userForm.email}
+            readOnly
           />
-          <div
-            className={`${"flex flex-col justify-center relative h-28"} ${firstClass} `}
-          >
-            <select
-              name="bloodType"
-              placeholder="Blood Type"
-              className={` ${"border-[none] appearance-none w-auto min-h-[5rem] bg-[#f9f9f9] m-4 p-4 text-[1.5rem] outline-[none]"}`}
-            >
-              <option value="" selected>
-                Blood Type
-              </option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="AB">AB</option>
-              <option value="O">O</option>
-            </select>
-            <div>
-              <ArrowDropDownIcon
-                className="absolute flex right-[0.8rem] top-2/4 -translate-y-1/2 items-center justify-center pointer-events-none text-[#BA595F] h-80"
-                sx={{ fontSize: 50 }}
-              />
-            </div>
-          </div>
+
+          <input
+            type="text"
+            name="bloodType"
+            className={firstClass}
+            value={details.profileForm.bloodGroup}
+            readOnly
+          />
         </section>
       </div>
       <div className="flex justify-end">
@@ -80,6 +84,16 @@ function yourInfo() {
         </Link>
       </div>
     </div>
+  ) : (
+    <>
+      <Header />
+      <center>
+        <h1>
+          <b>Loading...</b>
+        </h1>
+      </center>
+    </>
   );
 }
-export default yourInfo;
+
+export default YourInfo;

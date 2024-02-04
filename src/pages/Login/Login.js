@@ -11,11 +11,14 @@ import loginRight from "../../assets/loginRight.png";
 import password from "../../assets/password.svg";
 import Header from "../../components/Header/Header";
 // import styles from "./Login.module.css";
+import { LogInStatus } from "../../apis/LoggedInProfileType";
 
 const Login = () => {
-  const redirect = useNavigate();
-  const loginCheck = localStorage.getItem("bloodBankAuthToken");
+  (async () => {
+    const result = await LogInStatus();
+  })();
 
+  const redirect = useNavigate();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -51,13 +54,17 @@ const Login = () => {
         const token = "Token " + result.token;
         localStorage.setItem("bloodBankAuthToken", JSON.stringify(token));
         toast.success("Login successfull");
-        if (result.user.profile.profile_type !== "donor") {
+        if (result.user.profile.profile_type === "patient") {
           redirect("/patient");
           return;
         }
+        if (result.user.profile.profile_type === "donor") {
+          redirect("/donor");
+          return;
+        }
         setTimeout(() => {
-          redirect("/donate");
-        }, 2000);
+          redirect("/register2");
+        }, 1000);
       }
     }
   };

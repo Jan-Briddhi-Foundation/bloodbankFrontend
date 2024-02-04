@@ -8,7 +8,13 @@ import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register2 } from "../../apis/Auth";
+import { CheckAuth } from "../../apis/LoggedInProfileType";
+
 const Register2 = () => {
+  (async () => {
+    const result = await CheckAuth();
+  })();
+
   const redirect = useNavigate();
   const [user, setUser] = useState({
     city: "",
@@ -69,11 +75,12 @@ const Register2 = () => {
           return redirect("/patient");
         }
         return setTimeout(() => {
-          redirect("/donate");
+          redirect("/donor");
         }, 2000);
       }
     }
   };
+
   return (
     <>
       <Header />

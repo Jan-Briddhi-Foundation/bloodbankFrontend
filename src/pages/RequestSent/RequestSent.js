@@ -2,8 +2,13 @@ import Header from "../../components/Header/Header";
 import requestImg from "../../assets/RequestSent.svg";
 // import style from "./RequestSent.module.css";
 import React from "react";
+import { DonorRedirect } from "../../apis/LoggedInProfileType";
 
 function RequestSent() {
+  (async () => {
+    const result = await DonorRedirect();
+  })();
+
   return (
     <div>
       <Header />
@@ -19,7 +24,7 @@ function RequestSent() {
           <img src={requestImg} alt="" className="w-[15rem] h-[auto]" />
         </div>
         <p>
-          <a href="/">Back to Homepage</a>
+          <a href="/patient">Back to Homepage</a>
         </p>
       </main>
     </div>

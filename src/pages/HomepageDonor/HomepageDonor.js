@@ -7,7 +7,26 @@ import calendar from "../../assets/calendar.svg";
 import location from "../../assets/location.svg";
 import { Link } from "react-router-dom";
 
+import { useEffect, useState } from "react";
+import { donorRequest } from "../../apis/DonorRequest";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
+
 const HomepageDonor = () => {
+  (async () => {
+    const result = await PatientRedirect();
+  })();
+
+  const [bloodRequests, setbloodRequests] = useState([]);
+
+  const getAllRequests = async () => {
+    const data = await donorRequest();
+    setbloodRequests(data);
+  };
+
+  useEffect(() => {
+    getAllRequests();
+  }, []);
+
   return (
     <>
       <Header />
@@ -20,51 +39,60 @@ const HomepageDonor = () => {
             Each donation can help save up to 3 lives!
           </span>
         </div>
-        <div className="mt-4 flex flex-col gap-2 w-[100%] p-4  md:w-[60vw]">
-          <section className="relative rounded-[5px] pl-[2vh] pr-[4vh] py-[2vh] flex justify-between h-[12vh] bg-[rgba(249,_249,_249,_1)] w-[100%]">
-            <div className="w-[full] flex flex-col justify-between gap-2">
-              <span>Blood Request: Type AB</span>
-              <div className="flex gap-[2rem]">
-                <span className="flex gap-1 items-center text-xs">
+        {bloodRequests.blood_requests ? (
+          bloodRequests.blood_requests.map((request, index) => (
+            <div
+              key={index}
+              className="mt-4 flex flex-col gap-2 w-[100%] p-4  md:w-[60vw]"
+            >
+              <section className="relative rounded-[5px] pl-[2vh] pr-[4vh] py-[2vh] flex justify-between h-[12vh] bg-[rgba(249,_249,_249,_1)] w-[100%]">
+                <div className="w-[full] flex flex-col justify-between gap-2">
+                  <span>Blood Request: Type {request.profile.bloodGroup}</span>
+                  <div className="flex gap-[2rem]">
+                    <span className="flex gap-1 items-center text-xs">
+                      <img
+                        className="w-[1rem] h-[1rem]"
+                        src={calendar}
+                        alt="calendarIcon"
+                      />
+                      Before {request.date_needed}
+                    </span>
+                    <span className="flex gap-1 items-center text-xs">
+                      <img
+                        className="w-[1rem] h-[1rem]"
+                        src={location}
+                        alt="calendarIcon"
+                      />
+                      {request.profile.city}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex  self-start items-center">
                   <img
-                    className="w-[1rem] h-[1rem]"
-                    src={calendar}
-                    alt="calendarIcon"
+                    src={share}
+                    alt="share icon"
+                    className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.5625rem] -right-[0.625rem]"
                   />
-                  Before 05/31/23
-                </span>
-                <span className="flex gap-1 items-center text-xs">
-                  <img
-                    className="w-[1rem] h-[1rem]"
-                    src={location}
-                    alt="calendarIcon"
-                  />
-                  City
-                </span>
-              </div>
-            </div>
-            <div className="flex  self-start items-center">
-              <img
-                src={share}
-                alt="share icon"
-                className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.5625rem] -right-[0.625rem]"
-              />
 
-              <Link to={"/donatedetails"}>
+                  <Link to={"/donationcriteria"}>
+                    <img
+                      className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.5625rem] mt-[0.25rem] -right-5"
+                      src={check}
+                      alt="check icon"
+                    />
+                  </Link>
+                </div>
                 <img
-                  className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.5625rem] mt-[0.25rem] -right-5"
-                  src={check}
+                  className="absolute right-[0.5%] top-[3%] cursor-pointer"
+                  src={cross}
                   alt="check icon"
                 />
-              </Link>
+              </section>
             </div>
-            <img
-              className="absolute right-[0.5%] top-[3%] cursor-pointer"
-              src={cross}
-              alt="check icon"
-            />
-          </section>
-        </div>
+          ))
+        ) : (
+          <div>No bloodrequests yet</div>
+        )}
       </div>
     </>
   );
