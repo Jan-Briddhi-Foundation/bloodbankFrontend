@@ -5,14 +5,16 @@ import info from "../../assets/Info.svg";
 import cross from "../../assets/cross.svg";
 import { useEffect, useState } from "react";
 import { getNotifications } from "../../apis/Notifications.hooks";
-import { CheckAuth } from "../../apis/LoggedInProfileType";
+import { CheckAuth, LogInStatus } from "../../apis/LoggedInProfileType";
 
 const NotificationDonor = () => {
-  (async () => {
-    const result = await CheckAuth();
-  })();
-
   const [notifications, setNotifications] = useState([]);
+  const [authType, setAuthType] = useState("");
+
+  const checkStatus = async () => {
+    const result = await CheckAuth();
+    setAuthType(result);
+  };
 
   const getAllNotifications = async () => {
     const data = await getNotifications();
@@ -70,7 +72,9 @@ const NotificationDonor = () => {
                   <img className="w-[auto]" src={patient} alt="patient Icon" />
                   <div className="flex flex-col  text-left md:gap-2">
                     <span className="font-[Roboto]  font-semibold text-[rgba(70,_74,_87,_1)]">
-                      New Request in your Location
+                      {authType === "patient"
+                        ? "New Request in your Location"
+                        : "You have a blood match!"}
                     </span>
                     <div className="flex items-center gap-1">
                       <img
@@ -79,7 +83,9 @@ const NotificationDonor = () => {
                         alt="info icon"
                       />
                       <span className="font-[Roboto] text-xs text-[rgba(99,_99,_99,_1)]">
-                        Go to your Homepage to view the request.
+                        {authType === "patient"
+                          ? "Go to your Homepage to view the request."
+                          : "Contact your doctor/hopsital for more information."}
                       </span>
                     </div>
                   </div>
