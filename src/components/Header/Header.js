@@ -17,11 +17,6 @@ function Header() {
     false || localStorage.getItem("bloodBankAuthToken")
   );
 
-  const handleClick = () => {
-    // login ? redirect("/profile") : redirect("/");
-    login ? redirect("/patient") : redirect("/login");
-  };
-
   const handleLogout = () => {
     localStorage.removeItem("bloodBankAuthToken");
     setLogin(false);
@@ -70,11 +65,19 @@ function Header() {
         ) : (
           ""
         )}
-        <Account
-          className={style.icons}
-          sx={{ fontSize: 42 }}
-          onClick={handleClick}
-        />
+
+        {login ? (
+          <Account
+            className={style.icons}
+            sx={{ fontSize: 42 }}
+            onClick={() => {
+              redirect("/profile");
+            }}
+          />
+        ) : (
+          ""
+        )}
+
         {login ? (
           <Notification
             className={style.icons}
