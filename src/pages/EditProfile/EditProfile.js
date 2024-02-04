@@ -11,8 +11,13 @@ import { ToastContainer, toast } from "react-toastify";
 import { getProfileDetails, EditProfileDetails } from "../../apis/Profile";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CheckAuth } from "../../apis/LoggedInProfileType";
 
 const EditProfile = () => {
+  (async () => {
+    const result = await CheckAuth();
+  })();
+
   const redirect = useNavigate();
   const [details, setDetails] = useState(null);
 

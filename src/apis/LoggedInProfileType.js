@@ -64,3 +64,18 @@ export const DonorRedirect = async () => {
 
   return authenticated;
 };
+
+export const LogInStatus = async () => {
+  const redirect = useNavigate();
+  const authenticated = await CheckAuth();
+
+  if (authenticated === "donor") {
+    redirect("/donor");
+  } else if (authenticated === "patient") {
+    redirect("/patient");
+  } else {
+    redirect("/register2");
+  }
+
+  return authenticated;
+};

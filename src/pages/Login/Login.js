@@ -11,8 +11,13 @@ import loginRight from "../../assets/loginRight.png";
 import password from "../../assets/password.svg";
 import Header from "../../components/Header/Header";
 // import styles from "./Login.module.css";
+import { LogInStatus } from "../../apis/LoggedInProfileType";
 
 const Login = () => {
+  (async () => {
+    const result = await LogInStatus();
+  })();
+
   const redirect = useNavigate();
   const loginCheck = localStorage.getItem("bloodBankAuthToken");
 

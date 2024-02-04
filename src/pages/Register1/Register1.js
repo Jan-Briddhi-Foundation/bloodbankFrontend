@@ -9,8 +9,13 @@ import logo from "../../assets/logo.svg";
 import password from "../../assets/password.svg";
 import Header from "../../components/Header/Header";
 import styles from "./Register1.module.css";
+import { LogInStatus } from "../../apis/LoggedInProfileType";
 
 const Register1 = () => {
+  (async () => {
+    const result = await LogInStatus();
+  })();
+
   const redirect = useNavigate();
   const [user, setUser] = useState({
     name: "",
