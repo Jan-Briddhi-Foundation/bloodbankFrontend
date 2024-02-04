@@ -1,15 +1,16 @@
 import Account from "@mui/icons-material/AccountCircleOutlined";
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import Email from "@mui/icons-material/EmailOutlined";
 import Logout from "@mui/icons-material/LogoutOutlined";
 import Notification from "@mui/icons-material/NotificationsNoneOutlined";
-import ReorderOutlinedIcon from '@mui/icons-material/ReorderOutlined';
+import ReorderOutlinedIcon from "@mui/icons-material/ReorderOutlined";
 import Settings from "@mui/icons-material/SettingsOutlined";
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Logo from "../../assets/logo.svg";
 import style from "./Header.module.css";
+
 function Header() {
   const redirect = useNavigate();
   const [login, setLogin] = useState(
@@ -17,8 +18,10 @@ function Header() {
   );
 
   const handleClick = () => {
-    login ? redirect("/profile") : redirect("/");
+    // login ? redirect("/profile") : redirect("/");
+    login ? redirect("/patient") : redirect("/login");
   };
+
   const handleLogout = () => {
     localStorage.removeItem("bloodBankAuthToken");
     setLogin(false);
@@ -28,11 +31,12 @@ function Header() {
     });
   };
 
-  const navRef = useRef()
+  const navRef = useRef();
 
   const show = () => {
     navRef.current.classList.toggle("responsive_nav");
-  }
+  };
+
   return (
     <div className={style.header}>
       <img
@@ -40,12 +44,12 @@ function Header() {
         className={style.Logo}
         alt="logo"
         onClick={() => {
-          login ? redirect("/profile") : redirect("/");
+          login ? redirect("/patient") : redirect("/login");
         }}
       />
       <h1 className={style.compname}>Floating Blood Bank</h1>
       <nav className={style.icon} ref={navRef}>
-          {login ? (
+        {login ? (
           <Settings
             className={style.icons}
             sx={{ fontSize: 42 }}
@@ -82,9 +86,13 @@ function Header() {
         ) : (
           ""
         )}
-        <button className={style.nav_btn} onClick={show}><CloseOutlinedIcon /></button>
+        <button className={style.nav_btn} onClick={show}>
+          <CloseOutlinedIcon />
+        </button>
       </nav>
-      <button className={style.nav_btn} onClick={show}><ReorderOutlinedIcon /></button>
+      <button className={style.nav_btn} onClick={show}>
+        <ReorderOutlinedIcon />
+      </button>
     </div>
   );
 }
