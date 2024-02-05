@@ -22,8 +22,8 @@ function Header() {
     setLogin(false);
     toast.success("Logout Successfull");
     setTimeout(() => {
-      redirect("/");
-    });
+      redirect("/login");
+    }, 1500);
   };
 
   const navRef = useRef();
