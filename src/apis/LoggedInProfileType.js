@@ -67,16 +67,26 @@ export const DonorRedirect = async () => {
 
 export const LogInStatus = async () => {
   const redirect = useNavigate();
-  const authenticated = await CheckAuth();
-  const authToken = localStorage.getItem("bloodBankAuthToken");
 
-  if (authenticated === "donor") {
-    redirect("/donor");
-  } else if (authenticated === "patient") {
-    redirect("/patient");
-  } else if (authenticated === undefined && authToken) {
-    redirect("/register2");
+  try {
+    const authToken = localStorage.getItem("bloodBankAuthToken");
+
+    if (authToken) {
+      const authenticated = await CheckAuth();
+
+      if (authenticated === "donor") {
+        redirect("/donor");
+      } else if (authenticated === "patient") {
+        redirect("/patient");
+      } else if (authenticated === undefined && authToken) {
+        redirect("/register2");
+      }
+      return authenticated;
+    }
+  } catch (error) {
+    console.error("Error checking authentication:", error);
+    if (error) {
+      return error.data;
+    }
   }
-
-  return authenticated;
 };
