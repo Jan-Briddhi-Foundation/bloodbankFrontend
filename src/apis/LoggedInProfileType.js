@@ -68,12 +68,13 @@ export const DonorRedirect = async () => {
 export const LogInStatus = async () => {
   const redirect = useNavigate();
   const authenticated = await CheckAuth();
+  const authToken = localStorage.getItem("bloodBankAuthToken");
 
   if (authenticated === "donor") {
     redirect("/donor");
   } else if (authenticated === "patient") {
     redirect("/patient");
-  } else {
+  } else if (authenticated === undefined && authToken) {
     redirect("/register2");
   }
 
