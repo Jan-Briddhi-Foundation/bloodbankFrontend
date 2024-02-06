@@ -61,7 +61,7 @@ const NotificationDonor = () => {
           </h1>
           <span>Discover who needs blood around you.</span>
         </div>
-        {notifications.requests ? (
+        {notifications.requests.length ? (
           notifications.requests.map((request, index) => (
             <section
               key={index}

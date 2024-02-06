@@ -74,6 +74,7 @@ const Login = () => {
       toast.error("Enter your email");
     } else {
       const result = await forgotPassword(user.email);
+      console.log(result);
       if (result) {
         toast.error("Email does not exist");
       } else {
