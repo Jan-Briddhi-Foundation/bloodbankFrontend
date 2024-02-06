@@ -13,7 +13,7 @@ import { LogInStatus } from "../../apis/LoggedInProfileType";
 
 const Register1 = () => {
   (async () => {
-    const result = await LogInStatus();
+    await LogInStatus();
   })();
 
   const redirect = useNavigate();
@@ -27,6 +27,10 @@ const Register1 = () => {
   const validateForm = (name, email, phone, password) => {
     let error;
 
+    name = name.trim();
+    email = email.trim();
+    phone = phone.trim();
+
     if (!/^[a-zA-Z]+(?: [a-zA-Z]+)*$/.test(name) || name === "") {
       toast.error("Inavalid Name");
       error = true;
@@ -39,8 +43,8 @@ const Register1 = () => {
       toast.error("Enter Valid mobile number");
       error = true;
     }
-    if (!/^.{4,14}$/.test(password)) {
-      toast.error("Password should be more than 4 characters");
+    if (!/^.{4,24}$/.test(password)) {
+      toast.error("Password should be between 4 and 24 characters");
       error = true;
     }
 
