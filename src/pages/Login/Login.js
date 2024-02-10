@@ -31,8 +31,8 @@ const Login = () => {
       toast.error("Enter valid email");
       error = true;
     }
-    if (!/^.{4,14}$/.test(password)) {
-      toast.error("Password should be more than 4 characters");
+    if (!/^.{4,24}$/.test(password)) {
+      toast.error("Enter valid password");
       error = true;
     }
 
