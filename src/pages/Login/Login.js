@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { forgotPassword, login } from "../../apis/Auth";
-import apple from "../../assets/Apple.png";
-import facebook from "../../assets/Facebook.svg";
-import google from "../../assets/Google.svg";
+// import apple from "../../assets/Apple.png";
+// import facebook from "../../assets/Facebook.svg";
+// import google from "../../assets/Google.svg";
 import email from "../../assets/email.svg";
 import loginLeft from "../../assets/loginLeft.png";
 import loginRight from "../../assets/loginRight.png";
@@ -15,7 +15,7 @@ import { LogInStatus } from "../../apis/LoggedInProfileType";
 
 const Login = () => {
   (async () => {
-    const result = await LogInStatus();
+    await LogInStatus();
   })();
 
   const redirect = useNavigate();
@@ -46,6 +46,7 @@ const Login = () => {
   const handleSumbit = async (e) => {
     e.preventDefault();
     const validate = validateForm(user.email, user.password);
+
     if (validate) {
       const result = await login(user.email, user.password);
       if (result.errors) {

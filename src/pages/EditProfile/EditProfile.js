@@ -15,14 +15,8 @@ import { CheckAuth } from "../../apis/LoggedInProfileType";
 
 const EditProfile = () => {
   (async () => {
-    const result = await CheckAuth();
+    await CheckAuth();
   })();
-
-  const formfield =
-    "grid grid-cols-[auto,1fr] rounded overflow-hidden bg-[#f9f9f9] focus:outline";
-  const inputformField =
-    "text-xl bg-[#f9f9f9] p-2 text-base focus:outline-none";
-  const iconStyle = "w-10 m-2 pr-2 border-r-[1px] border-black";
 
   const redirect = useNavigate();
   const [details, setDetails] = useState(null);
@@ -71,7 +65,8 @@ const EditProfile = () => {
   return details ? (
     <>
       <Header />
-      {/* <div className={styles.container}>
+      {/* 
+      <div className={styles.container}>
         <div className={styles.title}>
           <h1 className={styles.h1title}>Your Profile</h1>
           <span>All about you!</span>
