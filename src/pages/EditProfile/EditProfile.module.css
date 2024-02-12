@@ -40,7 +40,7 @@
   letter-spacing: 0.02em;
   text-align: center;
   text-decoration: underline;
-  color: rgba(186, 89, 95, 1);
+  color: #ba595f;
   cursor: pointer;
 }
 
@@ -144,7 +144,7 @@ select {
   height: 0;
   width: 0;
   position: absolute;
-  border-top: 10px solid rgba(186, 89, 95, 1);
+  border-top: 10px solid #ba595f;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   pointer-events: none;
