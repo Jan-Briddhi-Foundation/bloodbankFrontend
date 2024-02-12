@@ -154,7 +154,7 @@ const Login = () => {
             Or continue with
             <div></div>
           </div>
-          <div className="flex gap-4 mb-4 ">
+          {/* <div className="flex gap-4 mb-4 ">
             <div className="h-[3rem] w-[3rem] flex flex-col gap-1 items-center">
               <img src={google} alt="google" />
               <span className="text-xs">Google</span>
@@ -167,7 +167,7 @@ const Login = () => {
               <img src={apple} alt="apple" />
               <span className="text-xs">Apple</span>
             </div>
-          </div>
+          </div> */}
         </main>
         <img
           className="w-[20rem] self-start mt-4 p-4"
