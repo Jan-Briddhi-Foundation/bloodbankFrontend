@@ -27,6 +27,8 @@ const RequestHistoryPage = () => {
   return (
     <>
       <Header />
+      {/* <div className={styles.NotificationDonor}>
+        <div className={styles.title}> */}
       <div className={styles.NotificationDonor}>
         <div className={styles.title}>
           <h1>Request History</h1>

@@ -18,6 +18,12 @@ const EditProfile = () => {
     await CheckAuth();
   })();
 
+  const formfield =
+    "grid grid-cols-[auto,1fr] rounded overflow-hidden bg-[#f9f9f9] focus:outline";
+  const inputformField =
+    "text-xl bg-[#f9f9f9] p-2 text-base focus:outline-none max-[480px]:p-1 max-[480px]:text-xs max-[480px]:bg-sky-300 max-[480px]:bg-sky-300 max-[480px]:bg-sky-300";
+  const iconStyle = "w-10 m-2 pr-2 border-r-[1px] border-black";
+
   const redirect = useNavigate();
   const [details, setDetails] = useState(null);
 
@@ -65,112 +71,6 @@ const EditProfile = () => {
   return details ? (
     <>
       <Header />
-      {/* 
-      <div className={styles.container}>
-        <div className={styles.title}>
-          <h1 className={styles.h1title}>Your Profile</h1>
-          <span>All about you!</span>
-          <h1 className={styles.highlighted}>Donate for the Cause</h1>
-        </div>
-        <section className={styles.form}>
-          <div>
-            <img src={user} alt="usericon" />
-            <div className={styles.line}></div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={details.userForm.name}
-              onChange={(e) => handleInputChange(e, "userForm", "name")}
-            />
-          </div>
-          <div>
-            <img src={blood} alt="bloodicon" />
-            <div className={styles.line}></div>
-            <div className={styles.customSelect}>
-              <select
-                name="bloodGroup"
-                value={details.profileForm.bloodGroup}
-                onChange={(e) =>
-                  handleInputChange(e, "profileForm", "bloodGroup")
-                }
-              >
-                <option value="" selected>
-                  Blood Group
-                </option>
-                <option value="A+">O+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <img src={house} alt="addressicon" />
-            <div className={styles.line}></div>
-            <input
-              type="text"
-              name="address"
-              placeholder="Address"
-              value={details.profileForm.address}
-              onChange={(e) => handleInputChange(e, "profileForm", "address")}
-            />
-          </div>
-          <div>
-            <img src={location} alt="locationicon" />
-            <div className={styles.line}></div>
-            <input
-              type="text"
-              name="city"
-              placeholder="City*"
-              value={details.profileForm.city}
-              onChange={(e) => handleInputChange(e, "profileForm", "city")}
-            />
-          </div>
-          <div>
-            <img src={globe} alt="globeicon" />
-            <div className={styles.line}></div>
-            <input
-              type="text"
-              name="country"
-              placeholder="Country*"
-              value={details.profileForm.country}
-              onChange={(e) => handleInputChange(e, "profileForm", "country")}
-            />
-          </div>
-          <div>
-            <img src={Phone} alt="phoneicon" />
-            <div className={styles.line}></div>
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone Number*"
-              maxLength="10"
-              value={details.userForm.phone}
-              onChange={(e) => handleInputChange(e, "userForm", "phone")}
-            />
-          </div>
-          <div>
-            <img src={flag} alt="flagicon" />
-            <div className={styles.line}></div>
-            <input
-              type="text"
-              name="langauge"
-              placeholder="Language"
-              value={details.profileForm.langauge}
-              onChange={(e) => handleInputChange(e, "profileForm", "langauge")}
-            />
-          </div>
-        </section>
-        <button className={styles.button} onClick={HandleEditProfile}>
-          Save
-        </button>
-
-      </div>  */}
       <div className="px-8 py-8">
         <div className="mx-auto my-8 text-center max-w-3xl">
           <div className="flex flex-col items-center gap-y-3 mb-2">
@@ -196,29 +96,27 @@ const EditProfile = () => {
             <div className={formfield}>
               <img className={iconStyle} src={blood} alt="bloodicon" />
 
-              <div>
-                <select
-                  className="block appearance-none w-full bg-[#f9f9f9] text-gray-700 p-2 rounded leading-tight focus:outline-none"
-                  name="bloodGroup"
-                  placeholder="Blood Group"
-                  value={details.profileForm.bloodGroup}
-                  onChange={(e) =>
-                    handleInputChange(e, "profileForm", "bloodGroup")
-                  }
-                >
-                  <option value="" selected>
-                    Blood Group
-                  </option>
-                  <option value="A+">O+</option>
-                  <option value="A-">A-</option>
-                  <option value="B+">B+</option>
-                  <option value="B-">B-</option>
-                  <option value="O+">O+</option>
-                  <option value="O-">O-</option>
-                  <option value="AB+">AB+</option>
-                  <option value="AB-">AB-</option>
-                </select>
-              </div>
+              <select
+                className="block appearance-none w-full bg-[#f9f9f9] text-gray-700 p-2 rounded leading-tight focus:outline-none"
+                name="bloodGroup"
+                placeholder="Blood Group"
+                value={details.profileForm.bloodGroup}
+                onChange={(e) =>
+                  handleInputChange(e, "profileForm", "bloodGroup")
+                }
+              >
+                <option value="" selected>
+                  Blood Group
+                </option>
+                <option value="A+">O+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
             </div>
             <div className={formfield}>
               <img className={iconStyle} src={house} alt="addressicon" />

@@ -1,4 +1,4 @@
-import styles from "./NotificationDonor.module.css";
+// import styles from "./NotificationDonor.module.css";
 import Header from "../../components/Header/Header";
 import patient from "../../assets/patient.svg";
 import info from "../../assets/Info.svg";
@@ -7,17 +7,21 @@ import { getNotifications } from "../../apis/Notifications.hooks";
 import { useEffect, useState } from "react";
 const NotificationDonor = () => {
   const [notifications, setNotifications] = useState([]);
-  const getAllNotifications = async () =>{
+  const getAllNotifications = async () => {
     const data = await getNotifications();
     setNotifications(data);
-  }
-  useEffect(() => {getAllNotifications()}, []);
-  useEffect(() => {console.log(notifications)});
+  };
+  useEffect(() => {
+    getAllNotifications();
+  }, []);
+  useEffect(() => {
+    console.log(notifications);
+  });
   // console.log(notifications);
   return (
     <>
       <Header />
-      <div className={styles.NotificationDonor}>
+      {/* <div className={styles.NotificationDonor}>
         <div className={styles.title}>
           <h1>Notifications</h1>
           <span>Discover who needs blood around you.</span>
@@ -47,6 +51,35 @@ const NotificationDonor = () => {
 
          </div>
         }
+      </div> */}
+
+      <div>
+        <div>
+          <h1>Notifications</h1>
+          <span>Discover who needs blood around you.</span>
+        </div>
+        {notifications?.length === 0 ? (
+          <section>
+            <div>
+              <div>
+                <img src={patient} alt="patient Icon" />
+                <div>
+                  <span>New Request in your Location</span>
+                  <div>
+                    <img src={info} alt="info icon" />
+                    <span>Go to your Homepage to view the request.</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span>2 min ago</span>
+                <img src={cross} alt="cross icon" />
+              </div>
+            </div>
+          </section>
+        ) : (
+          <div>No notifications yet</div>
+        )}
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header";
-import styles from "./Register2.module.css";
+// import styles from "./Register2.module.css";
 import logo from "../../assets/logo.svg";
 import location from "../../assets/location.svg";
 import globe from "../../assets/globe.svg";
@@ -87,7 +87,7 @@ const Register2 = () => {
       <main className="flex flex-col items-center gap-4 py-8">
         <h4>Step 2 - Details</h4>
         <img className="w-[5rem] h-[5rem]" src={logo} alt="logo" />
-        <section className={styles.form}>
+        {/* <section className={styles.form}>
           <div className="flex items-center">
             <img src={location} alt="locationicon" className={styles.img} />
             <div className={styles.line}></div>
@@ -172,7 +172,92 @@ const Register2 = () => {
         </section>
         <button className={styles.button} onClick={handleSumbit}>
           CREATE ACCOUNT
-        </button>
+        </button> */}
+
+        <section>
+          <div className="flex items-center">
+            <img src={location} alt="locationicon" />
+            <div></div>
+            <input
+              type="text"
+              name="city"
+              placeholder="City*"
+              value={user.city}
+              onChange={(e) => {
+                setUser({ ...user, city: e.target.value });
+              }}
+            />
+          </div>
+          <div>
+            <img src={globe} alt="globeicon" />
+            <div></div>
+            <input
+              type="text"
+              name="country"
+              placeholder="Country*"
+              value={user.country}
+              onChange={(e) => {
+                setUser({ ...user, country: e.target.value });
+              }}
+            />
+          </div>
+          <div className="mb-4">
+            <img src={blood} alt="bloodicon" />
+            <div></div>
+            <div>
+              <select
+                name="bloodGroup"
+                value={user.bloodGroup}
+                onChange={(e) => {
+                  setUser({ ...user, bloodGroup: e.target.value });
+                }}
+              >
+                <option value="" selected>
+                  Blood Group
+                </option>
+                <option value="A+">O+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
+            </div>
+          </div>
+          <section className="flex flex-col gap-4 ">
+            <div className="flex flex-col gap-4">
+              <label className="flex gap-2">
+                <input
+                  type="radio"
+                  name="blood"
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setUser({ ...user, type: "donor" });
+                    }
+                  }}
+                />
+                <span>I'm a blood donor.</span>
+              </label>
+            </div>
+            <div>
+              <label className="flex gap-2">
+                <input
+                  type="radio"
+                  name="blood"
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setUser({ ...user, type: "patient" });
+                    }
+                  }}
+                />
+                <span>I need a blood donation.</span>
+              </label>
+            </div>
+          </section>
+        </section>
+        <button onClick={handleSumbit}>CREATE ACCOUNT</button>
       </main>
       <ToastContainer
         position="top-right"

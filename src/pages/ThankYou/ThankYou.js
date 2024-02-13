@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import thanks from "../../assets/thank you 1.svg";
 
 import React from "react";
-import style from "./ThankYou.module.css";
+// import style from "./ThankYou.module.css";
 import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 function ThankYou() {
@@ -12,7 +12,7 @@ function ThankYou() {
   return (
     <>
       <Header />
-      <div className={style.body}>
+      {/* <div className={style.body}>
         <h1 className={style.title}>Thank you!</h1>
         <div className={style.imgContainer}>
           <img src={thanks} alt="" className={style.img}></img>
@@ -29,6 +29,23 @@ function ThankYou() {
         <a href="/donor" className={style.link}>
           Back to Homepage
         </a>
+      </div> */}
+
+      <div>
+        <h1>Thank you!</h1>
+        <div>
+          <img src={thanks} alt=""></img>
+        </div>
+        <div>
+          <p>
+            You just helped 3 persons in need, it means alot to them and us.
+          </p>
+          <p>
+            After the donation, be sure to get yourself some rest to let your
+            body regenerate.
+          </p>
+        </div>
+        <a href="/donor">Back to Homepage</a>
       </div>
     </>
   );

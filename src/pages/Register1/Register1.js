@@ -8,12 +8,12 @@ import email from "../../assets/email.svg";
 import logo from "../../assets/logo.svg";
 import password from "../../assets/password.svg";
 import Header from "../../components/Header/Header";
-import styles from "./Register1.module.css";
+// import styles from "./Register1.module.css";
 import { LogInStatus } from "../../apis/LoggedInProfileType";
 
 const Register1 = () => {
   (async () => {
-    const result = await LogInStatus();
+    await LogInStatus();
   })();
 
   const redirect = useNavigate();
@@ -86,10 +86,13 @@ const Register1 = () => {
   return (
     <>
       <Header />
-      <main className={styles.container}>
+      {/* <main className={styles.container}> */}
+      <main>
         <h4>Step 1 - Contact</h4>
-        <img src={logo} alt="logo" className={styles.logo} />
-        <section className={styles.form}>
+        {/* <img src={logo} alt="logo" className={styles.logo} /> */}
+        <img src={logo} alt="logo" />
+        {/* <section className={styles.form}> */}
+        <section>
           <div>
             <img src={userIcon} alt="usericon" />
             <div></div>
@@ -145,9 +148,8 @@ const Register1 = () => {
             />
           </div>
         </section>
-        <button className={styles.button} onClick={handleSumbit}>
-          NEXT
-        </button>
+        {/* <button className={styles.button} onClick={handleSumbit}> */}
+        <button onClick={handleSumbit}>NEXT</button>
         <ToastContainer
           position="top-right"
           autoClose={5000}

@@ -7,7 +7,7 @@ import { DonorRedirect } from "../../apis/LoggedInProfileType";
 
 function Homepage() {
   (async () => {
-    const result = await DonorRedirect();
+    await DonorRedirect();
   })();
 
   return (

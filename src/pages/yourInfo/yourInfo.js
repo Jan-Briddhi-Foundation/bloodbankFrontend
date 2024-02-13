@@ -9,7 +9,7 @@ import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 function YourInfo() {
   (async () => {
-    const result = await PatientRedirect();
+    await PatientRedirect();
   })();
 
   const [details, setDetails] = useState();

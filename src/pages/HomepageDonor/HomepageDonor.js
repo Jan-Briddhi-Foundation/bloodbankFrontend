@@ -13,7 +13,7 @@ import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 const HomepageDonor = () => {
   (async () => {
-    const result = await PatientRedirect();
+    await PatientRedirect();
   })();
 
   const [bloodRequests, setbloodRequests] = useState([]);
