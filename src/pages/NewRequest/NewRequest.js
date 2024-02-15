@@ -84,6 +84,7 @@ function NewRequest() {
               dateFormat="MM/dd/yyyy"
               placeholderText="Date for Blood Needed"
               minDate={new Date()}
+              required
               className={inputClass}
             />
             <input

@@ -6,28 +6,41 @@ import { DonorRedirect } from "../../apis/LoggedInProfileType";
 
 function RequestSent() {
   (async () => {
-    const result = await DonorRedirect();
+    await DonorRedirect();
   })();
 
   return (
-    <div>
+    <>
       <Header />
-      <main className="flex flex-col items-center font-[Roboto] p-4">
-        <h1 className="relative text-3xl block text-[#000] text-center mx-[0] my-8">
-          Your request was sent
-        </h1>
-        <p className="mx-[0] my-[0.8rem] text-[1rem] text-wrap text-[#6b6b6b] text-center inline-block">
-          <span>All set! </span>Now you just have to wait for someone to match
-          your blood request.
-        </p>
-        <div className="mx-[0] my-[1.2rem]">
-          <img src={requestImg} alt="" className="w-[15rem] h-[auto]" />
+
+      <section className="px-11 max-[410px]:px-6">
+        <div className="my-16 flex flex-col max-w-screen-lg mx-auto flex flex-col">
+          <div className="mb-12 text-center">
+            <h1 className="text-6xl text-[#222222] mb-8 font-bold max-[410px]:text-4xl">
+              Your request was sent
+            </h1>
+            <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
+              Now you just have to wait for someone to match your blood request.
+            </p>
+          </div>
+
+          <img
+            src={requestImg}
+            alt=""
+            className="max-w-2xl self-center mb-8 max-[490px]:max-w-md"
+          />
+
+          <p className="self-center">
+            <a
+              className="text-[#ba595f] text-3xl max-[410px]:text-2xl mb-6 underline underline-offset-2"
+              href="/patient"
+            >
+              Back to Homepage
+            </a>
+          </p>
         </div>
-        <p>
-          <a href="/patient">Back to Homepage</a>
-        </p>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
 

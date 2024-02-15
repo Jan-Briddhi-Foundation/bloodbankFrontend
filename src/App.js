@@ -33,7 +33,7 @@ function App() {
           <Route path="/notifications" element={<NotificationDonor />} />
           {/*  */}
           <Route path="/patient" element={<HomePage />} /> {/*3*/}
-          <Route path="/bloodrequest" element={<NewRequest />} />
+          <Route path="/bloodrequest" element={<NewRequest />} /> {/*4*/}
           <Route path="/requestsent" element={<RequestSent />} />
           <Route path="/requesthistory" element={<RequestHistoryPage />} />
           {/*  */}
