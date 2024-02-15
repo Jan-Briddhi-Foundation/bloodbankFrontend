@@ -1,9 +1,7 @@
 import Header from "../../components/Header/Header";
-// import styles from "./NewRequest.module.css";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
-import "./DatePicker.css";
 import { requestBlood } from "../../apis/BloodRequest";
 import { useNavigate } from "react-router-dom";
 import { getProfileDetails } from "../../apis/Profile";
@@ -29,93 +27,116 @@ function NewRequest() {
   };
 
   const inputClass =
-    "flex items-center gap-4 p-2 bg-[#F9F9F9] rounded-[5px] min-h-5 max-w-[90vw] text-start m-[1.8rem] mx-auto w-[39rem] my-0 border ";
+    "bg-[#f9f9f9] w-full text-3xl mb-6 py-5 px-6 rounded-lg max-[410px]:text-2xl";
 
   return userProfileData ? (
     <>
       <Header />
-      <div className="flex flex-col items-center justify-center gap-4 py-4">
-        <h1 className="text-2xl">Blood Request</h1>
-        <p>Let the people around you help you.</p>
-        <form
-          className="w-full flex items-center flex-col gap-4"
-          onSubmit={(e) => {
-            e.preventDefault();
-            requestBlood({
-              date_needed: new Date(data.data_needed)
-                .toISOString()
-                .split("T")[0],
-              quantity: data.quantity,
-            });
 
-            redirect("/requestsent");
-          }}
-        >
-          <input
-            type="text"
-            name="name"
-            readOnly
-            value={userProfileData.userForm.name}
-            className={inputClass}
-          />
-          <input
-            type="text"
-            name="bloodGroup"
-            readOnly
-            value={userProfileData.profileForm.bloodGroup}
-            className={inputClass}
-          />
+      <section className="px-11 max-[410px]:px-6">
+        <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
+          <div className="mb-8 text-center">
+            <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
+              Blood Request
+            </h1>
+            <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
+              Let the people around you help you.
+            </p>
+          </div>
 
-          <DatePicker
-            selected={date}
-            onChange={(e) => {
-              setDate(e);
-              handleInputChange("data_needed", e);
+          <form
+            className="flex flex-col"
+            onSubmit={(e) => {
+              e.preventDefault();
+              requestBlood({
+                date_needed: new Date(data.data_needed)
+                  .toISOString()
+                  .split("T")[0],
+                quantity: data.quantity,
+              });
+
+              redirect("/requestsent");
             }}
-            dateFormat="MM/dd/yyyy"
-            placeholderText="Date for Blood Needed"
-            minDate={new Date()}
-            className={inputClass}
-          />
-          <input
-            type="number"
-            onChange={(e) => handleInputChange("quantity", e.target.value)}
-            required
-            placeholder="Quantity of Blood in Unit (ltrs)"
-            className={inputClass}
-          />
-
-          <input
-            type="text"
-            name="phone"
-            readOnly
-            maxLength="10"
-            value={userProfileData.userForm.phone}
-            className={inputClass}
-          />
-          <input
-            type="text"
-            name="address"
-            readOnly
-            value={userProfileData.profileForm.address}
-            className={inputClass}
-          />
-
-          <button
-            name="intent"
-            className="flex items-center gap-4 p-2 rounded-[5px] min-h-5 max-w-[90vw] text-start m-[1.8rem]"
           >
-            Send Request
-          </button>
-        </form>
-      </div>
+            <input
+              type="text"
+              name="name"
+              readOnly
+              placeholder="Full Name"
+              value={userProfileData.userForm.name}
+              className={inputClass}
+            />
+            <input
+              type="text"
+              name="bloodGroup"
+              readOnly
+              placeholder="Blood Group"
+              value={userProfileData.profileForm.bloodGroup}
+              className={inputClass}
+            />
+
+            <DatePicker
+              selected={date}
+              onChange={(e) => {
+                setDate(e);
+                handleInputChange("data_needed", e);
+              }}
+              dateFormat="MM/dd/yyyy"
+              placeholderText="Date for Blood Needed"
+              minDate={new Date()}
+              className={inputClass}
+            />
+            <input
+              type="number"
+              onChange={(e) => handleInputChange("quantity", e.target.value)}
+              required
+              placeholder="Quantity of Blood in Unit (ltrs)"
+              className={inputClass}
+            />
+
+            <input
+              type="text"
+              name="phone"
+              readOnly
+              maxLength="10"
+              value={userProfileData.userForm.phone}
+              placeholder="Phone number"
+              className={inputClass}
+            />
+            <input
+              type="text"
+              name="address"
+              readOnly
+              value={userProfileData.profileForm.address}
+              placeholder="Address"
+              className={inputClass}
+            />
+
+            <input
+              type="text"
+              name="location"
+              readOnly
+              value={userProfileData.profileForm.location}
+              placeholder="Location"
+              className={inputClass}
+            />
+
+            <button
+              name="intent"
+              className="mt-20 self-center rounded-md font-roboto text-center px-6 py-4 w-2/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f] truncate max-[410px]:mt-10 max-[410px]:w-3/5"
+            >
+              Send Request
+            </button>
+          </form>
+        </div>
+      </section>
     </>
   ) : (
     <>
       <Header />
       <center>
         <h1>
-          <b>Loading...</b>
+          <b className="text-3xl">Loading...</b>
         </h1>
       </center>
     </>

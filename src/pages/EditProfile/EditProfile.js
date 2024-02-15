@@ -188,7 +188,8 @@ const EditProfile = () => {
             </div>
           </section>
           <button
-            className="mt-40 self-center rounded-md font-roboto text-center px-6 py-4 w-1/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f] max-[410px]:mt-20 max-[410px]:w-3/5"
+            className="mt-40 self-center rounded-md font-roboto text-center px-6 py-4 w-2/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f] max-[410px]:mt-20 max-[410px]:w-3/5"
+            // self-center text-[#ba595f] underline underline-offset-2 mb-14 text-2xl max-[410px]:text-base  font-normal
             onClick={HandleEditProfile}
           >
             Save

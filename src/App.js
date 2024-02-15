@@ -32,7 +32,7 @@ function App() {
           <Route path="/editprofile" element={<EditProfile />} /> {/*1*/}
           <Route path="/notifications" element={<NotificationDonor />} />
           {/*  */}
-          <Route path="/patient" element={<HomePage />} />
+          <Route path="/patient" element={<HomePage />} /> {/*3*/}
           <Route path="/bloodrequest" element={<NewRequest />} />
           <Route path="/requestsent" element={<RequestSent />} />
           <Route path="/requesthistory" element={<RequestHistoryPage />} />
