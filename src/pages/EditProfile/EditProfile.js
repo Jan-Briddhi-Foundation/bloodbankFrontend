@@ -1,4 +1,3 @@
-// import styles from "./EditProfile.module.css";
 import Header from "../../components/Header/Header";
 import user from "../../assets/User.svg";
 import Phone from "../../assets/Phone.svg";
@@ -21,8 +20,9 @@ const EditProfile = () => {
   const formfield =
     "grid grid-cols-[auto,1fr] rounded overflow-hidden bg-[#f9f9f9] focus:outline";
   const inputformField =
-    "text-xl bg-[#f9f9f9] p-2 text-base focus:outline-none max-[480px]:p-1 max-[480px]:text-xs max-[480px]:bg-sky-300 max-[480px]:bg-sky-300 max-[480px]:bg-sky-300";
-  const iconStyle = "w-10 m-2 pr-2 border-r-[1px] border-black";
+    "bg-[#f9f9f9] p-2 text-3xl focus:outline-none max-[410px]:text-2xl max-[410px]:p-0";
+  const iconStyle =
+    "w-16 m-5 pr-2.5 border-r-[1px] border-black max-[410px]:w-12 ";
 
   const redirect = useNavigate();
   const [details, setDetails] = useState(null);
@@ -71,16 +71,21 @@ const EditProfile = () => {
   return details ? (
     <>
       <Header />
-      <div className="px-8 py-8">
-        <div className="mx-auto my-8 text-center max-w-3xl">
-          <div className="flex flex-col items-center gap-y-3 mb-2">
-            <h1 className="text-4xl font-bold">Your Profile</h1>
-            <p className="text-[#6b6b6b] mb-2 ">All about you!</p>
-            <h1 className="text-[#ba595f] text-sm mb-8 underline underline-offset-2 font-semibold uppercase">
-              Donate for the Cause
+
+      <div className="px-11 max-[410px]:px-6">
+        <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
+          <div className="mb-12 text-center">
+            <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
+              Your Profile
             </h1>
+            <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
+              All about you!
+            </p>
+            <p className="text-[#ba595f] text-xl max-[410px]:text-base mb-6 underline underline-offset-2 font-semibold uppercase">
+              Donate for the Cause
+            </p>
           </div>
-          <section className="flex flex-col gap-y-3">
+          <section className="flex flex-col gap-y-4">
             <div className={formfield}>
               <img className={iconStyle} src={user} alt="usericon" />
 
@@ -97,7 +102,7 @@ const EditProfile = () => {
               <img className={iconStyle} src={blood} alt="bloodicon" />
 
               <select
-                className="block appearance-none w-full bg-[#f9f9f9] text-gray-700 p-2 rounded leading-tight focus:outline-none"
+                className="block appearance-none w-full bg-[#f9f9f9] text-3xl text-gray-700 p-4 rounded leading-tight focus:outline-none"
                 name="bloodGroup"
                 placeholder="Blood Group"
                 value={details.profileForm.bloodGroup}
@@ -183,7 +188,7 @@ const EditProfile = () => {
             </div>
           </section>
           <button
-            className="mt-24 rounded-md font-roboto text-center px-6 py-2 w-46 text-[1.2rem] text-[#f7f7f7] bg-[#ba595f]"
+            className="mt-40 self-center rounded-md font-roboto text-center px-6 py-4 w-1/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f] max-[410px]:mt-20 max-[410px]:w-3/5"
             onClick={HandleEditProfile}
           >
             Save
