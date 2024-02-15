@@ -1,4 +1,3 @@
-// import styles from "./ProfilePage.module.css";
 import Header from "../../components/Header/Header";
 import leftimage from "../../assets/thank you 1.png";
 import rightimage from "../../assets/love.png";
@@ -6,7 +5,6 @@ import patienticon from "../../assets/patient.svg";
 import { getProfileDetails } from "../../apis/Profile";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { toast } from "react-toastify";
 import { CheckAuth } from "../../apis/LoggedInProfileType";
 
 const ProfilePage = () => {
@@ -15,11 +13,10 @@ const ProfilePage = () => {
   })();
 
   const profileimgdiv = "w-44";
-  // max-w-20
   const profileimg = "w-full";
 
   const profileDetailStyle =
-    "text-3xl mb-2 text-[#111111] font-semibold text-roboto";
+    "text-3xl mb-2 text-[#111111] font-semibold text-roboto truncate max-[350px]:text-2xl";
   const profileDetailSpan = "ml-2 font-normal text-[#888888]";
 
   const redirect = useNavigate();
@@ -40,7 +37,11 @@ const ProfilePage = () => {
 
       <section className="px-11 max-[410px]:px-6">
         <div className="my-16 grid grid-cols-[auto,1fr,auto] gap-x-2">
-          <img className="self-start" src={leftimage} alt="thankYouImage" />
+          <img
+            className="self-start max-[790px]:invisible"
+            src={leftimage}
+            alt="thankYouImage"
+          />
           <div className="flex flex-col">
             <div className="mb-8 text-center flex flex-col justify-center items-center">
               <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
@@ -61,7 +62,7 @@ const ProfilePage = () => {
                 />
               </div>
             </div>
-            <div>
+            <div className="self-center">
               <p className={profileDetailStyle}>
                 Name:
                 <span className={profileDetailSpan}>
@@ -106,7 +107,7 @@ const ProfilePage = () => {
               </p>
             </div>
             <button
-              className="my-20 self-center rounded-md font-roboto text-center px-6 py-4 w-3/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f]"
+              className="my-20 self-center rounded-md font-roboto text-center px-6 py-4 w-3/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f] max-[350px]:text-[1rem]"
               onClick={() => {
                 redirect("/editprofile");
               }}
@@ -117,7 +118,11 @@ const ProfilePage = () => {
               Share Feedback
             </p>
           </div>
-          <img className="self-end" src={rightimage} alt="thankYouImage" />
+          <img
+            className="self-end max-[790px]:invisible"
+            src={rightimage}
+            alt="thankYouImage"
+          />
         </div>
       </section>
     </>
