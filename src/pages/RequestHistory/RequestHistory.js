@@ -1,4 +1,4 @@
-import styles from "../Notification/NotificationDonor.module.css";
+// import styles from "../Notification/NotificationDonor.module.css";
 import Header from "../../components/Header/Header";
 import share from "../../assets/share.svg";
 import cross from "../../assets/cross.svg";
@@ -10,9 +10,7 @@ import { requestHistory } from "../../apis/BloodRequestHistory";
 import { DonorRedirect } from "../../apis/LoggedInProfileType";
 
 const RequestHistoryPage = () => {
-  (async () => {
-    const result = await DonorRedirect();
-  })();
+  (async () => await DonorRedirect())();
 
   const [notifications, setNotifications] = useState([]);
   const getAllRequests = async () => {
@@ -27,62 +25,45 @@ const RequestHistoryPage = () => {
   return (
     <>
       <Header />
-      {/* <div className={styles.NotificationDonor}>
-        <div className={styles.title}> */}
-      <div className={styles.NotificationDonor}>
-        <div className={styles.title}>
-          <h1>Request History</h1>
-          <span>Overview of all the requests you've submitted</span>
-        </div>
-        {notifications.history ? (
-          notifications.history.map((request, index) => (
-            <div
-              key={index}
-              className="mt-4 flex flex-col gap-2 w-[100%] p-4  md:w-[60vw]"
-            >
-              <section className="relative rounded-[5px] pl-[2vh] pr-[4vh] py-[2vh] flex justify-between h-[12vh] bg-[rgba(249,_249,_249,_1)] w-[100%]">
-                <div className="w-[full] flex flex-col justify-between gap-2 text-left">
-                  <span>
+
+      <section className="px-11 max-[410px]:px-6">
+        <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
+          <div className="mb-12 text-center">
+            <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
+              Request History
+            </h1>
+            <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
+              Overview of all the requests you've submitted
+            </p>
+          </div>
+          {notifications.history.length ? (
+            notifications.history.map((request, index) => (
+              <div key={index} className="bg-[#f7f7f7] mb-8">
+                <div className="grid grid-cols-[1fr,auto] gap-4 p-6">
+                  <p className="text-2xl font-normal">
                     Blood Request: Type {notifications.profileForm.bloodGroup}
-                  </span>
-                  <div className="flex gap-[2rem]">
-                    <span className="flex gap-1 items-center text-xs">
-                      <img
-                        className="w-[1rem] h-[1rem]"
-                        src={calendar}
-                        alt="calendarIcon"
-                      />
+                  </p>
+                  <img className="" src={cross} alt="delete icon" />
+
+                  <div className="flex items-center gap-2">
+                    <p className="flex items-center gap-1">
+                      <img className="w-8" src={calendar} alt="calendarIcon" />
                       Before {request.date_needed}
-                    </span>
-                    <span className="flex gap-1 items-center text-xs">
-                      <img
-                        className="w-[1rem] h-[1rem]"
-                        src={location}
-                        alt="calendarIcon"
-                      />
+                    </p>
+                    <p className="flex items-center gap-1">
+                      <img className="w-8" src={location} alt="calendarIcon" />
                       Hospital
-                    </span>
+                    </p>
                   </div>
+                  <img src={share} alt="share icon" className="w-11" />
                 </div>
-                <div className="flex  self-start items-center">
-                  <img
-                    src={share}
-                    alt="share icon"
-                    className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.85rem] -right-[0.85rem]"
-                  />
-                </div>
-                <img
-                  className="absolute right-[3.5%] top-[3%] cursor-pointer"
-                  src={cross}
-                  alt="check icon"
-                />
-              </section>
-            </div>
-          ))
-        ) : (
-          <div>No history yet</div>
-        )}
-      </div>
+              </div>
+            ))
+          ) : (
+            <div className="text-3xl text-center">No history yet</div>
+          )}
+        </div>
+      </section>
     </>
   );
 };

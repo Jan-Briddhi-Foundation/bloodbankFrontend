@@ -34,7 +34,7 @@ function App() {
           {/*  */}
           <Route path="/patient" element={<HomePage />} /> {/*3*/}
           <Route path="/bloodrequest" element={<NewRequest />} /> {/*4*/}
-          <Route path="/requestsent" element={<RequestSent />} />
+          <Route path="/requestsent" element={<RequestSent />} /> {/*5*/}
           <Route path="/requesthistory" element={<RequestHistoryPage />} />
           {/*  */}
           <Route path="/donor" element={<HomepageDonor />} />
