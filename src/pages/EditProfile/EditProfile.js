@@ -72,7 +72,7 @@ const EditProfile = () => {
     <>
       <Header />
 
-      <div className="px-11 max-[410px]:px-6">
+      <section className="px-11 max-[410px]:px-6">
         <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
           <div className="mb-12 text-center">
             <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
@@ -194,7 +194,7 @@ const EditProfile = () => {
             Save
           </button>
         </div>
-      </div>
+      </section>
       <ToastContainer
         position="top-right"
         autoClose={5000}

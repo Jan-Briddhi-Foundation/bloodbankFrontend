@@ -14,6 +14,14 @@ const ProfilePage = () => {
     await CheckAuth();
   })();
 
+  const profileimgdiv = "w-44";
+  // max-w-20
+  const profileimg = "w-full";
+
+  const profileDetailStyle =
+    "text-3xl mb-2 text-[#111111] font-semibold text-roboto";
+  const profileDetailSpan = "ml-2 font-normal text-[#888888]";
+
   const redirect = useNavigate();
   const [details, setDetails] = useState();
 
@@ -29,93 +37,89 @@ const ProfilePage = () => {
   return details ? (
     <>
       <Header />
-      {/* <div className={styles.container}>
-        <img src={leftimage} alt="thankYouImage" />
-        <main className={styles.profileContainer}>
-          <div className={styles.title}>
-            <h1 className={styles.h1title}>Your Profile</h1>
-            <span>All about you!</span>
-            <h1 className={styles.highlighted}>Donate for the Cause</h1>
-            <img src={patienticon} alt="patienticon" />
+
+      <section className="px-11 max-[410px]:px-6">
+        <div className="my-16 grid grid-cols-[auto,1fr,auto] gap-x-2">
+          <img className="self-start" src={leftimage} alt="thankYouImage" />
+          <div className="flex flex-col">
+            <div className="mb-8 text-center flex flex-col justify-center items-center">
+              <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
+                Your Profile
+              </h1>
+              <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
+                All about you!
+              </p>
+              <p className="text-[#ba595f] text-xl max-[410px]:text-base mb-14 underline underline-offset-2 font-semibold uppercase">
+                Donate for the Cause
+              </p>
+
+              <div className={profileimgdiv}>
+                <img
+                  className={profileimg}
+                  src={patienticon}
+                  alt="patienticon"
+                />
+              </div>
+            </div>
+            <div>
+              <p className={profileDetailStyle}>
+                Name:
+                <span className={profileDetailSpan}>
+                  {details.userForm.name}
+                </span>
+              </p>
+              <p className={profileDetailStyle}>
+                Blood Group:
+                <span className={profileDetailSpan}>
+                  {details.profileForm.bloodGroup}
+                </span>
+              </p>
+              <p className={profileDetailStyle}>
+                Address:
+                <span className={profileDetailSpan}>
+                  {details.profileForm.address}
+                </span>
+              </p>
+              <p className={profileDetailStyle}>
+                City:
+                <span className={profileDetailSpan}>
+                  {details.profileForm.city}
+                </span>
+              </p>
+              <p className={profileDetailStyle}>
+                Country:
+                <span className={profileDetailSpan}>
+                  {details.profileForm.country}
+                </span>
+              </p>
+              <p className={profileDetailStyle}>
+                Phone Number:
+                <span className={profileDetailSpan}>
+                  +91 {details.userForm.phone}
+                </span>
+              </p>
+              <p className={profileDetailStyle}>
+                Language:
+                <span className={profileDetailSpan}>
+                  {details.profileForm.langauge}
+                </span>
+              </p>
+            </div>
+            <button
+              className="my-20 self-center rounded-md font-roboto text-center px-6 py-4 w-3/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f]"
+              onClick={() => {
+                redirect("/editprofile");
+              }}
+            >
+              EDIT PROFILE
+            </button>
+            <p className="self-center text-[#ba595f] underline underline-offset-2 mb-14 text-2xl max-[410px]:text-base  font-normal">
+              Share Feedback
+            </p>
           </div>
-          <div className={styles.profileDetails}>
-            <h1>
-              Name:<span>{details.userForm.name}</span>
-            </h1>
-            <h1>
-              Blood Group:<span>{details.profileForm.bloodGroup}</span>
-            </h1>
-            <h1>
-              Address:<span>{details.profileForm.address}</span>
-            </h1>
-            <h1>
-              City:<span>{details.profileForm.city}</span>
-            </h1>
-            <h1>
-              Country:<span>{details.profileForm.country}</span>
-            </h1>
-            <h1>
-              Phone Number:<span>+91 {details.userForm.phone}</span>
-            </h1>
-            <h1>
-              Language:<span>{details.profileForm.langauge}</span>
-            </h1>
-          </div>
-          <button
-            className={styles.button}
-            onClick={() => {
-              redirect("/editprofile");
-            }}
-          >
-            EDIT PROFILE
-          </button>
-          <h1 className={styles.feedback}>Share Feedback</h1>
-        </main>
-        <img src={rightimage} alt="thankYouImage" />
-      </div> */}
-      <div>
-        <img src={leftimage} alt="thankYouImage" />
-        <main>
-          <div>
-            <h1>Your Profile</h1>
-            <span>All about you!</span>
-            <h1>Donate for the Cause</h1>
-            <img src={patienticon} alt="patienticon" />
-          </div>
-          <div>
-            <h1>
-              Name:<span>{details.userForm.name}</span>
-            </h1>
-            <h1>
-              Blood Group:<span>{details.profileForm.bloodGroup}</span>
-            </h1>
-            <h1>
-              Address:<span>{details.profileForm.address}</span>
-            </h1>
-            <h1>
-              City:<span>{details.profileForm.city}</span>
-            </h1>
-            <h1>
-              Country:<span>{details.profileForm.country}</span>
-            </h1>
-            <h1>
-              Phone Number:<span>+91 {details.userForm.phone}</span>
-            </h1>
-            <h1>
-              Language:<span>{details.profileForm.langauge}</span>
-            </h1>
-          </div>
-          <button
-            onClick={() => {
-              redirect("/editprofile");
-            }}
-          >
-            EDIT PROFILE
-          </button>
-          <h1>Share Feedback</h1>
-        </main>
-        <img src={rightimage} alt="thankYouImage" />
-      </div>
+          <img className="self-end" src={rightimage} alt="thankYouImage" />
+        </div>
+      </section>
     </>
   ) : (
     <>
