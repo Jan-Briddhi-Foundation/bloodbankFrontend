@@ -131,7 +131,7 @@ const ProfilePage = () => {
       <Header />
       <center>
         <h1>
-          <b>Loading...</b>
+          <b className="text-3xl">Loading...</b>
         </h1>
       </center>
     </>

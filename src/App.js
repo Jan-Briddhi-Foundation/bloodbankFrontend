@@ -31,10 +31,12 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} /> {/*2*/}
           <Route path="/editprofile" element={<EditProfile />} /> {/*1*/}
           <Route path="/notifications" element={<NotificationDonor />} />
+          {/*  */}
           <Route path="/patient" element={<HomePage />} />
           <Route path="/bloodrequest" element={<NewRequest />} />
           <Route path="/requestsent" element={<RequestSent />} />
           <Route path="/requesthistory" element={<RequestHistoryPage />} />
+          {/*  */}
           <Route path="/donor" element={<HomepageDonor />} />
           <Route path="/donationcriteria" element={<Donorcriteria />} />
           <Route path="/findbloodbank" element={<FindBloodBank />} />
