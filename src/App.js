@@ -8,7 +8,7 @@ import Login from "./pages/Login/Login";
 import ProfilePage from "./pages/Profilepage/ProfilePage";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import NotificationDonor from "./pages/Notification/NotificationDonor";
-// import Donate from "./pages/HomepageDonor"
+
 import HomepageDonor from "./pages/HomepageDonor/HomepageDonor";
 import Donorcriteria from "./pages/Donorcriteria/Donorcriteria";
 import FindBloodBank from "./pages/FindBloodBank/FindBloodBank";
@@ -30,7 +30,8 @@ function App() {
           <Route path="/register2" element={<Register2 />} />
           <Route path="/profile" element={<ProfilePage />} /> {/*2*/}
           <Route path="/editprofile" element={<EditProfile />} /> {/*1*/}
-          <Route path="/notifications" element={<NotificationDonor />} />
+          <Route path="/notifications" element={<NotificationDonor />} />{" "}
+          {/*13*/}
           <Route path="/patient" element={<HomePage />} /> {/*3*/}
           <Route path="/bloodrequest" element={<NewRequest />} /> {/*4*/}
           <Route path="/requestsent" element={<RequestSent />} /> {/*5*/}
@@ -39,7 +40,7 @@ function App() {
           <Route path="/donor" element={<HomepageDonor />} /> {/*7*/}
           <Route path="/donationcriteria" element={<Donorcriteria />} /> {/*8*/}
           <Route path="/findbloodbank" element={<FindBloodBank />} /> {/*10*/}
-          <Route path="/thankyou" element={<ThankYou />}></Route>
+          <Route path="/thankyou" element={<ThankYou />}></Route> {/*12*/}
           <Route path="/inelligible" element={<Inelligible />}></Route> {/*9*/}
           <Route path="/donationconsent" element={<YourInfo />}></Route>{" "}
           {/*11*/}

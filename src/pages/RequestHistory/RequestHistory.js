@@ -1,10 +1,8 @@
-// import styles from "../Notification/NotificationDonor.module.css";
 import Header from "../../components/Header/Header";
 import share from "../../assets/share.svg";
 import cross from "../../assets/cross.svg";
 import calendar from "../../assets/calendar.svg";
 import location from "../../assets/location.svg";
-// import { getNotifications } from "../../apis/Notifications.hooks";
 import { useEffect, useState } from "react";
 import { requestHistory } from "../../apis/BloodRequestHistory";
 import { DonorRedirect } from "../../apis/LoggedInProfileType";

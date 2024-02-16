@@ -1,4 +1,3 @@
-// import styles from "./NotificationDonor.module.css";
 import Header from "../../components/Header/Header";
 import patient from "../../assets/patient.svg";
 import info from "../../assets/Info.svg";
@@ -54,57 +53,61 @@ const NotificationDonor = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center mt-[5vh] text-center">
-        <div>
-          <h1 className="font-[Roboto] text-[2.5rem] font-bold  mb-[3vh]">
-            Notifications
-          </h1>
-          <span>Discover who needs blood around you.</span>
-        </div>
-        {notifications.requests ? (
-          notifications.requests.map((request, index) => (
-            <section
-              key={index}
-              className="mt-4 flex flex-col   w-[100%] md:w-[39rem]"
-            >
-              <div className="flex items-center justify-between bg-[rgba(249,_249,_249,_1)] rounded-[5px] p-2 m-4">
-                <div className="w-[full] md:flex-row flex flex-col justify-between items-center gap-1 md:gap-4">
-                  <img className="w-[auto]" src={patient} alt="patient Icon" />
-                  <div className="flex flex-col  text-left md:gap-2">
-                    <span className="font-[Roboto]  font-semibold text-[rgba(70,_74,_87,_1)]">
+
+      <section className="px-11 max-[540px]:px-4">
+        <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
+          <div className="mb-12 text-center">
+            <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
+              Notifications
+            </h1>
+            <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
+              {authType === "patient"
+                ? "Discover who needs blood around you."
+                : "Discover who is a match with you."}
+            </p>
+          </div>
+          {notifications?.requests?.length ? (
+            notifications.requests.map((request, index) => (
+              <article key={index} className="bg-[#f7f7f7] mb-8 rounded-lg">
+                <div className="grid grid-cols-[auto,1fr,auto] items-center gap-12 p-6 max-[540px]:grid-cols-[auto,1fr] max-[540px]:gap-4 max-[540px]:p-4">
+                  <img
+                    className="max-[540px]:w-18"
+                    src={patient}
+                    alt="patient Icon"
+                  />
+
+                  <div className="flex flex-col gap-4 text-2xl max-[540px]:text-xl max-[540px]:gap-2 max-[540px]:row-start-2 max-[540px]:col-start-1 max-[540px]:col-span-2">
+                    <h2 className="text-3xl font-medium max-[540px]:text-2xl">
                       {authType === "patient"
                         ? "New Request in your Location"
                         : "You have a blood match!"}
-                    </span>
-                    <div className="flex items-center gap-1">
-                      <img
-                        className="w-[1.5rem] md:w-[auto]"
-                        src={info}
-                        alt="info icon"
-                      />
-                      <span className="font-[Roboto] text-xs text-[rgba(99,_99,_99,_1)]">
-                        {authType === "patient"
-                          ? "Go to your Homepage to view the request."
-                          : "Contact your doctor/hopsital for more information."}
-                      </span>
-                    </div>
+                    </h2>
+
+                    <p className="flex items-center gap-4 text-[#99999999]">
+                      <img className="w-8 " src={info} alt="info icon" />
+                      {authType === "patient"
+                        ? "Go to your Homepage to view the request."
+                        : "Contact your doctor/ hopsital for more information."}
+                    </p>
                   </div>
+                  <p className="flex items-center gap-4 text-xl max-[540px]:row-start-1 max-[540px]:col-start-2 max-[540px]:justify-self-end">
+                    <span>{calculateTimeDifference(request.date_created)}</span>
+                    <img
+                      className="cursor-pointer"
+                      src={cross}
+                      alt="cross icon"
+                    />
+                  </p>
                 </div>
-                <div className="flex md:gap-2 items-center font-[Roboto] text-xs md:text-[1rem] text-[rgba(99,_99,_99,_1)]">
-                  <span>{calculateTimeDifference(request.date_created)}</span>
-                  <img
-                    className="w-[1rem] cursor-pointer"
-                    src={cross}
-                    alt="cross icon"
-                  />
-                </div>
-              </div>
-            </section>
-          ))
-        ) : (
-          <div>No notifications yet</div>
-        )}
-      </div>
+              </article>
+            ))
+          ) : (
+            <div>
+              <p className="text-3xl text-center">No notifications yet</p>
+            </div>
+          )}
+        </div>
+      </section>
     </>
   );
 };

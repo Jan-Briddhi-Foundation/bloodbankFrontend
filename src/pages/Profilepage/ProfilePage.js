@@ -8,9 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { CheckAuth } from "../../apis/LoggedInProfileType";
 
 const ProfilePage = () => {
-  (async () => {
-    await CheckAuth();
-  })();
+  (async () => await CheckAuth())();
 
   const profileimgdiv = "w-44";
   const profileimg = "w-full";

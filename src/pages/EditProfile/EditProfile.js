@@ -13,9 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { CheckAuth } from "../../apis/LoggedInProfileType";
 
 const EditProfile = () => {
-  (async () => {
-    await CheckAuth();
-  })();
+  (async () => await CheckAuth())();
 
   const formfield =
     "grid grid-cols-[auto,1fr] rounded overflow-hidden bg-[#f9f9f9] focus:outline";

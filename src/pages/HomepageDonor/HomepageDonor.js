@@ -1,4 +1,3 @@
-// import styles from "./HomepageDonor.module.css";
 import Header from "../../components/Header/Header";
 import check from "../../assets/check.svg";
 import share from "../../assets/share.svg";
@@ -27,7 +26,7 @@ const HomepageDonor = () => {
   return (
     <>
       <Header />
-      {/* <div className="flex flex-col items-center mt-[5vh] text-center"> */}
+
       <section className="px-11 max-[410px]:px-6">
         <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
           <div className="mb-12 text-center">
@@ -86,10 +85,11 @@ const HomepageDonor = () => {
                   </div>
                 </div>
               </div>
-              // </div>
             ))
           ) : (
-            <div>No bloodrequests yet</div>
+            <div>
+              <p className="text-3xl text-center">No bloodrequests yet</p>
+            </div>
           )}
         </div>
       </section>

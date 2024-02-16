@@ -9,7 +9,6 @@ function ThankYou() {
     <>
       <Header />
 
-      {/* <div> */}
       <section className="px-11 max-[410px]:px-6">
         <div className="my-16 flex flex-col max-w-screen-lg mx-auto flex flex-col">
           <div className="mb-12 text-center">
