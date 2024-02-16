@@ -64,7 +64,7 @@ const RequestHistoryPage = () => {
               </div>
             ))
           ) : (
-            <div className="text-3xl text-center">No history yet</div>
+            <p className="text-3xl text-center">No history yet</p>
           )}
         </div>
       </section>

@@ -31,19 +31,18 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} /> {/*2*/}
           <Route path="/editprofile" element={<EditProfile />} /> {/*1*/}
           <Route path="/notifications" element={<NotificationDonor />} />
-          {/*  */}
           <Route path="/patient" element={<HomePage />} /> {/*3*/}
           <Route path="/bloodrequest" element={<NewRequest />} /> {/*4*/}
           <Route path="/requestsent" element={<RequestSent />} /> {/*5*/}
           <Route path="/requesthistory" element={<RequestHistoryPage />} />
           {/*6*/}
-          {/*  */}
           <Route path="/donor" element={<HomepageDonor />} /> {/*7*/}
-          <Route path="/donationcriteria" element={<Donorcriteria />} />
-          <Route path="/findbloodbank" element={<FindBloodBank />} />
+          <Route path="/donationcriteria" element={<Donorcriteria />} /> {/*8*/}
+          <Route path="/findbloodbank" element={<FindBloodBank />} /> {/*10*/}
           <Route path="/thankyou" element={<ThankYou />}></Route>
-          <Route path="/inelligible" element={<Inelligible />}></Route>
-          <Route path="/donationconsent" element={<YourInfo />}></Route>
+          <Route path="/inelligible" element={<Inelligible />}></Route> {/*9*/}
+          <Route path="/donationconsent" element={<YourInfo />}></Route>{" "}
+          {/*11*/}
         </Routes>
       </Router>
     </div>

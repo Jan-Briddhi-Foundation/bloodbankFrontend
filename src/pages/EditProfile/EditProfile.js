@@ -85,7 +85,7 @@ const EditProfile = () => {
               Donate for the Cause
             </p>
           </div>
-          <section className="flex flex-col gap-y-4">
+          <form className="flex flex-col gap-y-4">
             <div className={formfield}>
               <img className={iconStyle} src={user} alt="usericon" />
 
@@ -186,7 +186,7 @@ const EditProfile = () => {
                 }
               />
             </div>
-          </section>
+          </form>
           <button
             className="mt-40 self-center rounded-md font-roboto text-center px-6 py-4 w-2/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f] max-[410px]:mt-20 max-[410px]:w-3/5"
             onClick={HandleEditProfile}

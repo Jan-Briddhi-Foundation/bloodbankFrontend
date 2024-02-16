@@ -1,30 +1,30 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-// import "./DonorCriteria.css";
-// import { MapPage } from "../../components/Map/Map";
 import { Link } from "react-router-dom";
 import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 const FindBloodBank = () => {
-  (async () => {
-    const result = await PatientRedirect();
-  })();
+  (async () => await PatientRedirect())();
 
   return (
     <>
       <Header />
-      <div className="flex flex-col my-[0] text-[var(--font-size-base)] font-[var(--font-roboto)] p-4 gap-4">
-        <div>
-          <p className="text-center text-[#000] font-[Roboto] text-[2.1875rem] not-italic font-bold leading-[1.875rem] mx-[0] my-4">
-            Find Blood Bank
-          </p>
-          <p className="text-[irem] font-[Roboto] text-[#6b6b6b] text-center">
-            {" "}
-            Find blood banks near your location.{" "}
-          </p>
+
+      <section className="px-11 max-[410px]:px-6">
+        <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
+          <div className="mb-12 text-center">
+            <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
+              Find Blood Bank
+            </h1>
+            <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
+              Find blood banks near your location.
+            </p>
+          </div>
+          <Link to="/donationconsent">
+            <p className="text-3xl">Next</p>
+          </Link>
         </div>
-        <Link to="/donationconsent">Next</Link>
-      </div>
+      </section>
     </>
   );
 };
