@@ -2,6 +2,8 @@ import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
+import { ToastContainer, toast } from "react-toastify";
+
 import { requestBlood } from "../../apis/BloodRequest";
 import { useNavigate } from "react-router-dom";
 import { getProfileDetails } from "../../apis/Profile";
@@ -24,6 +26,15 @@ function NewRequest() {
   const handleInputChange = (input, value) => {
     data[input] = value;
     setData(data);
+  };
+
+  const handleInputChangeNum = (input, value) => {
+    if (value >= 1) {
+      data[input] = value;
+      setData(data);
+    } else {
+      toast.error("Blood quantity should not be less than 1");
+    }
   };
 
   const inputClass =
@@ -89,7 +100,7 @@ function NewRequest() {
             />
             <input
               type="number"
-              onChange={(e) => handleInputChange("quantity", e.target.value)}
+              onChange={(e) => handleInputChangeNum("quantity", e.target.value)}
               required
               placeholder="Quantity of Blood in Unit (ltrs)"
               className={inputClass}
