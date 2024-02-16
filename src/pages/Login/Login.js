@@ -10,13 +10,10 @@ import loginLeft from "../../assets/loginLeft.png";
 import loginRight from "../../assets/loginRight.png";
 import password from "../../assets/password.svg";
 import Header from "../../components/Header/Header";
-// import styles from "./Login.module.css";
-import { LogInStatus } from "../../apis/LoggedInProfileType";
+import { CheckAuth } from "../../apis/LoggedInProfileType";
 
 const Login = () => {
-  (async () => {
-    await LogInStatus();
-  })();
+  (async () => await CheckAuth())();
 
   const redirect = useNavigate();
   const [user, setUser] = useState({
@@ -31,8 +28,8 @@ const Login = () => {
       toast.error("Enter valid email");
       error = true;
     }
-    if (!/^.{4,14}$/.test(password)) {
-      toast.error("Password should be more than 4 characters");
+    if (!/^.{4,24}$/.test(password)) {
+      toast.error("Password should between 4 and 24 characters");
       error = true;
     }
 
@@ -154,20 +151,6 @@ const Login = () => {
             Or continue with
             <div></div>
           </div>
-          {/* <div className="flex gap-4 mb-4 ">
-            <div className="h-[3rem] w-[3rem] flex flex-col gap-1 items-center">
-              <img src={google} alt="google" />
-              <span className="text-xs">Google</span>
-            </div>
-            <div className="h-[3rem] w-[3rem] flex flex-col gap-1 items-center ">
-              <img src={facebook} alt="facebook" />
-              <span className="text-xs">Facebook</span>
-            </div>
-            <div className="h-[3rem] w-[3rem] flex flex-col gap-1 items-center">
-              <img src={apple} alt="apple" />
-              <span className="text-xs">Apple</span>
-            </div>
-          </div> */}
         </main>
         <img
           className="w-[20rem] self-start mt-4 p-4"

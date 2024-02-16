@@ -8,13 +8,14 @@ import email from "../../assets/email.svg";
 import logo from "../../assets/logo.svg";
 import password from "../../assets/password.svg";
 import Header from "../../components/Header/Header";
-// import styles from "./Register1.module.css";
-import { LogInStatus } from "../../apis/LoggedInProfileType";
 
 const Register1 = () => {
-  (async () => {
-    await LogInStatus();
-  })();
+  const formfield =
+    "grid grid-cols-[auto,1fr] rounded overflow-hidden bg-[#f9f9f9] focus:outline";
+  const inputformField =
+    "bg-[#f9f9f9] p-2 text-3xl focus:outline-none max-[410px]:text-2xl max-[410px]:p-0";
+  const iconStyle =
+    "w-16 m-5 pr-2.5 border-r-[1px] border-black max-[410px]:w-12 ";
 
   const redirect = useNavigate();
   const [user, setUser] = useState({
@@ -39,8 +40,8 @@ const Register1 = () => {
       toast.error("Enter Valid mobile number");
       error = true;
     }
-    if (!/^.{4,14}$/.test(password)) {
-      toast.error("Password should be more than 4 characters");
+    if (!/^.{4,24}$/.test(password)) {
+      toast.error("Password should between 4 and 24 characters");
       error = true;
     }
 
@@ -86,83 +87,100 @@ const Register1 = () => {
   return (
     <>
       <Header />
-      {/* <main className={styles.container}> */}
-      <main>
-        <h4>Step 1 - Contact</h4>
-        {/* <img src={logo} alt="logo" className={styles.logo} /> */}
-        <img src={logo} alt="logo" />
-        {/* <section className={styles.form}> */}
-        <section>
-          <div>
-            <img src={userIcon} alt="usericon" />
-            <div></div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name*"
-              value={user.name}
-              onChange={(e) => {
-                setUser({ ...user, name: e.target.value });
-              }}
+
+      <section className="px-11 max-[410px]:px-6">
+        <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
+          <div className="mb-12 text-center flex flex-col">
+            <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
+              Step 1 - Contact
+            </h1>
+
+            <img
+              className="w-32 self-center my-6 max-[410px]:w-16 max-[410px]:my-3"
+              src={logo}
+              alt="logo"
             />
           </div>
-          <div>
-            <img src={phone} alt="phoneicon" />
-            <div></div>
-            <input
-              type="text"
-              name="phone"
-              maxLength={10}
-              placeholder="Mobile"
-              value={user.phone}
-              onChange={(e) => {
-                setUser({ ...user, phone: e.target.value });
-              }}
-            />
-          </div>
-          <div>
-            <img src={email} alt="emailicon" />
-            <div></div>
-            <input
-              type="text"
-              name="email"
-              placeholder="E-mail*"
-              value={user.email}
-              onChange={(e) => {
-                setUser({ ...user, email: e.target.value });
-              }}
-              required
-            />
-          </div>
-          <div>
-            <img src={password} alt="passwordicon" />
-            <div></div>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password*"
-              value={user.password}
-              onChange={(e) => {
-                setUser({ ...user, password: e.target.value });
-              }}
-            />
-          </div>
-        </section>
-        {/* <button className={styles.button} onClick={handleSumbit}> */}
-        <button onClick={handleSumbit}>NEXT</button>
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-        />
-      </main>
+
+          <form className="flex flex-col gap-y-4">
+            <div className={formfield}>
+              <img className={iconStyle} src={userIcon} alt="usericon" />
+
+              <input
+                className={inputformField}
+                type="text"
+                name="name"
+                placeholder="Full Name*"
+                required
+                value={user.name}
+                onChange={(e) => setUser({ ...user, name: e.target.value })}
+              />
+            </div>
+
+            <div className={formfield}>
+              <img className={iconStyle} src={phone} alt="phoneicon" />
+
+              <input
+                className={inputformField}
+                type="text"
+                name="phone"
+                maxLength={10}
+                placeholder="Mobile"
+                value={user.phone}
+                onChange={(e) => setUser({ ...user, phone: e.target.value })}
+              />
+            </div>
+
+            <div className={formfield}>
+              <img className={iconStyle} src={email} alt="email-icon" />
+
+              <input
+                className={inputformField}
+                type="text"
+                name="email"
+                placeholder="Email*"
+                value={user.email}
+                required
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
+              />
+            </div>
+
+            <div className={formfield}>
+              <img className={iconStyle} src={password} alt="password-icon" />
+
+              <input
+                className={inputformField}
+                type="password"
+                name="password"
+                placeholder="Password*"
+                value={user.password}
+                required
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
+              />
+            </div>
+
+            <button
+              className="mt-20 self-center rounded-md font-roboto text-center px-6 py-4 w-2/5 text-[1.8rem] text-[#f7f7f7] bg-[#ba595f] max-[410px]:mt-10 max-[410px]:w-3/5"
+              onClick={handleSumbit}
+            >
+              NEXT
+            </button>
+          </form>
+
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
+        </div>
+      </section>
     </>
   );
 };

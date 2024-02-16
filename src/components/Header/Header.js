@@ -22,7 +22,7 @@ function Header() {
     setLogin(false);
     toast.success("Logout Successfull");
     setTimeout(() => {
-      redirect("/");
+      redirect("/login");
     });
   };
 

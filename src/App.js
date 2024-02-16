@@ -28,22 +28,19 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register1" element={<Register />} />
           <Route path="/register2" element={<Register2 />} />
-          <Route path="/profile" element={<ProfilePage />} /> {/*2*/}
-          <Route path="/editprofile" element={<EditProfile />} /> {/*1*/}
-          <Route path="/notifications" element={<NotificationDonor />} />{" "}
-          {/*13*/}
-          <Route path="/patient" element={<HomePage />} /> {/*3*/}
-          <Route path="/bloodrequest" element={<NewRequest />} /> {/*4*/}
-          <Route path="/requestsent" element={<RequestSent />} /> {/*5*/}
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/editprofile" element={<EditProfile />} />
+          <Route path="/notifications" element={<NotificationDonor />} />
+          <Route path="/patient" element={<HomePage />} />
+          <Route path="/bloodrequest" element={<NewRequest />} />
+          <Route path="/requestsent" element={<RequestSent />} />
           <Route path="/requesthistory" element={<RequestHistoryPage />} />
-          {/*6*/}
-          <Route path="/donor" element={<HomepageDonor />} /> {/*7*/}
-          <Route path="/donationcriteria" element={<Donorcriteria />} /> {/*8*/}
-          <Route path="/findbloodbank" element={<FindBloodBank />} /> {/*10*/}
-          <Route path="/thankyou" element={<ThankYou />}></Route> {/*12*/}
-          <Route path="/inelligible" element={<Inelligible />}></Route> {/*9*/}
-          <Route path="/donationconsent" element={<YourInfo />}></Route>{" "}
-          {/*11*/}
+          <Route path="/donor" element={<HomepageDonor />} />
+          <Route path="/donationcriteria" element={<Donorcriteria />} />
+          <Route path="/findbloodbank" element={<FindBloodBank />} />
+          <Route path="/thankyou" element={<ThankYou />}></Route>
+          <Route path="/inelligible" element={<Inelligible />}></Route>
+          <Route path="/donationconsent" element={<YourInfo />}></Route>
         </Routes>
       </Router>
     </div>
