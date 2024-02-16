@@ -93,9 +93,10 @@ const Login = () => {
       <Header />
 
       <section className="px-11 max-[410px]:px-6">
-        <div className="my-16 grid grid-cols-[auto,1fr,auto] gap-x-2">
-          <img className="self-end max-w-sm" src={loginLeft} alt="medicine" />
-          <div className="rounded-lg border-2 border-[#BA595F]">
+        <div className="my-16 grid grid-cols-[auto,auto,auto] gap-x-4">
+          <img className="self-end w-4/5" src={loginLeft} alt="medicine" />
+
+          <div className="">
             <div className="mb-12 text-center">
               <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
                 Welcome!
@@ -104,7 +105,7 @@ const Login = () => {
                 sign in
               </h2>
             </div>
-            <form className="flex flex-col gap-y-4 mb-24">
+            <form className="flex flex-col gap-y-4 mb-52">
               <div className={formfield}>
                 <img className={iconStyle} src={email} alt="email-icon" />
 
@@ -135,7 +136,7 @@ const Login = () => {
                 />
               </div>
               <a
-                className="self-start text-3xl underline underline-offset-2 mt-6 mb-8"
+                className="self-start text-3xl underline underline-offset-2 mb-8"
                 href="#forgot"
                 onClick={handleForgotPassword}
               >
@@ -157,10 +158,10 @@ const Login = () => {
                 </button>
               </div>
             </form>
-            <div className="">
+            {/* <div className="">
               <p className="text-2xl">Or continue with</p>
             </div>
-            <div className="flex gap-24 mb-4 ">
+            <div className="self-center flex gap-24 mb-4 ">
               <p className="h-[3rem] w-[3rem] flex flex-col gap-1 items-center">
                 <img src={google} alt="google" />
                 <span className="text-xl">Google</span>
@@ -173,10 +174,10 @@ const Login = () => {
                 <img src={apple} alt="apple" />
                 <span className="text-xl">Apple</span>
               </p>
-            </div>
+            </div> */}
           </div>
           <img
-            className="self-start max-w-sm"
+            className="self-start justify-self-end w-4/5"
             src={loginRight}
             alt="medicine"
           />
