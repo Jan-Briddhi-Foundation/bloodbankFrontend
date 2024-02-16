@@ -40,10 +40,14 @@ const RequestHistoryPage = () => {
             notifications.history.map((request, index) => (
               <div key={index} className="bg-[#f7f7f7] mb-8">
                 <div className="grid grid-cols-[1fr,auto] gap-4 p-6">
-                  <p className="text-2xl font-normal max-[350px]:text-1xl">
+                  <p className="text-2xl font-medium max-[350px]:text-1xl">
                     Blood Request: Type {notifications.profileForm.bloodGroup}
                   </p>
-                  <img className="" src={cross} alt="delete icon" />
+                  <img
+                    className="justify-self-end"
+                    src={cross}
+                    alt="delete icon"
+                  />
 
                   <div className="flex items-center gap-2">
                     <p className="flex items-center gap-1">

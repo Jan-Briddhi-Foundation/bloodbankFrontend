@@ -12,12 +12,9 @@ import { donorRequest } from "../../apis/DonorRequest";
 import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 const HomepageDonor = () => {
-  (async () => {
-    await PatientRedirect();
-  })();
+  (async () => await PatientRedirect())();
 
   const [bloodRequests, setbloodRequests] = useState([]);
-
   const getAllRequests = async () => {
     const data = await donorRequest();
     setbloodRequests(data);
@@ -30,70 +27,72 @@ const HomepageDonor = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center mt-[5vh] text-center">
-        <div className="{styles.title}">
-          <h1 className="font-[Roboto] text-[2.5rem] font-bold leading-[30px] tracking-[0.02em] mb-[3vh]">
-            Donate Blood
-          </h1>
-          <span className="font-[Roboto] text-[1rem] font-normal leading-[19px] tracking-[0.02em] text-center text-[rgba(107,_107,_107,_1)]">
-            Each donation can help save up to 3 lives!
-          </span>
-        </div>
-        {bloodRequests.blood_requests ? (
-          bloodRequests.blood_requests.map((request, index) => (
-            <div
-              key={index}
-              className="mt-4 flex flex-col gap-2 w-[100%] p-4  md:w-[60vw]"
-            >
-              <section className="relative rounded-[5px] pl-[2vh] pr-[4vh] py-[2vh] flex justify-between h-[12vh] bg-[rgba(249,_249,_249,_1)] w-[100%]">
-                <div className="w-[full] flex flex-col justify-between gap-2">
-                  <span>Blood Request: Type {request.profile.bloodGroup}</span>
-                  <div className="flex gap-[2rem]">
-                    <span className="flex gap-1 items-center text-xs">
+      {/* <div className="flex flex-col items-center mt-[5vh] text-center"> */}
+      <section className="px-11 max-[410px]:px-6">
+        <div className="my-16 flex flex-col max-w-screen-lg mx-auto">
+          <div className="mb-12 text-center">
+            <h1 className="text-6xl text-[#222222] mb-6 font-bold max-[410px]:text-5xl">
+              Donate Blood
+            </h1>
+            <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
+              Each donation can help save up to 3 lives!
+            </p>
+          </div>
+          {bloodRequests?.blood_requests?.length ? (
+            bloodRequests.blood_requests.map((request, index) => (
+              <div key={index} className="bg-[#f7f7f7] mb-8">
+                <div className="grid grid-cols-[1fr,auto] gap-4 p-6 max-[390px]:p-3">
+                  <p className="text-2xl font-medium max-[390px]:text-xl">
+                    Blood Request: Type {request.profile.bloodGroup}
+                  </p>
+                  <img
+                    className="justify-self-end"
+                    src={cross}
+                    alt="check icon"
+                  />
+
+                  <div className="grid grid-cols-2 w-fit items-center gap-2">
+                    <p className="flex items-center gap-1">
                       <img
-                        className="w-[1rem] h-[1rem]"
+                        className="w-8 max-[390px]:w-7"
                         src={calendar}
                         alt="calendarIcon"
                       />
                       Before {request.date_needed}
-                    </span>
-                    <span className="flex gap-1 items-center text-xs">
+                    </p>
+                    <p className="flex items-center gap-1">
                       <img
-                        className="w-[1rem] h-[1rem]"
+                        className="w-8 max-[390px]:w-7"
                         src={location}
-                        alt="calendarIcon"
+                        alt="locationIcon"
                       />
                       {request.profile.city}
-                    </span>
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={share}
+                      alt="share icon"
+                      className="w-11 max-[390px]:w-8"
+                    />
+
+                    <Link to={"/donationcriteria"}>
+                      <img
+                        className="w-11 max-[390px]:w-8"
+                        src={check}
+                        alt="check icon"
+                      />
+                    </Link>
                   </div>
                 </div>
-                <div className="flex  self-start items-center">
-                  <img
-                    src={share}
-                    alt="share icon"
-                    className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.5625rem] -right-[0.625rem]"
-                  />
-
-                  <Link to={"/donationcriteria"}>
-                    <img
-                      className="h-[3.125rem] w-[1.875rem] relative -bottom-[0.5625rem] mt-[0.25rem] -right-5"
-                      src={check}
-                      alt="check icon"
-                    />
-                  </Link>
-                </div>
-                <img
-                  className="absolute right-[0.5%] top-[3%] cursor-pointer"
-                  src={cross}
-                  alt="check icon"
-                />
-              </section>
-            </div>
-          ))
-        ) : (
-          <div>No bloodrequests yet</div>
-        )}
-      </div>
+              </div>
+              // </div>
+            ))
+          ) : (
+            <div>No bloodrequests yet</div>
+          )}
+        </div>
+      </section>
     </>
   );
 };

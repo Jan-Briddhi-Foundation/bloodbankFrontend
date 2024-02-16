@@ -36,8 +36,9 @@ function App() {
           <Route path="/bloodrequest" element={<NewRequest />} /> {/*4*/}
           <Route path="/requestsent" element={<RequestSent />} /> {/*5*/}
           <Route path="/requesthistory" element={<RequestHistoryPage />} />
+          {/*6*/}
           {/*  */}
-          <Route path="/donor" element={<HomepageDonor />} />
+          <Route path="/donor" element={<HomepageDonor />} /> {/*7*/}
           <Route path="/donationcriteria" element={<Donorcriteria />} />
           <Route path="/findbloodbank" element={<FindBloodBank />} />
           <Route path="/thankyou" element={<ThankYou />}></Route>
