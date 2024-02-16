@@ -4,7 +4,7 @@ import info from "../../assets/Info.svg";
 import cross from "../../assets/cross.svg";
 import { useEffect, useState } from "react";
 import { getNotifications } from "../../apis/Notifications.hooks";
-import { CheckAuth, LogInStatus } from "../../apis/LoggedInProfileType";
+import { CheckAuth } from "../../apis/LoggedInProfileType";
 
 const NotificationDonor = () => {
   const [notifications, setNotifications] = useState([]);

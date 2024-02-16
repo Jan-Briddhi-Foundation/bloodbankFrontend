@@ -39,7 +39,7 @@ const HomepageDonor = () => {
           </div>
           {bloodRequests?.blood_requests?.length ? (
             bloodRequests.blood_requests.map((request, index) => (
-              <div key={index} className="bg-[#f7f7f7] mb-8">
+              <div key={index} className="bg-[#f7f7f7] mb-8 rounded-lg">
                 <div className="grid grid-cols-[1fr,auto] gap-4 p-6 max-[390px]:p-3">
                   <p className="text-2xl font-medium max-[390px]:text-xl">
                     Blood Request: Type {request.profile.bloodGroup}

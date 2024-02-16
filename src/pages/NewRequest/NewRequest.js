@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import { requestBlood } from "../../apis/BloodRequest";
 import { useNavigate } from "react-router-dom";

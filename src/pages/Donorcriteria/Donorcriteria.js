@@ -11,7 +11,7 @@ const Donorcriteria = () => {
 
   const redirect = useNavigate();
   const quizstyle =
-    "bg-[#f9f9f9] p-8 mb-6 text-3xl rounded max-[490px]:text-2xl max-[490px]:p-4";
+    "bg-[#f9f9f9] p-8 mb-6 text-3xl rounded max-[490px]:text-2xl max-[490px]:p-4 rounded-lg";
   const quizSpanStye = "font-medium";
 
   return (
@@ -101,7 +101,7 @@ const Donorcriteria = () => {
           </div>
           <div className="mt-20 grid grid-cols-2 gap-10 items-center">
             <button
-              className="text-4xl p-4 bg-[green] flex items-center justify-center rounded gap-6 text-white max-[490px]:p-2 max-[490px]:text-2xl max-[490px]:gap-4"
+              className="text-4xl p-4 bg-[#00e600] flex items-center justify-center rounded gap-6 text-white max-[490px]:p-2 max-[490px]:text-2xl max-[490px]:gap-4"
               onClick={() => {
                 qualifyDonor({ qualify: true });
                 redirect("/findbloodbank");
@@ -112,7 +112,7 @@ const Donorcriteria = () => {
             </button>
 
             <button
-              className="text-4xl p-4 bg-[red] flex items-center justify-center rounded gap-6 text-white max-[490px]:p-2 max-[490px]:text-2xl max-[490px]:gap-4"
+              className="text-4xl p-4 bg-[#cc0000] flex items-center justify-center rounded gap-6 text-white max-[490px]:p-2 max-[490px]:text-2xl max-[490px]:gap-4"
               onClick={() => {
                 qualifyDonor({ qualify: false });
                 redirect("/inelligible");

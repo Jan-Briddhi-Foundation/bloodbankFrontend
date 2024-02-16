@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 import { DonorRedirect } from "../../apis/LoggedInProfileType";
 
 function Homepage() {
-  (async () => {
-    await DonorRedirect();
-  })();
+  (async () => await DonorRedirect())();
 
   return (
     <main>
