@@ -93,8 +93,12 @@ const Login = () => {
       <Header />
 
       <section className="px-11 max-[410px]:px-6">
-        <div className="my-16 grid grid-cols-[auto,auto,auto] gap-x-4">
-          <img className="self-end w-4/5" src={loginLeft} alt="medicine" />
+        <div className="my-16 grid grid-cols-[1fr,1fr,1fr] gap-x-4 max-[950px]:grid-cols-1">
+          <img
+            className="self-end w-4/5 max-[950px]:w-2/5 max-[950px]:self-center max-[950px]:justify-self-center mb-16"
+            src={loginLeft}
+            alt="medicine"
+          />
 
           <div className="">
             <div className="mb-12 text-center">
@@ -105,7 +109,7 @@ const Login = () => {
                 sign in
               </h2>
             </div>
-            <form className="flex flex-col gap-y-4 mb-52">
+            <form className="flex flex-col gap-y-4 mb-52 max-[950px]:mb-8">
               <div className={formfield}>
                 <img className={iconStyle} src={email} alt="email-icon" />
 
@@ -145,13 +149,13 @@ const Login = () => {
 
               <div className="grid grid-cols-2 gap-12 justify-around">
                 <button
-                  className="bg-[#ba595f] border-[1px] border-[#ba595f] rounded-[5px] font-[Roboto] text-3xl p-3 uppercase font-medium tracking-normal text-center text-[#f9f9f9] font-medium cursor-pointer"
+                  className="bg-[#ba595f] border-[1px] border-[#ba595f] rounded-[5px] font-[Roboto] text-3xl max-[410px]:text-xl p-3 uppercase font-medium tracking-normal text-center text-[#f9f9f9] font-medium cursor-pointer"
                   onClick={handleSumbit}
                 >
                   Login
                 </button>
                 <button
-                  className="border-[1px] border-[#ba595f] rounded-[5px] font-[Roboto] text-3xl p-3 uppercase font-medium tracking-normal text-center text-[#ba595f] font-medium cursor-pointer"
+                  className="border-[1px] border-[#ba595f] rounded-[5px] font-[Roboto] text-3xl max-[410px]:text-xl p-3 uppercase font-medium tracking-normal text-center text-[#ba595f] font-medium cursor-pointer"
                   onClick={() => redirect("/register1")}
                 >
                   Register
@@ -177,7 +181,7 @@ const Login = () => {
             </div> */}
           </div>
           <img
-            className="self-start justify-self-end w-4/5"
+            className="self-start justify-self-end w-4/5 max-[950px]:w-2/5 max-[950px]:self-center max-[950px]:justify-self-center"
             src={loginRight}
             alt="medicine"
           />
