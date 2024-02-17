@@ -9,7 +9,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Logo from "../../assets/logo.svg";
-import style from "./Header.module.css";
+// import style from "./Header.module.css";
 
 function Header() {
   const redirect = useNavigate();
@@ -33,21 +33,23 @@ function Header() {
   };
 
   return (
-    <div className={style.header}>
+    <header className="flex items-center justify-between border-b-4 border-[#ba595f] px-6 py-2">
       <img
         src={Logo}
-        className={style.Logo}
+        className="w-16"
         alt="logo"
         onClick={() => {
           login ? redirect("/patient") : redirect("/login");
         }}
       />
-      <h1 className={style.compname}>Floating Blood Bank</h1>
-      <nav className={style.icon} ref={navRef}>
+      <h1 className="text-4xl max-[650px]:hidden font-semibold capitalize text-[#ba595f]">
+        Floating Blood Bank
+      </h1>
+      <nav className="flex items-center gap-6 max-[650px]:gap-3" ref={navRef}>
         {login ? (
           <Settings
-            className={style.icons}
-            sx={{ fontSize: 42 }}
+            className="text-[#ba595f]"
+            sx={{ fontSize: 38 }}
             onClick={() => {
               redirect("/editprofile");
             }}
@@ -55,11 +57,15 @@ function Header() {
         ) : (
           ""
         )}
-        {login ? <Email className={style.icons} sx={{ fontSize: 42 }} /> : ""}
+        {login ? (
+          <Email className="text-[#ba595f]" sx={{ fontSize: 38 }} />
+        ) : (
+          ""
+        )}
         {login ? (
           <Logout
-            className={style.icons}
-            sx={{ fontSize: 42 }}
+            className="text-[#ba595f]"
+            sx={{ fontSize: 38 }}
             onClick={handleLogout}
           />
         ) : (
@@ -68,8 +74,8 @@ function Header() {
 
         {login ? (
           <Account
-            className={style.icons}
-            sx={{ fontSize: 42 }}
+            className="text-[#ba595f]"
+            sx={{ fontSize: 38 }}
             onClick={() => {
               redirect("/profile");
             }}
@@ -80,8 +86,8 @@ function Header() {
 
         {login ? (
           <Notification
-            className={style.icons}
-            sx={{ fontSize: 42 }}
+            className="text-[#ba595f]"
+            sx={{ fontSize: 38 }}
             onClick={() => {
               redirect("/notifications");
             }}
@@ -89,14 +95,14 @@ function Header() {
         ) : (
           ""
         )}
-        <button className={style.nav_btn} onClick={show}>
+        {/* <button className="" onClick={show}>
           <CloseOutlinedIcon />
-        </button>
+        </button> */}
       </nav>
-      <button className={style.nav_btn} onClick={show}>
+      {/* <button className="" onClick={show}>
         <ReorderOutlinedIcon />
-      </button>
-    </div>
+      </button> */}
+    </header>
   );
 }
 
