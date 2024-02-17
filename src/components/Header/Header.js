@@ -9,7 +9,6 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Logo from "../../assets/logo.svg";
-// import style from "./Header.module.css";
 
 function Header() {
   const redirect = useNavigate();
@@ -21,9 +20,7 @@ function Header() {
     localStorage.removeItem("bloodBankAuthToken");
     setLogin(false);
     toast.success("Logout Successfull");
-    setTimeout(() => {
-      redirect("/login");
-    });
+    setTimeout(() => redirect("/login"), 1500);
   };
 
   const navRef = useRef();

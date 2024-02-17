@@ -10,6 +10,7 @@ import password from "../../assets/password.svg";
 import Header from "../../components/Header/Header";
 
 const Register1 = () => {
+
   const formfield =
     "grid grid-cols-[auto,1fr] rounded overflow-hidden bg-[#f9f9f9] focus:outline";
   const inputformField =
@@ -28,6 +29,10 @@ const Register1 = () => {
   const validateForm = (name, email, phone, password) => {
     let error;
 
+    name = name.trim();
+    email = email.trim();
+    phone = phone.trim();
+
     if (!/^[a-zA-Z]+(?: [a-zA-Z]+)*$/.test(name) || name === "") {
       toast.error("Inavalid Name");
       error = true;
@@ -41,7 +46,7 @@ const Register1 = () => {
       error = true;
     }
     if (!/^.{4,24}$/.test(password)) {
-      toast.error("Password should between 4 and 24 characters");
+      toast.error("Password should be between 4 and 24 characters");
       error = true;
     }
 
