@@ -79,9 +79,13 @@ const EditProfile = () => {
             <p className="text-[#6b6b6b] text-3xl mb-9 max-[410px]:text-2xl">
               All about you!
             </p>
-            <p className="text-[#ba595f] text-xl max-[410px]:text-base mb-6 underline underline-offset-2 font-semibold uppercase">
+            <a
+              href="https://janbriddhi.org.in/index.php/donatenow/"
+              target="_blank"
+              className="text-[#ba595f] text-xl max-[410px]:text-base mb-6 underline underline-offset-2 font-semibold uppercase"
+            >
               Donate for the Cause
-            </p>
+            </a>
           </div>
           <form className="flex flex-col gap-y-4">
             <div className={formfield}>

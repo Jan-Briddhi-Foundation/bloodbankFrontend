@@ -11,7 +11,7 @@ import { donorRequest } from "../../apis/DonorRequest";
 import { PatientRedirect } from "../../apis/LoggedInProfileType";
 
 const HomepageDonor = () => {
-  (async () => await PatientRedirect())();
+  // (async () => await PatientRedirect())();
 
   const [bloodRequests, setbloodRequests] = useState([]);
   const getAllRequests = async () => {
