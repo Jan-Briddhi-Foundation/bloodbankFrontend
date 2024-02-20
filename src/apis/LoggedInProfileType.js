@@ -4,6 +4,7 @@ import { getProfileDetails } from "../apis/Profile";
 
 export const CheckAuth = async () => {
   const redirect = useNavigate();
+  let profile_type = "";
 
   try {
     const authToken = localStorage.getItem("bloodBankAuthToken");
@@ -22,6 +23,7 @@ export const CheckAuth = async () => {
       }
 
       const profileType = result?.profileForm?.profile_type;
+      profile_type = profileType;
 
       if (profileType === undefined && authToken) {
         setTimeout(() => {
@@ -31,6 +33,7 @@ export const CheckAuth = async () => {
 
       return profileType;
     }
+    return profile_type;
   } catch (error) {
     console.error("Error checking authentication:", error);
     if (error) {

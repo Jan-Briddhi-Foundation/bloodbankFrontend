@@ -8,10 +8,19 @@ import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { donorRequest } from "../../apis/DonorRequest";
-import { PatientRedirect } from "../../apis/LoggedInProfileType";
+import { CheckAuth, PatientRedirect } from "../../apis/LoggedInProfileType";
+import { useNavigate } from "react-router-dom";
 
 const HomepageDonor = () => {
   // (async () => await PatientRedirect())();
+  const redirect = useNavigate();
+
+  const [authType, setAuthType] = useState("");
+
+  const checkStatus = async () => {
+    const result = await CheckAuth();
+    setAuthType(result);
+  };
 
   const [bloodRequests, setbloodRequests] = useState([]);
   const getAllRequests = async () => {
@@ -75,13 +84,20 @@ const HomepageDonor = () => {
                       className="w-11 max-[390px]:w-8"
                     />
 
-                    <Link to={"/donationcriteria"}>
+                    <button
+                      onClick={() => {
+                        console.log(authType);
+                        authType
+                          ? redirect("/donationcriteria")
+                          : redirect("/login");
+                      }}
+                    >
                       <img
                         className="w-11 max-[390px]:w-8"
                         src={check}
                         alt="check icon"
                       />
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>

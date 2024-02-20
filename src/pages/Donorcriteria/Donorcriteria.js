@@ -4,9 +4,10 @@ import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import { qualifyDonor } from "../../apis/QualifyNotifications";
 import { useNavigate } from "react-router-dom";
-import { PatientRedirect } from "../../apis/LoggedInProfileType";
+import { CheckAuth, PatientRedirect } from "../../apis/LoggedInProfileType";
 
 const Donorcriteria = () => {
+  (async () => await CheckAuth())();
   (async () => await PatientRedirect())();
 
   const redirect = useNavigate();
