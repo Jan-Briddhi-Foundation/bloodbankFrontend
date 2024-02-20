@@ -15,6 +15,14 @@ import { CheckAuth } from "../../apis/LoggedInProfileType";
 const Login = () => {
   (async () => await CheckAuth())();
 
+  const [login, setLogin] = useState(
+    false || localStorage.getItem("bloodBankAuthToken")
+  );
+
+  if (login) {
+    redirect("/donor");
+  }
+
   const formfield =
     "grid grid-cols-[auto,1fr] rounded overflow-hidden bg-[#f9f9f9] focus:outline mb-6";
   const inputformField =
