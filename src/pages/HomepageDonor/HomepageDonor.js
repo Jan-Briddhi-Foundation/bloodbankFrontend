@@ -4,22 +4,31 @@ import share from "../../assets/share.svg";
 import cross from "../../assets/cross.svg";
 import calendar from "../../assets/calendar.svg";
 import location from "../../assets/location.svg";
-import { Link } from "react-router-dom";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { donorRequest } from "../../apis/DonorRequest";
-import { CheckAuth, PatientRedirect } from "../../apis/LoggedInProfileType";
+import { PatientRedirect } from "../../apis/LoggedInProfileType";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
+import copy from "copy-to-clipboard";
 
 const HomepageDonor = () => {
   // (async () => await PatientRedirect())();
   const redirect = useNavigate();
+  const textRef = useRef();
 
-  const [authType, setAuthType] = useState("");
+  const [login, setLogin] = useState(
+    false || localStorage.getItem("bloodBankAuthToken")
+  );
 
-  const checkStatus = async () => {
-    const result = await CheckAuth();
-    setAuthType(result);
+  const copyToClipboard = () => {
+    let copyText = textRef.current.value;
+    let isCopy = copy(copyText);
+
+    if (isCopy) {
+      toast.success("Copied to Clipboard");
+    }
   };
 
   const [bloodRequests, setbloodRequests] = useState([]);
@@ -78,16 +87,24 @@ const HomepageDonor = () => {
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <img
-                      src={share}
-                      alt="share icon"
-                      className="w-11 max-[390px]:w-8"
+                    <input
+                      value="https://floatingbloodbank.com/"
+                      hidden
+                      type="text"
+                      ref={textRef}
                     />
+                    <button onClick={copyToClipboard}>
+                      <img
+                        src={share}
+                        alt="share icon"
+                        className="w-11 max-[390px]:w-8"
+                      />
+                    </button>
 
                     <button
                       onClick={() => {
-                        console.log(authType);
-                        authType
+                        console.log(login);
+                        login
                           ? redirect("/donationcriteria")
                           : redirect("/login");
                       }}
@@ -109,6 +126,18 @@ const HomepageDonor = () => {
           )}
         </div>
       </section>
+      <ToastContainer
+        position="top-right"
+        autoClose={500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 };
